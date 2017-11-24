@@ -164,6 +164,14 @@ class BrandsApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\InlineResponse422',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -639,6 +647,7 @@ class BrandsApi
                 $content = $responseBody; //stream goes to serializer
             } else {
                 $content = $responseBody->getContents();
+
                 if ($returnType !== 'string') {
                     $content = json_decode($content);
                 }

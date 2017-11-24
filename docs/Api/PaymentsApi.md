@@ -1,6 +1,6 @@
 # Swagger\Client\PaymentsApi
 
-All URIs are relative to *https://api.facestore.local/v1*
+All URIs are relative to *https://api.facestore.pt/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

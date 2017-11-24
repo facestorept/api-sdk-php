@@ -1,6 +1,6 @@
 <?php
 /**
- * IncludesParam
+ * InlineResponse422
  *
  * PHP version 5
  *
@@ -32,15 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * IncludesParam Class Doc Comment
+ * InlineResponse422 Class Doc Comment
  *
  * @category Class
- * @description Include associated objects within response
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class IncludesParam implements ModelInterface, ArrayAccess
+class InlineResponse422 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +48,7 @@ class IncludesParam implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'IncludesParam';
+    protected static $swaggerModelName = 'inline_response_422';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,7 +56,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        
+        'code' => 'int',
+        'message' => '\Swagger\Client\Model\InlineResponse422Message'
     ];
 
     /**
@@ -66,7 +66,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        
+        'code' => null,
+        'message' => null
     ];
 
     /**
@@ -96,7 +97,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'code' => 'code',
+        'message' => 'message'
     ];
 
     /**
@@ -105,7 +107,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        
+        'code' => 'setCode',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -114,7 +117,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        
+        'code' => 'getCode',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -177,6 +181,8 @@ class IncludesParam implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -186,7 +192,7 @@ class IncludesParam implements ModelInterface, ArrayAccess
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         return $invalidProperties;
     }
@@ -199,13 +205,58 @@ class IncludesParam implements ModelInterface, ArrayAccess
      */
     public function valid()
     {
-        if (!parent::valid()) {
-            return false;
-        }
 
         return true;
     }
 
+
+    /**
+     * Gets code
+     *
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->container['code'];
+    }
+
+    /**
+     * Sets code
+     *
+     * @param int $code code
+     *
+     * @return $this
+     */
+    public function setCode($code)
+    {
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return \Swagger\Client\Model\InlineResponse422Message
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param \Swagger\Client\Model\InlineResponse422Message $message message
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

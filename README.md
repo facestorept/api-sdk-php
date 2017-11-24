@@ -21,11 +21,11 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/facestorept/api-sdk-php.git"
+      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
     }
   ],
   "require": {
-    "facestorept/api-sdk-php": "*@dev"
+    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
   }
 }
 ```
@@ -82,7 +82,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.facestore.local/v1*
+All URIs are relative to *https://api.facestore.pt/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -152,6 +152,9 @@ Class | Method | HTTP request | Description
  - [InlineResponse2012](docs/Model/InlineResponse2012.md)
  - [InlineResponse2013](docs/Model/InlineResponse2013.md)
  - [InlineResponse2014](docs/Model/InlineResponse2014.md)
+ - [InlineResponse422](docs/Model/InlineResponse422.md)
+ - [InlineResponse422Message](docs/Model/InlineResponse422Message.md)
+ - [InlineResponse422MessageErrors](docs/Model/InlineResponse422MessageErrors.md)
  - [MetaPartialResponse](docs/Model/MetaPartialResponse.md)
  - [NotFoundResponse](docs/Model/NotFoundResponse.md)
  - [Options](docs/Model/Options.md)
