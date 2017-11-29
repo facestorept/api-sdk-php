@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**getTaxById**](TaxesApi.md#getTaxById) | **GET** /taxes/{id}/ | 
 [**getTaxes**](TaxesApi.md#getTaxes) | **GET** /taxes | 
 [**updateTaxById**](TaxesApi.md#updateTaxById) | **PUT** /taxes/{id}/ | 
-[**updateTaxById_0**](TaxesApi.md#updateTaxById_0) | **PATCH** /taxes/{id}/ | 
 
 
 # **addTaxes**
@@ -62,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -116,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -173,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -232,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -289,64 +288,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateTaxById_0**
-> \Swagger\Client\Model\InlineResponse2012 updateTaxById_0($id, $tax)
-
-
-
-update a single tax based on the ID supplied
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: APIKeyHeader
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\TaxesApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 789; // int | ID of tax to update
-$tax = new \Swagger\Client\Model\Tax(); // \Swagger\Client\Model\Tax | Tax to add to the store
-
-try {
-    $result = $apiInstance->updateTaxById_0($id, $tax);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling TaxesApi->updateTaxById_0: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of tax to update |
- **tax** | [**\Swagger\Client\Model\Tax**](../Model/Tax.md)| Tax to add to the store |
-
-### Return type
-
-[**\Swagger\Client\Model\InlineResponse2012**](../Model/InlineResponse2012.md)
-
-### Authorization
-
-[APIKeyHeader](../../README.md#APIKeyHeader)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

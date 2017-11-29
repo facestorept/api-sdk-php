@@ -57,7 +57,8 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'code' => 'int',
-        'message' => 'string'
+        'message' => 'string',
+        'status_code' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'code' => 'int32',
-        'message' => null
+        'message' => null,
+        'status_code' => null
     ];
 
     /**
@@ -98,7 +100,8 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'message' => 'message'
+        'message' => 'message',
+        'status_code' => 'status_code'
     ];
 
     /**
@@ -108,7 +111,8 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'code' => 'setCode',
-        'message' => 'setMessage'
+        'message' => 'setMessage',
+        'status_code' => 'setStatusCode'
     ];
 
     /**
@@ -118,7 +122,8 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'code' => 'getCode',
-        'message' => 'getMessage'
+        'message' => 'getMessage',
+        'status_code' => 'getStatusCode'
     ];
 
     /**
@@ -183,6 +188,7 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['status_code'] = isset($data['status_code']) ? $data['status_code'] : null;
     }
 
     /**
@@ -254,6 +260,30 @@ class NotFoundResponse implements ModelInterface, ArrayAccess
     public function setMessage($message)
     {
         $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets status_code
+     *
+     * @return string
+     */
+    public function getStatusCode()
+    {
+        return $this->container['status_code'];
+    }
+
+    /**
+     * Sets status_code
+     *
+     * @param string $status_code status_code
+     *
+     * @return $this
+     */
+    public function setStatusCode($status_code)
+    {
+        $this->container['status_code'] = $status_code;
 
         return $this;
     }

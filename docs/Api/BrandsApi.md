@@ -8,12 +8,11 @@ Method | HTTP request | Description
 [**deleteBrandById**](BrandsApi.md#deleteBrandById) | **DELETE** /brands/{id}/ | 
 [**getBrandById**](BrandsApi.md#getBrandById) | **GET** /brands/{id}/ | 
 [**getBrands**](BrandsApi.md#getBrands) | **GET** /brands | 
-[**updateCategoryById**](BrandsApi.md#updateCategoryById) | **PUT** /brands/{id}/ | 
-[**updateCategoryById_0**](BrandsApi.md#updateCategoryById_0) | **PATCH** /brands/{id}/ | 
+[**updateBrandsById**](BrandsApi.md#updateBrandsById) | **PUT** /brands/{id}/ | 
 
 
 # **addBrands**
-> \Swagger\Client\Model\InlineResponse201 addBrands($brand)
+> \Swagger\Client\Model\InlineResponse201 addBrands($brand, $image_small)
 
 
 
@@ -36,9 +35,10 @@ $apiInstance = new Swagger\Client\Api\BrandsApi(
     $config
 );
 $brand = new \Swagger\Client\Model\Brand(); // \Swagger\Client\Model\Brand | Brand to add to the store
+$image_small = "/path/to/file.txt"; // \SplFileObject | The file to upload.
 
 try {
-    $result = $apiInstance->addBrands($brand);
+    $result = $apiInstance->addBrands($brand, $image_small);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BrandsApi->addBrands: ', $e->getMessage(), PHP_EOL;
@@ -51,6 +51,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brand** | [**\Swagger\Client\Model\Brand**](../Model/Brand.md)| Brand to add to the store |
+ **image_small** | **\SplFileObject**| The file to upload. | [optional]
 
 ### Return type
 
@@ -62,7 +63,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -116,7 +117,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -175,7 +176,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -234,13 +235,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **updateCategoryById**
-> updateCategoryById($id, $brand)
+# **updateBrandsById**
+> updateBrandsById($id, $brand)
 
 
 
@@ -266,9 +267,9 @@ $id = 789; // int | ID of brand to update
 $brand = new \stdClass; // object | Brand to update in store
 
 try {
-    $apiInstance->updateCategoryById($id, $brand);
+    $apiInstance->updateBrandsById($id, $brand);
 } catch (Exception $e) {
-    echo 'Exception when calling BrandsApi->updateCategoryById: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling BrandsApi->updateBrandsById: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -290,63 +291,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateCategoryById_0**
-> updateCategoryById_0($id, $brand)
-
-
-
-Update a single brand based on the ID supplied
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: APIKeyHeader
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\BrandsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 789; // int | ID of brand to update
-$brand = new \stdClass; // object | Brand to update in store
-
-try {
-    $apiInstance->updateCategoryById_0($id, $brand);
-} catch (Exception $e) {
-    echo 'Exception when calling BrandsApi->updateCategoryById_0: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of brand to update |
- **brand** | **object**| Brand to update in store |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[APIKeyHeader](../../README.md#APIKeyHeader)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

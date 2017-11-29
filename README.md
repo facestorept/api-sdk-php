@@ -69,9 +69,10 @@ $apiInstance = new Swagger\Client\Api\BrandsApi(
     $config
 );
 $brand = new \Swagger\Client\Model\Brand(); // \Swagger\Client\Model\Brand | Brand to add to the store
+$image_small = "/path/to/file.txt"; // \SplFileObject | The file to upload.
 
 try {
-    $result = $apiInstance->addBrands($brand);
+    $result = $apiInstance->addBrands($brand, $image_small);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BrandsApi->addBrands: ', $e->getMessage(), PHP_EOL;
@@ -90,8 +91,7 @@ Class | Method | HTTP request | Description
 *BrandsApi* | [**deleteBrandById**](docs/Api/BrandsApi.md#deletebrandbyid) | **DELETE** /brands/{id}/ | 
 *BrandsApi* | [**getBrandById**](docs/Api/BrandsApi.md#getbrandbyid) | **GET** /brands/{id}/ | 
 *BrandsApi* | [**getBrands**](docs/Api/BrandsApi.md#getbrands) | **GET** /brands | 
-*BrandsApi* | [**updateCategoryById**](docs/Api/BrandsApi.md#updatecategorybyid) | **PUT** /brands/{id}/ | 
-*BrandsApi* | [**updateCategoryById_0**](docs/Api/BrandsApi.md#updatecategorybyid_0) | **PATCH** /brands/{id}/ | 
+*BrandsApi* | [**updateBrandsById**](docs/Api/BrandsApi.md#updatebrandsbyid) | **PUT** /brands/{id}/ | 
 *CategoriesApi* | [**addCategories**](docs/Api/CategoriesApi.md#addcategories) | **POST** /categories | 
 *CategoriesApi* | [**deleteCategoryById**](docs/Api/CategoriesApi.md#deletecategorybyid) | **DELETE** /categories/{id}/ | 
 *CategoriesApi* | [**getCategories**](docs/Api/CategoriesApi.md#getcategories) | **GET** /categories | 
@@ -119,13 +119,11 @@ Class | Method | HTTP request | Description
 *ShippingsApi* | [**getShippingById**](docs/Api/ShippingsApi.md#getshippingbyid) | **GET** /shippings/{id}/ | 
 *ShippingsApi* | [**getShippings**](docs/Api/ShippingsApi.md#getshippings) | **GET** /shippings | 
 *ShippingsApi* | [**updateShippingById**](docs/Api/ShippingsApi.md#updateshippingbyid) | **PUT** /shippings/{id}/ | 
-*ShippingsApi* | [**updateShippingById_0**](docs/Api/ShippingsApi.md#updateshippingbyid_0) | **PATCH** /shippings/{id}/ | 
 *TaxesApi* | [**addTaxes**](docs/Api/TaxesApi.md#addtaxes) | **POST** /taxes | 
 *TaxesApi* | [**deleteTaxById**](docs/Api/TaxesApi.md#deletetaxbyid) | **DELETE** /taxes/{id}/ | 
 *TaxesApi* | [**getTaxById**](docs/Api/TaxesApi.md#gettaxbyid) | **GET** /taxes/{id}/ | 
 *TaxesApi* | [**getTaxes**](docs/Api/TaxesApi.md#gettaxes) | **GET** /taxes | 
 *TaxesApi* | [**updateTaxById**](docs/Api/TaxesApi.md#updatetaxbyid) | **PUT** /taxes/{id}/ | 
-*TaxesApi* | [**updateTaxById_0**](docs/Api/TaxesApi.md#updatetaxbyid_0) | **PATCH** /taxes/{id}/ | 
 
 
 ## Documentation For Models

@@ -9,7 +9,6 @@ Method | HTTP request | Description
 [**getShippingById**](ShippingsApi.md#getShippingById) | **GET** /shippings/{id}/ | 
 [**getShippings**](ShippingsApi.md#getShippings) | **GET** /shippings | 
 [**updateShippingById**](ShippingsApi.md#updateShippingById) | **PUT** /shippings/{id}/ | 
-[**updateShippingById_0**](ShippingsApi.md#updateShippingById_0) | **PATCH** /shippings/{id}/ | 
 
 
 # **addShipping**
@@ -62,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -116,7 +115,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -173,7 +172,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -232,7 +231,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
@@ -289,64 +288,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **updateShippingById_0**
-> \Swagger\Client\Model\InlineResponse2013 updateShippingById_0($id, $tax)
-
-
-
-update a single shipping based on the ID supplied
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: APIKeyHeader
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\ShippingsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$id = 789; // int | ID of shipping to update
-$tax = new \Swagger\Client\Model\Shipping(); // \Swagger\Client\Model\Shipping | Shipping to update in store
-
-try {
-    $result = $apiInstance->updateShippingById_0($id, $tax);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling ShippingsApi->updateShippingById_0: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **int**| ID of shipping to update |
- **tax** | [**\Swagger\Client\Model\Shipping**](../Model/Shipping.md)| Shipping to update in store |
-
-### Return type
-
-[**\Swagger\Client\Model\InlineResponse2013**](../Model/InlineResponse2013.md)
-
-### Authorization
-
-[APIKeyHeader](../../README.md#APIKeyHeader)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
+ - **Content-Type**: application/json, multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

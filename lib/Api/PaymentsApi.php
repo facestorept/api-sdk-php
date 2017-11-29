@@ -293,7 +293,7 @@ class PaymentsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -578,7 +578,7 @@ class PaymentsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 

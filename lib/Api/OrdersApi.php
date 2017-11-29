@@ -305,7 +305,7 @@ class OrdersApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -590,7 +590,7 @@ class OrdersApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 

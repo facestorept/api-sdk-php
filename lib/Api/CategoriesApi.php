@@ -280,7 +280,7 @@ class CategoriesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -514,7 +514,7 @@ class CategoriesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -799,7 +799,7 @@ class CategoriesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -1091,7 +1091,7 @@ class CategoriesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
@@ -1339,7 +1339,7 @@ class CategoriesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                ['application/json']
+                ['application/json', 'multipart/form-data']
             );
         }
 
