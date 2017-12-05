@@ -24,15 +24,20 @@ Creates a new category in the store.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\CategoriesApi();
+$apiInstance = new Swagger\Client\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $category = new \Swagger\Client\Model\Category(); // \Swagger\Client\Model\Category | Category to add to the store
 
 try {
-    $result = $api_instance->addCategories($category);
+    $result = $apiInstance->addCategories($category);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CategoriesApi->addCategories: ', $e->getMessage(), PHP_EOL;
@@ -74,15 +79,20 @@ deletes a single category based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\CategoriesApi();
+$apiInstance = new Swagger\Client\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of category to delete
 
 try {
-    $api_instance->deleteCategoryById($id);
+    $apiInstance->deleteCategoryById($id);
 } catch (Exception $e) {
     echo 'Exception when calling CategoriesApi->deleteCategoryById: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,17 +133,22 @@ Returns all categories from the system that the user has access to  ### Includes
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\CategoriesApi();
+$apiInstance = new Swagger\Client\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $includes = array("includes_example"); // string[] | Include associated objects within response
 $limit = 56; // int | max records to return
 $order_by = array("order_by_example"); // string[] | Specify the field to be sorted, examples:  - `?order_by=id|desc` - `?order_by=updated_at|desc,position|asc`
 
 try {
-    $result = $api_instance->getCategories($includes, $limit, $order_by);
+    $result = $apiInstance->getCategories($includes, $limit, $order_by);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CategoriesApi->getCategories: ', $e->getMessage(), PHP_EOL;
@@ -177,17 +192,22 @@ Returns a category based on a single ID  ### Includes You can give the following
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\CategoriesApi();
+$apiInstance = new Swagger\Client\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of category to fetch
 $includes = array("includes_example"); // string[] | Include associated objects within response
 $limit = 56; // int | max records to return
 
 try {
-    $result = $api_instance->getCategoryById($id, $includes, $limit);
+    $result = $apiInstance->getCategoryById($id, $includes, $limit);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CategoriesApi->getCategoryById: ', $e->getMessage(), PHP_EOL;
@@ -231,16 +251,21 @@ update a single category based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\CategoriesApi();
+$apiInstance = new Swagger\Client\Api\CategoriesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of category to update
-$category = NULL; // object | Category to update in store
+$category = new \stdClass; // object | Category to update in store
 
 try {
-    $api_instance->updateCategoryById($id, $category);
+    $apiInstance->updateCategoryById($id, $category);
 } catch (Exception $e) {
     echo 'Exception when calling CategoriesApi->updateCategoryById: ', $e->getMessage(), PHP_EOL;
 }

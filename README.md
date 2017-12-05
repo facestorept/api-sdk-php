@@ -9,7 +9,7 @@ For more information, please visit [http://facestore.pt](http://facestore.pt)
 
 ## Requirements
 
-PHP 5.4.0 and later
+PHP 5.5 and later
 
 ## Installation & Usage
 ### Composer
@@ -37,7 +37,7 @@ Then run `composer install`
 Download the files and include `autoload.php`:
 
 ```php
-    require_once('/path/to/SwaggerClient-php/autoload.php');
+    require_once('/path/to/SwaggerClient-php/vendor/autoload.php');
 ```
 
 ## Tests
@@ -58,15 +58,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\BrandsApi();
+$apiInstance = new Swagger\Client\Api\BrandsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $brand = new \Swagger\Client\Model\Brand(); // \Swagger\Client\Model\Brand | Brand to add to the store
 
 try {
-    $result = $api_instance->addBrands($brand);
+    $result = $apiInstance->addBrands($brand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BrandsApi->addBrands: ', $e->getMessage(), PHP_EOL;

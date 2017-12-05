@@ -24,15 +24,20 @@ Creates a new shipping in the store.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ShippingsApi();
+$apiInstance = new Swagger\Client\Api\ShippingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $shipping = new \Swagger\Client\Model\Shipping(); // \Swagger\Client\Model\Shipping | Shipping to add to the store
 
 try {
-    $result = $api_instance->addShipping($shipping);
+    $result = $apiInstance->addShipping($shipping);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingsApi->addShipping: ', $e->getMessage(), PHP_EOL;
@@ -74,15 +79,20 @@ deletes a single shipping based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ShippingsApi();
+$apiInstance = new Swagger\Client\Api\ShippingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of shipping to delete
 
 try {
-    $api_instance->deleteShippingById($id);
+    $apiInstance->deleteShippingById($id);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingsApi->deleteShippingById: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,16 +133,21 @@ Returns a shipping based on a single ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ShippingsApi();
+$apiInstance = new Swagger\Client\Api\ShippingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of shipping to fetch
 $includes = array("includes_example"); // string[] | Include associated objects within response
 
 try {
-    $result = $api_instance->getShippingById($id, $includes);
+    $result = $apiInstance->getShippingById($id, $includes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingsApi->getShippingById: ', $e->getMessage(), PHP_EOL;
@@ -175,17 +190,22 @@ Returns all shippings from the system that the user has access to
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ShippingsApi();
+$apiInstance = new Swagger\Client\Api\ShippingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $includes = array("includes_example"); // string[] | Include associated objects within response
 $limit = 56; // int | max records to return
 $order_by = array("order_by_example"); // string[] | Specify the field to be sorted, examples:  - `?order_by=id|desc` - `?order_by=updated_at|desc,position|asc`
 
 try {
-    $result = $api_instance->getShippings($includes, $limit, $order_by);
+    $result = $apiInstance->getShippings($includes, $limit, $order_by);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingsApi->getShippings: ', $e->getMessage(), PHP_EOL;
@@ -229,16 +249,21 @@ update a single shipping based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ShippingsApi();
+$apiInstance = new Swagger\Client\Api\ShippingsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of shipping to update
 $tax = new \Swagger\Client\Model\Shipping(); // \Swagger\Client\Model\Shipping | Shipping to update in store
 
 try {
-    $result = $api_instance->updateShippingById($id, $tax);
+    $result = $apiInstance->updateShippingById($id, $tax);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ShippingsApi->updateShippingById: ', $e->getMessage(), PHP_EOL;

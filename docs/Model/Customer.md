@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **firstname** | **string** |  | [optional] 
 **lastname** | **string** |  | [optional] 
 **active** | **bool** |  | [optional] 
-**birhday** | [**\DateTime**](Date.md) |  | [optional] 
+**birhday** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **vat** | **int** |  | [optional] 
 **email** | **string** |  | [optional] 
 **phone** | **string** |  | [optional] 

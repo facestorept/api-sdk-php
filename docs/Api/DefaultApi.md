@@ -18,14 +18,19 @@ null
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\DefaultApi();
+$apiInstance = new Swagger\Client\Api\DefaultApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 
 try {
-    $api_instance->null();
+    $apiInstance->null();
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->null: ', $e->getMessage(), PHP_EOL;
 }

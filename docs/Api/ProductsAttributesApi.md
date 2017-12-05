@@ -24,15 +24,20 @@ Creates a new attribute of products in the store.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ProductsAttributesApi();
+$apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $attribute = new \Swagger\Client\Model\Attribute(); // \Swagger\Client\Model\Attribute | Attribute to add to the store
 
 try {
-    $result = $api_instance->addProductsAttributes($attribute);
+    $result = $apiInstance->addProductsAttributes($attribute);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->addProductsAttributes: ', $e->getMessage(), PHP_EOL;
@@ -74,15 +79,20 @@ deletes a single attribute of products based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ProductsAttributesApi();
+$apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of attribute to delete
 
 try {
-    $api_instance->deleteProductAttributeById($id);
+    $apiInstance->deleteProductAttributeById($id);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->deleteProductAttributeById: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,16 +133,21 @@ Returns a attribute of products based on a single ID  ### Includes You can give 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ProductsAttributesApi();
+$apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of attribute to fetch
 $includes = array("includes_example"); // string[] | Include associated objects within response
 
 try {
-    $result = $api_instance->getProductAttributeById($id, $includes);
+    $result = $apiInstance->getProductAttributeById($id, $includes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->getProductAttributeById: ', $e->getMessage(), PHP_EOL;
@@ -175,17 +190,22 @@ Returns all attributes of products from the system that the user has access to  
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ProductsAttributesApi();
+$apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $includes = array("includes_example"); // string[] | Include associated objects within response
 $limit = 56; // int | max records to return
 $order_by = array("order_by_example"); // string[] | Specify the field to be sorted, examples:  - `?order_by=id|desc` - `?order_by=updated_at|desc,position|asc`
 
 try {
-    $result = $api_instance->getProductsAttributes($includes, $limit, $order_by);
+    $result = $apiInstance->getProductsAttributes($includes, $limit, $order_by);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->getProductsAttributes: ', $e->getMessage(), PHP_EOL;
@@ -229,16 +249,21 @@ update a single attribute of products based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\ProductsAttributesApi();
+$apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of attribute to update
 $product_attribute = new \Swagger\Client\Model\Attribute(); // \Swagger\Client\Model\Attribute | Attribute to add to the store
 
 try {
-    $result = $api_instance->updateProductAttributeById($id, $product_attribute);
+    $result = $apiInstance->updateProductAttributeById($id, $product_attribute);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->updateProductAttributeById: ', $e->getMessage(), PHP_EOL;

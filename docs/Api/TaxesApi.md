@@ -24,15 +24,20 @@ Creates a new tax in the store.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\TaxesApi();
+$apiInstance = new Swagger\Client\Api\TaxesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $tax = new \Swagger\Client\Model\Tax(); // \Swagger\Client\Model\Tax | Tax to add to the store
 
 try {
-    $result = $api_instance->addTaxes($tax);
+    $result = $apiInstance->addTaxes($tax);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxesApi->addTaxes: ', $e->getMessage(), PHP_EOL;
@@ -74,15 +79,20 @@ deletes a single tax based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\TaxesApi();
+$apiInstance = new Swagger\Client\Api\TaxesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of tax to delete
 
 try {
-    $api_instance->deleteTaxById($id);
+    $apiInstance->deleteTaxById($id);
 } catch (Exception $e) {
     echo 'Exception when calling TaxesApi->deleteTaxById: ', $e->getMessage(), PHP_EOL;
 }
@@ -123,16 +133,21 @@ Returns a tax based on a single ID
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\TaxesApi();
+$apiInstance = new Swagger\Client\Api\TaxesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of tax to fetch
 $includes = array("includes_example"); // string[] | Include associated objects within response
 
 try {
-    $result = $api_instance->getTaxById($id, $includes);
+    $result = $apiInstance->getTaxById($id, $includes);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxesApi->getTaxById: ', $e->getMessage(), PHP_EOL;
@@ -175,17 +190,22 @@ Returns all taxes from the system that the user has access to
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\TaxesApi();
+$apiInstance = new Swagger\Client\Api\TaxesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $includes = array("includes_example"); // string[] | Include associated objects within response
 $limit = 56; // int | max records to return
 $order_by = array("order_by_example"); // string[] | Specify the field to be sorted, examples:  - `?order_by=id|desc` - `?order_by=updated_at|desc,position|asc`
 
 try {
-    $result = $api_instance->getTaxes($includes, $limit, $order_by);
+    $result = $apiInstance->getTaxes($includes, $limit, $order_by);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxesApi->getTaxes: ', $e->getMessage(), PHP_EOL;
@@ -229,16 +249,21 @@ update a single tax based on the ID supplied
 require_once(__DIR__ . '/vendor/autoload.php');
 
 // Configure API key authorization: APIKeyHeader
-Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
 
-$api_instance = new Swagger\Client\Api\TaxesApi();
+$apiInstance = new Swagger\Client\Api\TaxesApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
 $id = 789; // int | ID of tax to update
 $tax = new \Swagger\Client\Model\Tax(); // \Swagger\Client\Model\Tax | Tax to add to the store
 
 try {
-    $result = $api_instance->updateTaxById($id, $tax);
+    $result = $apiInstance->updateTaxById($id, $tax);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling TaxesApi->updateTaxById: ', $e->getMessage(), PHP_EOL;
