@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f7e5985a-f70a-4b60-91d4-416482f0d9d1" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.php_cs" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.travis.yml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/composer.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/composer.lock" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/BrandsApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/CategoriesApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/CustomersApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/OrdersApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/PaymentsApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/ProductsApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/ProductsAttributesApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/ShippingsApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Api/TaxesApi.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Attribute.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/AttributeOptions.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Brand.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Category.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Customer.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/DefaultResponse.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/I18n.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/I18nProduct.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/I18nProductSeo.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/IncludesParam.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse200.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2001.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2001Meta.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2002.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2003.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2004.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2005.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2006.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse201.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2011.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2012.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2013.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse2014.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse422.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse422Message.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/InlineResponse422MessageErrors.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/LimitParam.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/MetaPartialResponse.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/NotFoundResponse.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Options.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Order.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/OrderByParam.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Payment.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Product.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Shipping.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/docs/Model/Tax.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/git_push.sh" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/BrandsApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/CategoriesApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/CustomersApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/OrdersApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/PaymentsApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/ProductsApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/ProductsAttributesApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/ShippingsApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Api/TaxesApi.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/ApiException.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Configuration.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/HeaderSelector.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Attribute.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/AttributeOptions.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Brand.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Category.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Customer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/DefaultResponse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/I18n.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/I18nProduct.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/I18nProductSeo.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse200.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2001.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2001Meta.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2002.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2003.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2004.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2005.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2006.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse201.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2011.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2012.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2013.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse2014.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse422.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse422Message.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/InlineResponse422MessageErrors.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/MetaPartialResponse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/ModelInterface.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/NotFoundResponse.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Options.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Order.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Payment.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Product.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Shipping.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Model/Tax.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/ObjectSerializer.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/phpunit.xml.dist" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/BrandsApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/CategoriesApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/CustomersApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/OrdersApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/PaymentsApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/ProductsApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/ProductsAttributesApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/ShippingsApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/TaxesApiTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Api/image.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/AttributeOptionsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/AttributeTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/BrandTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/CategoryTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/CustomerTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/DefaultResponseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/I18nProductSeoTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/I18nProductTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/I18nTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/IncludesParamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2001MetaTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2001Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2002Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2003Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2004Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2005Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2006Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse200Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2011Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2012Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2013Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse2014Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse201Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse422MessageErrorsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse422MessageTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/InlineResponse422Test.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/LimitParamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/MetaPartialResponseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/NotFoundResponseTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/OptionsTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/OrderByParamTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/OrderTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/PaymentTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/ProductTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/ShippingTest.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/Model/TaxTest.php" afterPath="" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CategoriesApiTest.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SwaggerClient-php/test/Api/CategoriesApiTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1920">
+              <caret line="154" column="21" lean-forward="true" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
+              <folding>
+                <element signature="e#8134#8157#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="composer.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SwaggerClient-php/composer.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>testAddFullCategoriesWithSuccess</find>
+      <find>estAddFullCategoriesWithImagesWithSucces</find>
+      <find>testDeleteCategoryByIdWithErro</find>
+      <find>testAddMinimalCategoriesWithSuccess</find>
+      <find>idCategory</find>
+      <find>idCate</find>
+      <find>testGetCategoryById</find>
+      <find>testDeleteCategoryByIdWithResourceNotFound</find>
+      <find>uzzlehttp/guzz</find>
+      <find>guz</find>
+      <find>testAddCategoriesWithError</find>
+      <find>BrandsApi</find>
+      <find>consumes</find>
+      <find>addCa</find>
+      <find>testUpdateCategoryByIdWithSuccess</find>
+      <find>testUpdateCategoryByIdWithSucces</find>
+      <find>testDeleteCategoryByIdSucces</find>
+      <find>deleteCategoryById</find>
+      <find>Update</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/lib/ObjectSerializer.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/composer.json" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/test/Api/BrandsApiTest.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/lib/Api/BrandsApi.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/lib/Api/ProductsAttributesApi.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/test/Api/ProductsAttributesApiTest.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/lib/Api/CategoriesApi.php" />
+        <option value="$PROJECT_DIR$/test/Api/CategoriesApiTest.php" />
+        <option value="$PROJECT_DIR$/lib/Api/CategoriesApi.php" />
+        <option value="$PROJECT_DIR$/SwaggerClient-php/test/Api/CategoriesApiTest.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="40" />
+    <option name="y" value="17" />
+    <option name="width" value="1327" />
+    <option name="height" value="752" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="api-sdk-php" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="api-sdk-php" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SwaggerClient-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="api-sdk-php" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SwaggerClient-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="lib" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="api-sdk-php" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SwaggerClient-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="api-sdk-php" type="b2602c69:ProjectViewProjectNode" />
+              <item name="api-sdk-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="SwaggerClient-php" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="test" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Api" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///var/www/api-sdk-php/SwaggerClient-php/test/Api/BrandsApiTest.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/SwaggerClient-php/" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f7e5985a-f70a-4b60-91d4-416482f0d9d1" name="Default" comment="" />
+      <created>1511868198853</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1511868198853</updated>
+      <workItem from="1511953450328" duration="18639000" />
+      <workItem from="1512038985004" duration="17634000" />
+      <workItem from="1512063831006" duration="691000" />
+      <workItem from="1512389278972" duration="2812000" />
+      <workItem from="1512466904918" duration="4814000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="44590000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="41" y="-4" width="1325" height="772" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2611068" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25331256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="10" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test/Api/CategoriesApiTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2011.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="41" column="6" lean-forward="false" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Api/CategoriesApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2220">
+          <caret line="165" column="26" lean-forward="true" selection-start-line="165" selection-start-column="26" selection-end-line="165" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Api/CategoriesApiTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="975">
+          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Api/CategoriesApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1620">
+          <caret line="108" column="5" lean-forward="true" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/test/Api/CategoriesApiTest.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse201.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2002.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2003.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2004.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2005.php" />
+    <entry file="file://$PROJECT_DIR$/lib/ApiException.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse422.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse422Message.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/NotFoundResponse.php" />
+    <entry file="file://$PROJECT_DIR$/lib/ObjectSerializer.php" />
+    <entry file="file://$PROJECT_DIR$/.swagger-codegen/VERSION" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/vendor/guzzlehttp/guzzle/composer.json" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/vendor/guzzlehttp/guzzle/README.md" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/docs/Api/BrandsApi.md" />
+    <entry file="file://$PROJECT_DIR$/.swagger-codegen-ignore" />
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/ApiException.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/ApiClient.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/ObjectSerializer.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/vendor/phpunit/phpunit/src/Framework/TestCase.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Model/InlineResponse422.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/vendor/guzzlehttp/guzzle/src/Client.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Model/Attribute.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/vendor/autoload.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/autoload.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Configuration.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Api/ProductsAttributesApi.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Api/BrandsApi.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/lib/Api/CategoriesApi.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/test/Api/ProductsAttributesApiTest.php" />
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/test/Api/BrandsApiTest.php" />
+    <entry file="file://$PROJECT_DIR$/lib/Model/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2011.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="41" column="6" lean-forward="false" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Model/InlineResponse2001.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="58" column="49" lean-forward="false" selection-start-line="58" selection-start-column="49" selection-end-line="58" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Api/CategoriesApi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="404" column="63" lean-forward="false" selection-start-line="404" selection-start-column="63" selection-end-line="404" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/Api/CategoriesApiTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="311" column="0" lean-forward="false" selection-start-line="311" selection-start-column="0" selection-end-line="311" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SwaggerClient-php/test/Api/CategoriesApiTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1920">
+          <caret line="154" column="21" lean-forward="true" selection-start-line="154" selection-start-column="21" selection-end-line="154" selection-end-column="21" />
+          <folding>
+            <element signature="e#8134#8157#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
