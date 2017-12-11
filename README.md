@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *CustomersApi* | [**getCustomerById**](docs/Api/CustomersApi.md#getcustomerbyid) | **GET** /customers/{id}/ | 
 *CustomersApi* | [**getCustomers**](docs/Api/CustomersApi.md#getcustomers) | **GET** /customers | 
 *DefaultApi* | [**uploadImages**](docs/Api/DefaultApi.md#uploadimages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
+*DefaultApi* | [**uploadImages_0**](docs/Api/DefaultApi.md#uploadimages_0) | **POST** /categories/{id}/uploads/ | Upload de images for category
 *OrdersApi* | [**getOrderById**](docs/Api/OrdersApi.md#getorderbyid) | **GET** /orders/{id}/ | 
 *OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /orders | 
 *PaymentsApi* | [**getPaymentById**](docs/Api/PaymentsApi.md#getpaymentbyid) | **GET** /payments/{id}/ | 

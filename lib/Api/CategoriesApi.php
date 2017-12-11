@@ -274,7 +274,7 @@ class CategoriesApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -508,7 +508,7 @@ class CategoriesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -793,7 +793,7 @@ class CategoriesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1085,7 +1085,7 @@ class CategoriesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1333,7 +1333,7 @@ class CategoriesApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {

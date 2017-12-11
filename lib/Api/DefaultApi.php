@@ -87,8 +87,8 @@ class DefaultApi
      * Upload de images for brand
      *
      * @param  int $id ID of brand to update (required)
-     * @param  map[string,string] $image_small Small image for brand (optional)
-     * @param  map[string,string] $image_large Large image for brand (optional)
+     * @param  \SplFileObject $image_small Small image for brand (optional)
+     * @param  \SplFileObject $image_large Large image for brand (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -105,8 +105,8 @@ class DefaultApi
      * Upload de images for brand
      *
      * @param  int $id ID of brand to update (required)
-     * @param  map[string,string] $image_small Small image for brand (optional)
-     * @param  map[string,string] $image_large Large image for brand (optional)
+     * @param  \SplFileObject $image_small Small image for brand (optional)
+     * @param  \SplFileObject $image_large Large image for brand (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -168,8 +168,8 @@ class DefaultApi
      * Upload de images for brand
      *
      * @param  int $id ID of brand to update (required)
-     * @param  map[string,string] $image_small Small image for brand (optional)
-     * @param  map[string,string] $image_large Large image for brand (optional)
+     * @param  \SplFileObject $image_small Small image for brand (optional)
+     * @param  \SplFileObject $image_large Large image for brand (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -190,8 +190,8 @@ class DefaultApi
      * Upload de images for brand
      *
      * @param  int $id ID of brand to update (required)
-     * @param  map[string,string] $image_small Small image for brand (optional)
-     * @param  map[string,string] $image_large Large image for brand (optional)
+     * @param  \SplFileObject $image_small Small image for brand (optional)
+     * @param  \SplFileObject $image_large Large image for brand (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -228,8 +228,8 @@ class DefaultApi
      * Create request for operation 'uploadImages'
      *
      * @param  int $id ID of brand to update (required)
-     * @param  map[string,string] $image_small Small image for brand (optional)
-     * @param  map[string,string] $image_large Large image for brand (optional)
+     * @param  \SplFileObject $image_small Small image for brand (optional)
+     * @param  \SplFileObject $image_large Large image for brand (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -248,7 +248,7 @@ class DefaultApi
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
-        $multipart = true;
+        $multipart = false;
 
 
         // path params
@@ -262,17 +262,19 @@ class DefaultApi
 
         // form params
         if ($image_small !== null) {
-            $formParams['image_small'] = ObjectSerializer::toFormValue($image_small);
+            $multipart = true;
+            $formParams['image_small'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_small), 'rb');
         }
         // form params
         if ($image_large !== null) {
-            $formParams['image_large'] = ObjectSerializer::toFormValue($image_large);
+            $multipart = true;
+            $formParams['image_large'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_large), 'rb');
         }
         // body params
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -296,12 +298,270 @@ class DefaultApi
                 foreach ($formParams as $formParamName => $formParamValue) {
                     $multipartContents[] = [
                         'name' => $formParamName,
-                        'contents' => fopen($formParamValue, 'r'),
+                        'contents' => $formParamValue
                     ];
                 }
-
                 // for HTTP post (form)
                 $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('APIToken');
+        if ($apiKey !== null) {
+            $headers['APIToken'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation uploadImages_0
+     *
+     * Upload de images for category
+     *
+     * @param  int $id ID of category to update (required)
+     * @param  \SplFileObject $image_small Small image for category (optional)
+     * @param  \SplFileObject $image_large Large image for category (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return void
+     */
+    public function uploadImages_0($id, $image_small = null, $image_large = null)
+    {
+        $this->uploadImages_0WithHttpInfo($id, $image_small, $image_large);
+    }
+
+    /**
+     * Operation uploadImages_0WithHttpInfo
+     *
+     * Upload de images for category
+     *
+     * @param  int $id ID of category to update (required)
+     * @param  \SplFileObject $image_small Small image for category (optional)
+     * @param  \SplFileObject $image_large Large image for category (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function uploadImages_0WithHttpInfo($id, $image_small = null, $image_large = null)
+    {
+        $returnType = '';
+        $request = $this->uploadImages_0Request($id, $image_small, $image_large);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse()->getBody()->getContents()
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            return [null, $statusCode, $response->getHeaders()];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\NotFoundResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation uploadImages_0Async
+     *
+     * Upload de images for category
+     *
+     * @param  int $id ID of category to update (required)
+     * @param  \SplFileObject $image_small Small image for category (optional)
+     * @param  \SplFileObject $image_large Large image for category (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadImages_0Async($id, $image_small = null, $image_large = null)
+    {
+        return $this->uploadImages_0AsyncWithHttpInfo($id, $image_small, $image_large)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation uploadImages_0AsyncWithHttpInfo
+     *
+     * Upload de images for category
+     *
+     * @param  int $id ID of category to update (required)
+     * @param  \SplFileObject $image_small Small image for category (optional)
+     * @param  \SplFileObject $image_large Large image for category (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function uploadImages_0AsyncWithHttpInfo($id, $image_small = null, $image_large = null)
+    {
+        $returnType = '';
+        $request = $this->uploadImages_0Request($id, $image_small, $image_large);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'uploadImages_0'
+     *
+     * @param  int $id ID of category to update (required)
+     * @param  \SplFileObject $image_small Small image for category (optional)
+     * @param  \SplFileObject $image_large Large image for category (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function uploadImages_0Request($id, $image_small = null, $image_large = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling uploadImages_0'
+            );
+        }
+
+        $resourcePath = '/categories/{id}/uploads/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($image_small !== null) {
+            $multipart = true;
+            $formParams['image_small'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_small), 'rb');
+        }
+        // form params
+        if ($image_large !== null) {
+            $multipart = true;
+            $formParams['image_large'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_large), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
             } elseif ($headers['Content-Type'] === 'application/json') {
                 $httpBody = \GuzzleHttp\json_encode($formParams);
 

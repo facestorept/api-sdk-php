@@ -287,7 +287,7 @@ class PaymentsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -572,7 +572,7 @@ class PaymentsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
