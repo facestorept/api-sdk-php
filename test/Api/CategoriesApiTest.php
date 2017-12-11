@@ -354,7 +354,6 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('description', $i18nPt->getDescription());
     }
 
-
     /**
      * Test case for deleteCategoryById
      *
