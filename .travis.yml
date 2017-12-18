@@ -3,4 +3,6 @@ sudo: false
 php:
     - 7.0
 before_install: "composer install"
-script: "vendor/bin/phpunit --verbose"
+script: "vendor/bin/phpunit"
+notifications:
+  slack: facestore:pQXPhiq297tJVVZqmVoGZBgF
