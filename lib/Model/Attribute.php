@@ -61,7 +61,7 @@ class Attribute implements ModelInterface, ArrayAccess
         'is_searchable' => 'bool',
         'active' => 'bool',
         'options' => '\Swagger\Client\Model\AttributeOptions',
-        'i18n' => '\Swagger\Client\Model\I18n',
+        'i18n' => '\Swagger\Client\Model\I18n[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -375,7 +375,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Gets i18n
      *
-     * @return \Swagger\Client\Model\I18n
+     * @return \Swagger\Client\Model\I18n[]
      */
     public function getI18n()
     {
@@ -385,7 +385,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Sets i18n
      *
-     * @param \Swagger\Client\Model\I18n $i18n i18n
+     * @param \Swagger\Client\Model\I18n[] $i18n I18n fields to brands
      *
      * @return $this
      */

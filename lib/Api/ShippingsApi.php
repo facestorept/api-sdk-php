@@ -274,7 +274,7 @@ class ShippingsApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -508,7 +508,7 @@ class ShippingsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -791,7 +791,7 @@ class ShippingsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1076,7 +1076,7 @@ class ShippingsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1361,7 +1361,7 @@ class ShippingsApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {

@@ -85,15 +85,14 @@ class BrandsApi
      * Operation addBrands
      *
      * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
-     * @param  \SplFileObject $image_small The file to upload. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\InlineResponse201
      */
-    public function addBrands($brand, $image_small = null)
+    public function addBrands($brand)
     {
-        list($response) = $this->addBrandsWithHttpInfo($brand, $image_small);
+        list($response) = $this->addBrandsWithHttpInfo($brand);
         return $response;
     }
 
@@ -101,16 +100,15 @@ class BrandsApi
      * Operation addBrandsWithHttpInfo
      *
      * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
-     * @param  \SplFileObject $image_small The file to upload. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addBrandsWithHttpInfo($brand, $image_small = null)
+    public function addBrandsWithHttpInfo($brand)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->addBrandsRequest($brand, $image_small);
+        $request = $this->addBrandsRequest($brand);
 
         try {
             $options = $this->createHttpClientOption();
@@ -185,14 +183,13 @@ class BrandsApi
      * 
      *
      * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
-     * @param  \SplFileObject $image_small The file to upload. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addBrandsAsync($brand, $image_small = null)
+    public function addBrandsAsync($brand)
     {
-        return $this->addBrandsAsyncWithHttpInfo($brand, $image_small)
+        return $this->addBrandsAsyncWithHttpInfo($brand)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -206,15 +203,14 @@ class BrandsApi
      * 
      *
      * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
-     * @param  \SplFileObject $image_small The file to upload. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addBrandsAsyncWithHttpInfo($brand, $image_small = null)
+    public function addBrandsAsyncWithHttpInfo($brand)
     {
         $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->addBrandsRequest($brand, $image_small);
+        $request = $this->addBrandsRequest($brand);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -257,12 +253,11 @@ class BrandsApi
      * Create request for operation 'addBrands'
      *
      * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
-     * @param  \SplFileObject $image_small The file to upload. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addBrandsRequest($brand, $image_small = null)
+    protected function addBrandsRequest($brand)
     {
         // verify the required parameter 'brand' is set
         if ($brand === null) {
@@ -280,11 +275,6 @@ class BrandsApi
 
 
 
-        // form params
-        if ($image_small !== null) {
-            $multipart = true;
-            $formParams['image_small'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_small), 'rb');
-        }
         // body params
         $_tempBody = null;
         if (isset($brand)) {
@@ -292,7 +282,7 @@ class BrandsApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -526,7 +516,7 @@ class BrandsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -818,7 +808,7 @@ class BrandsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1103,7 +1093,7 @@ class BrandsApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1351,7 +1341,7 @@ class BrandsApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **addBrands**
-> \Swagger\Client\Model\InlineResponse201 addBrands($brand, $image_small)
+> \Swagger\Client\Model\InlineResponse201 addBrands($brand)
 
 
 
@@ -35,10 +35,9 @@ $apiInstance = new Swagger\Client\Api\BrandsApi(
     $config
 );
 $brand = new \Swagger\Client\Model\Brand(); // \Swagger\Client\Model\Brand | Brand to add to the store
-$image_small = "/path/to/file.txt"; // \SplFileObject | The file to upload.
 
 try {
-    $result = $apiInstance->addBrands($brand, $image_small);
+    $result = $apiInstance->addBrands($brand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BrandsApi->addBrands: ', $e->getMessage(), PHP_EOL;
@@ -51,7 +50,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brand** | [**\Swagger\Client\Model\Brand**](../Model/Brand.md)| Brand to add to the store |
- **image_small** | **\SplFileObject**| The file to upload. | [optional]
 
 ### Return type
 

@@ -69,10 +69,9 @@ $apiInstance = new Swagger\Client\Api\BrandsApi(
     $config
 );
 $brand = new \Swagger\Client\Model\Brand(); // \Swagger\Client\Model\Brand | Brand to add to the store
-$image_small = "/path/to/file.txt"; // \SplFileObject | The file to upload.
 
 try {
-    $result = $apiInstance->addBrands($brand, $image_small);
+    $result = $apiInstance->addBrands($brand);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling BrandsApi->addBrands: ', $e->getMessage(), PHP_EOL;
@@ -99,6 +98,8 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**updateCategoryById**](docs/Api/CategoriesApi.md#updatecategorybyid) | **PUT** /categories/{id}/ | 
 *CustomersApi* | [**getCustomerById**](docs/Api/CustomersApi.md#getcustomerbyid) | **GET** /customers/{id}/ | 
 *CustomersApi* | [**getCustomers**](docs/Api/CustomersApi.md#getcustomers) | **GET** /customers | 
+*DefaultApi* | [**uploadImages**](docs/Api/DefaultApi.md#uploadimages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
+*DefaultApi* | [**uploadImages_0**](docs/Api/DefaultApi.md#uploadimages_0) | **POST** /categories/{id}/uploads/ | Upload de images for category
 *OrdersApi* | [**getOrderById**](docs/Api/OrdersApi.md#getorderbyid) | **GET** /orders/{id}/ | 
 *OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /orders | 
 *PaymentsApi* | [**getPaymentById**](docs/Api/PaymentsApi.md#getpaymentbyid) | **GET** /payments/{id}/ | 
