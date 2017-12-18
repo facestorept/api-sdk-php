@@ -299,10 +299,11 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
 
     }
 
-    function prepareFileUpload($path = '/var/www/image.jpg') : SplFileObject
+    function prepareFileUpload($path = '/var/www/api-sdks/php/SwaggerClient-php/test/Api/image.jpg')
     {
         TestCase::assertFileExists($path);
-        return new SplFileObject($path, 'r+');
+
+        return new \SplFileObject($path, 'r+');
     }
 
     /**
