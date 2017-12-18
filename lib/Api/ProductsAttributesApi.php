@@ -88,7 +88,7 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Attribute[]
+     * @return \Swagger\Client\Model\InlineResponse201
      */
     public function addProductsAttributes($attribute)
     {
@@ -103,11 +103,11 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Attribute[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProductsAttributesWithHttpInfo($attribute)
     {
-        $returnType = '\Swagger\Client\Model\Attribute[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse201';
         $request = $this->addProductsAttributesRequest($attribute);
 
         try {
@@ -159,7 +159,15 @@ class ProductsAttributesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Attribute[]',
+                        '\Swagger\Client\Model\InlineResponse201',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -201,7 +209,7 @@ class ProductsAttributesApi
      */
     public function addProductsAttributesAsyncWithHttpInfo($attribute)
     {
-        $returnType = '\Swagger\Client\Model\Attribute[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse201';
         $request = $this->addProductsAttributesRequest($attribute);
 
         return $this->client
@@ -274,7 +282,7 @@ class ProductsAttributesApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -402,7 +410,7 @@ class ProductsAttributesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotFoundResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -508,7 +516,7 @@ class ProductsAttributesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -581,7 +589,7 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Attribute
+     * @return \Swagger\Client\Model\InlineResponse2003
      */
     public function getProductAttributeById($id, $includes = null)
     {
@@ -597,11 +605,11 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductAttributeByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\Attribute';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getProductAttributeByIdRequest($id, $includes);
 
         try {
@@ -653,7 +661,7 @@ class ProductsAttributesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Attribute',
+                        '\Swagger\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -661,7 +669,7 @@ class ProductsAttributesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotFoundResponse',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -705,7 +713,7 @@ class ProductsAttributesApi
      */
     public function getProductAttributeByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\Attribute';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getProductAttributeByIdRequest($id, $includes);
 
         return $this->client
@@ -791,7 +799,7 @@ class ProductsAttributesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -865,7 +873,7 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Attribute[]
+     * @return \Swagger\Client\Model\InlineResponse2002
      */
     public function getProductsAttributes($includes = null, $limit = null, $order_by = null)
     {
@@ -882,11 +890,11 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Attribute[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2002, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductsAttributesWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\Attribute[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2002';
         $request = $this->getProductsAttributesRequest($includes, $limit, $order_by);
 
         try {
@@ -938,15 +946,15 @@ class ProductsAttributesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Attribute[]',
+                        '\Swagger\Client\Model\InlineResponse2002',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotFoundResponse',
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -992,7 +1000,7 @@ class ProductsAttributesApi
      */
     public function getProductsAttributesAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\Attribute[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2002';
         $request = $this->getProductsAttributesRequest($includes, $limit, $order_by);
 
         return $this->client
@@ -1076,7 +1084,7 @@ class ProductsAttributesApi
         $_tempBody = null;
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {
@@ -1145,31 +1153,30 @@ class ProductsAttributesApi
      * Operation updateProductAttributeById
      *
      * @param  int $id ID of attribute to update (required)
-     * @param  \Swagger\Client\Model\Attribute $product_attribute Attribute to add to the store (required)
+     * @param  object $product_attribute Attribute to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Attribute
+     * @return void
      */
     public function updateProductAttributeById($id, $product_attribute)
     {
-        list($response) = $this->updateProductAttributeByIdWithHttpInfo($id, $product_attribute);
-        return $response;
+        $this->updateProductAttributeByIdWithHttpInfo($id, $product_attribute);
     }
 
     /**
      * Operation updateProductAttributeByIdWithHttpInfo
      *
      * @param  int $id ID of attribute to update (required)
-     * @param  \Swagger\Client\Model\Attribute $product_attribute Attribute to add to the store (required)
+     * @param  object $product_attribute Attribute to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Attribute, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateProductAttributeByIdWithHttpInfo($id, $product_attribute)
     {
-        $returnType = '\Swagger\Client\Model\Attribute';
+        $returnType = '';
         $request = $this->updateProductAttributeByIdRequest($id, $product_attribute);
 
         try {
@@ -1200,36 +1207,14 @@ class ProductsAttributesApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\Attribute',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotFoundResponse',
+                        '\Swagger\Client\Model\NotFoundResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1245,7 +1230,7 @@ class ProductsAttributesApi
      * 
      *
      * @param  int $id ID of attribute to update (required)
-     * @param  \Swagger\Client\Model\Attribute $product_attribute Attribute to add to the store (required)
+     * @param  object $product_attribute Attribute to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1266,35 +1251,21 @@ class ProductsAttributesApi
      * 
      *
      * @param  int $id ID of attribute to update (required)
-     * @param  \Swagger\Client\Model\Attribute $product_attribute Attribute to add to the store (required)
+     * @param  object $product_attribute Attribute to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateProductAttributeByIdAsyncWithHttpInfo($id, $product_attribute)
     {
-        $returnType = '\Swagger\Client\Model\Attribute';
+        $returnType = '';
         $request = $this->updateProductAttributeByIdRequest($id, $product_attribute);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1317,7 +1288,7 @@ class ProductsAttributesApi
      * Create request for operation 'updateProductAttributeById'
      *
      * @param  int $id ID of attribute to update (required)
-     * @param  \Swagger\Client\Model\Attribute $product_attribute Attribute to add to the store (required)
+     * @param  object $product_attribute Attribute to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1361,7 +1332,7 @@ class ProductsAttributesApi
         }
 
         if ($multipart) {
-            $headers= $this->headerSelector->selectHeadersForMultipart(
+            $headers = $this->headerSelector->selectHeadersForMultipart(
                 ['application/json']
             );
         } else {

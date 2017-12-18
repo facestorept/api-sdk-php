@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse422MessageErrors
+ * InlineResponse2007
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse422MessageErrors Class Doc Comment
+ * InlineResponse2007 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
+class InlineResponse2007 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_422_message_errors';
+    protected static $swaggerModelName = 'inline_response_200_7';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'fields' => 'null[]'
+        'data' => '\Swagger\Client\Model\Payment[]'
     ];
 
     /**
@@ -65,7 +65,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'fields' => null
+        'data' => null
     ];
 
     /**
@@ -95,7 +95,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'fields' => 'fields'
+        'data' => 'data'
     ];
 
     /**
@@ -104,7 +104,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'fields' => 'setFields'
+        'data' => 'setData'
     ];
 
     /**
@@ -113,7 +113,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'fields' => 'getFields'
+        'data' => 'getData'
     ];
 
     /**
@@ -176,7 +176,7 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -205,25 +205,25 @@ class InlineResponse422MessageErrors implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets fields
+     * Gets data
      *
-     * @return null[]
+     * @return \Swagger\Client\Model\Payment[]
      */
-    public function getFields()
+    public function getData()
     {
-        return $this->container['fields'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets fields
+     * Sets data
      *
-     * @param null[] $fields fields
+     * @param \Swagger\Client\Model\Payment[] $data data
      *
      * @return $this
      */
-    public function setFields($fields)
+    public function setData($data)
     {
-        $this->container['fields'] = $fields;
+        $this->container['data'] = $data;
 
         return $this;
     }

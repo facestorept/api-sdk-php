@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **is_searchable** | **bool** |  | [optional] 
 **active** | **bool** |  | [optional] 
 **options** | [**\Swagger\Client\Model\AttributeOptions**](AttributeOptions.md) |  | [optional] 
-**i18n** | [**\Swagger\Client\Model\I18n**](I18n.md) |  | [optional] 
+**i18n** | [**\Swagger\Client\Model\I18n[]**](I18n.md) | I18n fields to brands | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

@@ -21,24 +21,16 @@ To install the bindings via [Composer](http://getcomposer.org/), add the followi
   "repositories": [
     {
       "type": "git",
-      "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+      "url": "https://github.com/facestorept/api-sdk-php.git"
     }
   ],
   "require": {
-    "GIT_USER_ID/GIT_REPO_ID": "*@dev"
+    "facestorept/api-sdk-php": "*@dev"
   }
 }
 ```
 
 Then run `composer install`
-
-### Manual Installation
-
-Download the files and include `autoload.php`:
-
-```php
-    require_once('/path/to/SwaggerClient-php/vendor/autoload.php');
-```
 
 ## Tests
 
@@ -98,7 +90,8 @@ Class | Method | HTTP request | Description
 *CategoriesApi* | [**updateCategoryById**](docs/Api/CategoriesApi.md#updatecategorybyid) | **PUT** /categories/{id}/ | 
 *CustomersApi* | [**getCustomerById**](docs/Api/CustomersApi.md#getcustomerbyid) | **GET** /customers/{id}/ | 
 *CustomersApi* | [**getCustomers**](docs/Api/CustomersApi.md#getcustomers) | **GET** /customers | 
-*DefaultApi* | [**null**](docs/Api/DefaultApi.md#null) | **POST** /brands/{id}/upload | null
+*DefaultApi* | [**uploadImages**](docs/Api/DefaultApi.md#uploadimages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
+*DefaultApi* | [**uploadImages_0**](docs/Api/DefaultApi.md#uploadimages_0) | **POST** /categories/{id}/uploads/ | Upload de images for category
 *OrdersApi* | [**getOrderById**](docs/Api/OrdersApi.md#getorderbyid) | **GET** /orders/{id}/ | 
 *OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /orders | 
 *PaymentsApi* | [**getPaymentById**](docs/Api/PaymentsApi.md#getpaymentbyid) | **GET** /payments/{id}/ | 
@@ -145,14 +138,16 @@ Class | Method | HTTP request | Description
  - [InlineResponse2004](docs/Model/InlineResponse2004.md)
  - [InlineResponse2005](docs/Model/InlineResponse2005.md)
  - [InlineResponse2006](docs/Model/InlineResponse2006.md)
+ - [InlineResponse2007](docs/Model/InlineResponse2007.md)
+ - [InlineResponse2008](docs/Model/InlineResponse2008.md)
  - [InlineResponse201](docs/Model/InlineResponse201.md)
  - [InlineResponse2011](docs/Model/InlineResponse2011.md)
  - [InlineResponse2012](docs/Model/InlineResponse2012.md)
  - [InlineResponse2013](docs/Model/InlineResponse2013.md)
  - [InlineResponse2014](docs/Model/InlineResponse2014.md)
- - [InlineResponse422](docs/Model/InlineResponse422.md)
- - [InlineResponse422Message](docs/Model/InlineResponse422Message.md)
- - [InlineResponse422MessageErrors](docs/Model/InlineResponse422MessageErrors.md)
+ - [InlineResponse204](docs/Model/InlineResponse204.md)
+ - [InlineResponse204Message](docs/Model/InlineResponse204Message.md)
+ - [InlineResponse204MessageErrors](docs/Model/InlineResponse204MessageErrors.md)
  - [MetaPartialResponse](docs/Model/MetaPartialResponse.md)
  - [NotFoundResponse](docs/Model/NotFoundResponse.md)
  - [Options](docs/Model/Options.md)

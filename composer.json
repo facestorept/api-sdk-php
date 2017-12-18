@@ -1,18 +1,26 @@
 {
-    "name": "GIT_USER_ID/GIT_REPO_ID",
-    "description": "",
+    "name": "facestorept/api-sdk-php",
+    "description": "The PHP SDK for Facestore API project",
     "keywords": [
         "swagger",
         "php",
         "sdk",
         "api"
     ],
-    "homepage": "http://swagger.io",
-    "license": "proprietary",
+    "homepage": "https://developers.facestore.pt",
+    "license": "MIT",
     "authors": [
         {
             "name": "Swagger and contributors",
             "homepage": "https://github.com/swagger-api/swagger-codegen"
+        },
+        {
+            "name": "Luciano Jr",
+            "homepage": "https://github.com/luciano-jr"
+        },
+        {
+            "name": "Douglas Saldanha",
+            "homepage": "https://github.com/douglasmamuty"
         }
     ],
     "require": {

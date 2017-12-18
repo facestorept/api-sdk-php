@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse422
+ * InlineResponse204MessageErrors
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse422 Class Doc Comment
+ * InlineResponse204MessageErrors Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse422 implements ModelInterface, ArrayAccess
+class InlineResponse204MessageErrors implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_422';
+    protected static $swaggerModelName = 'inline_response_204_message_errors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'code' => 'int',
-        'message' => '\Swagger\Client\Model\InlineResponse422Message'
+        'fields' => 'null[]'
     ];
 
     /**
@@ -66,8 +65,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'code' => null,
-        'message' => null
+        'fields' => null
     ];
 
     /**
@@ -97,8 +95,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message'
+        'fields' => 'fields'
     ];
 
     /**
@@ -107,8 +104,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage'
+        'fields' => 'setFields'
     ];
 
     /**
@@ -117,8 +113,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage'
+        'fields' => 'getFields'
     ];
 
     /**
@@ -181,8 +176,7 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
     }
 
     /**
@@ -211,49 +205,25 @@ class InlineResponse422 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets fields
      *
-     * @return int
+     * @return null[]
      */
-    public function getCode()
+    public function getFields()
     {
-        return $this->container['code'];
+        return $this->container['fields'];
     }
 
     /**
-     * Sets code
+     * Sets fields
      *
-     * @param int $code code
+     * @param null[] $fields fields
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setFields($fields)
     {
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets message
-     *
-     * @return \Swagger\Client\Model\InlineResponse422Message
-     */
-    public function getMessage()
-    {
-        return $this->container['message'];
-    }
-
-    /**
-     * Sets message
-     *
-     * @param \Swagger\Client\Model\InlineResponse422Message $message message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->container['message'] = $message;
+        $this->container['fields'] = $fields;
 
         return $this;
     }
