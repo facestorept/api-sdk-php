@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2005
+ * InlineResponse204
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse2005 Class Doc Comment
+ * InlineResponse204 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse2005 implements ModelInterface, ArrayAccess
+class InlineResponse204 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200_5';
+    protected static $swaggerModelName = 'inline_response_204';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Shipping[]',
-        'meta' => '\Swagger\Client\Model\InlineResponse2001Meta'
+        'code' => 'int',
+        'message' => '\Swagger\Client\Model\InlineResponse204Message'
     ];
 
     /**
@@ -66,8 +66,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'meta' => null
+        'code' => null,
+        'message' => null
     ];
 
     /**
@@ -97,8 +97,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'meta' => 'meta'
+        'code' => 'code',
+        'message' => 'message'
     ];
 
     /**
@@ -107,8 +107,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'code' => 'setCode',
+        'message' => 'setMessage'
     ];
 
     /**
@@ -117,8 +117,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'code' => 'getCode',
+        'message' => 'getMessage'
     ];
 
     /**
@@ -181,8 +181,8 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
     }
 
     /**
@@ -211,49 +211,49 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets code
      *
-     * @return \Swagger\Client\Model\Shipping[]
+     * @return int
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->container['data'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets data
+     * Sets code
      *
-     * @param \Swagger\Client\Model\Shipping[] $data data
+     * @param int $code code
      *
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
-        $this->container['data'] = $data;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets message
      *
-     * @return \Swagger\Client\Model\InlineResponse2001Meta
+     * @return \Swagger\Client\Model\InlineResponse204Message
      */
-    public function getMeta()
+    public function getMessage()
     {
-        return $this->container['meta'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets meta
+     * Sets message
      *
-     * @param \Swagger\Client\Model\InlineResponse2001Meta $meta meta
+     * @param \Swagger\Client\Model\InlineResponse204Message $message message
      *
      * @return $this
      */
-    public function setMeta($meta)
+    public function setMessage($message)
     {
-        $this->container['meta'] = $meta;
+        $this->container['message'] = $message;
 
         return $this;
     }

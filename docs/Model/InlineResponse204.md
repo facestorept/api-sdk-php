@@ -1,10 +1,10 @@
-# InlineResponse2004
+# InlineResponse204
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**data** | [**\Swagger\Client\Model\Tax[]**](Tax.md) |  | [optional] 
-**meta** | [**\Swagger\Client\Model\InlineResponse2001Meta**](InlineResponse2001Meta.md) |  | [optional] 
+**code** | **int** |  | [optional] 
+**message** | [**\Swagger\Client\Model\InlineResponse204Message**](InlineResponse204Message.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

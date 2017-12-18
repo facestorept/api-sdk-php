@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2005
+ * InlineResponse204MessageErrors
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse2005 Class Doc Comment
+ * InlineResponse204MessageErrors Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse2005 implements ModelInterface, ArrayAccess
+class InlineResponse204MessageErrors implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200_5';
+    protected static $swaggerModelName = 'inline_response_204_message_errors';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Shipping[]',
-        'meta' => '\Swagger\Client\Model\InlineResponse2001Meta'
+        'fields' => 'null[]'
     ];
 
     /**
@@ -66,8 +65,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'meta' => null
+        'fields' => null
     ];
 
     /**
@@ -97,8 +95,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'meta' => 'meta'
+        'fields' => 'fields'
     ];
 
     /**
@@ -107,8 +104,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'fields' => 'setFields'
     ];
 
     /**
@@ -117,8 +113,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'fields' => 'getFields'
     ];
 
     /**
@@ -181,8 +176,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['fields'] = isset($data['fields']) ? $data['fields'] : null;
     }
 
     /**
@@ -211,49 +205,25 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets fields
      *
-     * @return \Swagger\Client\Model\Shipping[]
+     * @return null[]
      */
-    public function getData()
+    public function getFields()
     {
-        return $this->container['data'];
+        return $this->container['fields'];
     }
 
     /**
-     * Sets data
+     * Sets fields
      *
-     * @param \Swagger\Client\Model\Shipping[] $data data
+     * @param null[] $fields fields
      *
      * @return $this
      */
-    public function setData($data)
+    public function setFields($fields)
     {
-        $this->container['data'] = $data;
-
-        return $this;
-    }
-
-    /**
-     * Gets meta
-     *
-     * @return \Swagger\Client\Model\InlineResponse2001Meta
-     */
-    public function getMeta()
-    {
-        return $this->container['meta'];
-    }
-
-    /**
-     * Sets meta
-     *
-     * @param \Swagger\Client\Model\InlineResponse2001Meta $meta meta
-     *
-     * @return $this
-     */
-    public function setMeta($meta)
-    {
-        $this->container['meta'] = $meta;
+        $this->container['fields'] = $fields;
 
         return $this;
     }

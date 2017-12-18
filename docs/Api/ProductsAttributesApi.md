@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **addProductsAttributes**
-> \Swagger\Client\Model\Attribute[] addProductsAttributes($attribute)
+> \Swagger\Client\Model\InlineResponse201 addProductsAttributes($attribute)
 
 
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Attribute[]**](../Model/Attribute.md)
+[**\Swagger\Client\Model\InlineResponse201**](../Model/InlineResponse201.md)
 
 ### Authorization
 
@@ -121,7 +121,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProductAttributeById**
-> \Swagger\Client\Model\Attribute getProductAttributeById($id, $includes)
+> \Swagger\Client\Model\InlineResponse2003 getProductAttributeById($id, $includes)
 
 
 
@@ -164,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Attribute**](../Model/Attribute.md)
+[**\Swagger\Client\Model\InlineResponse2003**](../Model/InlineResponse2003.md)
 
 ### Authorization
 
@@ -178,7 +178,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProductsAttributes**
-> \Swagger\Client\Model\Attribute[] getProductsAttributes($includes, $limit, $order_by)
+> \Swagger\Client\Model\InlineResponse2002 getProductsAttributes($includes, $limit, $order_by)
 
 
 
@@ -223,7 +223,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\Attribute[]**](../Model/Attribute.md)
+[**\Swagger\Client\Model\InlineResponse2002**](../Model/InlineResponse2002.md)
 
 ### Authorization
 
@@ -237,7 +237,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **updateProductAttributeById**
-> \Swagger\Client\Model\Attribute updateProductAttributeById($id, $product_attribute)
+> updateProductAttributeById($id, $product_attribute)
 
 
 
@@ -260,11 +260,10 @@ $apiInstance = new Swagger\Client\Api\ProductsAttributesApi(
     $config
 );
 $id = 789; // int | ID of attribute to update
-$product_attribute = new \Swagger\Client\Model\Attribute(); // \Swagger\Client\Model\Attribute | Attribute to add to the store
+$product_attribute = new \stdClass; // object | Attribute to add to the store
 
 try {
-    $result = $apiInstance->updateProductAttributeById($id, $product_attribute);
-    print_r($result);
+    $apiInstance->updateProductAttributeById($id, $product_attribute);
 } catch (Exception $e) {
     echo 'Exception when calling ProductsAttributesApi->updateProductAttributeById: ', $e->getMessage(), PHP_EOL;
 }
@@ -276,11 +275,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**| ID of attribute to update |
- **product_attribute** | [**\Swagger\Client\Model\Attribute**](../Model/Attribute.md)| Attribute to add to the store |
+ **product_attribute** | **object**| Attribute to add to the store |
 
 ### Return type
 
-[**\Swagger\Client\Model\Attribute**](../Model/Attribute.md)
+void (empty response body)
 
 ### Authorization
 

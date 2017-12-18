@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **getPaymentById**
-> \Swagger\Client\Model\InlineResponse2005 getPaymentById($id)
+> \Swagger\Client\Model\InlineResponse2007 getPaymentById($id)
 
 
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2005**](../Model/InlineResponse2005.md)
+[**\Swagger\Client\Model\InlineResponse2007**](../Model/InlineResponse2007.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getPayments**
-> \Swagger\Client\Model\InlineResponse2004 getPayments($includes, $limit, $order_by)
+> \Swagger\Client\Model\InlineResponse2006 getPayments($includes, $limit, $order_by)
 
 
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2004**](../Model/InlineResponse2004.md)
+[**\Swagger\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
 
 ### Authorization
 

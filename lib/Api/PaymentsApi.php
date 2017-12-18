@@ -88,7 +88,7 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2005
+     * @return \Swagger\Client\Model\InlineResponse2007
      */
     public function getPaymentById($id)
     {
@@ -103,11 +103,11 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentByIdWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getPaymentByIdRequest($id);
 
         try {
@@ -159,7 +159,7 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2005',
+                        '\Swagger\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -209,7 +209,7 @@ class PaymentsApi
      */
     public function getPaymentByIdAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getPaymentByIdRequest($id);
 
         return $this->client
@@ -361,7 +361,7 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2004
+     * @return \Swagger\Client\Model\InlineResponse2006
      */
     public function getPayments($includes = null, $limit = null, $order_by = null)
     {
@@ -378,11 +378,11 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2006';
         $request = $this->getPaymentsRequest($includes, $limit, $order_by);
 
         try {
@@ -434,15 +434,15 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2004',
+                        '\Swagger\Client\Model\InlineResponse2006',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -488,7 +488,7 @@ class PaymentsApi
      */
     public function getPaymentsAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2006';
         $request = $this->getPaymentsRequest($includes, $limit, $order_by);
 
         return $this->client

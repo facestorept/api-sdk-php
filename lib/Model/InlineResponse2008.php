@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2005
+ * InlineResponse2008
  *
  * PHP version 5
  *
@@ -32,14 +32,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse2005 Class Doc Comment
+ * InlineResponse2008 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse2005 implements ModelInterface, ArrayAccess
+class InlineResponse2008 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200_5';
+    protected static $swaggerModelName = 'inline_response_200_8';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Shipping[]',
+        'data' => '\Swagger\Client\Model\Product[]',
         'meta' => '\Swagger\Client\Model\InlineResponse2001Meta'
     ];
 
@@ -213,7 +213,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Shipping[]
+     * @return \Swagger\Client\Model\Product[]
      */
     public function getData()
     {
@@ -223,7 +223,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Shipping[] $data data
+     * @param \Swagger\Client\Model\Product[] $data data
      *
      * @return $this
      */

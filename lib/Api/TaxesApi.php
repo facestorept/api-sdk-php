@@ -1,6 +1,6 @@
 <?php
 /**
- * BrandsApi
+ * TaxesApi
  * PHP version 5
  *
  * @category Class
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * BrandsApi Class Doc Comment
+ * TaxesApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BrandsApi
+class TaxesApi
 {
     /**
      * @var ClientInterface
@@ -82,33 +82,33 @@ class BrandsApi
     }
 
     /**
-     * Operation addBrands
+     * Operation addTaxes
      *
-     * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse201
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
-    public function addBrands($brand)
+    public function addTaxes($tax)
     {
-        list($response) = $this->addBrandsWithHttpInfo($brand);
+        list($response) = $this->addTaxesWithHttpInfo($tax);
         return $response;
     }
 
     /**
-     * Operation addBrandsWithHttpInfo
+     * Operation addTaxesWithHttpInfo
      *
-     * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function addBrandsWithHttpInfo($brand)
+    public function addTaxesWithHttpInfo($tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->addBrandsRequest($brand);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->addTaxesRequest($tax);
 
         try {
             $options = $this->createHttpClientOption();
@@ -159,15 +159,7 @@ class BrandsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse201',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 422:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse204',
+                        '\Swagger\Client\Model\InlineResponse2012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -178,18 +170,18 @@ class BrandsApi
     }
 
     /**
-     * Operation addBrandsAsync
+     * Operation addTaxesAsync
      *
      * 
      *
-     * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addBrandsAsync($brand)
+    public function addTaxesAsync($tax)
     {
-        return $this->addBrandsAsyncWithHttpInfo($brand)
+        return $this->addTaxesAsyncWithHttpInfo($tax)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -198,19 +190,19 @@ class BrandsApi
     }
 
     /**
-     * Operation addBrandsAsyncWithHttpInfo
+     * Operation addTaxesAsyncWithHttpInfo
      *
      * 
      *
-     * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function addBrandsAsyncWithHttpInfo($brand)
+    public function addTaxesAsyncWithHttpInfo($tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->addBrandsRequest($brand);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->addTaxesRequest($tax);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -250,23 +242,23 @@ class BrandsApi
     }
 
     /**
-     * Create request for operation 'addBrands'
+     * Create request for operation 'addTaxes'
      *
-     * @param  \Swagger\Client\Model\Brand $brand Brand to add to the store (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function addBrandsRequest($brand)
+    protected function addTaxesRequest($tax)
     {
-        // verify the required parameter 'brand' is set
-        if ($brand === null) {
+        // verify the required parameter 'tax' is set
+        if ($tax === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $brand when calling addBrands'
+                'Missing the required parameter $tax when calling addTaxes'
             );
         }
 
-        $resourcePath = '/brands';
+        $resourcePath = '/taxes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -277,8 +269,8 @@ class BrandsApi
 
         // body params
         $_tempBody = null;
-        if (isset($brand)) {
-            $_tempBody = $brand;
+        if (isset($tax)) {
+            $_tempBody = $tax;
         }
 
         if ($multipart) {
@@ -348,32 +340,32 @@ class BrandsApi
     }
 
     /**
-     * Operation deleteBrandById
+     * Operation deleteTaxById
      *
-     * @param  int $id ID of brand to delete (required)
+     * @param  int $id ID of tax to delete (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteBrandById($id)
+    public function deleteTaxById($id)
     {
-        $this->deleteBrandByIdWithHttpInfo($id);
+        $this->deleteTaxByIdWithHttpInfo($id);
     }
 
     /**
-     * Operation deleteBrandByIdWithHttpInfo
+     * Operation deleteTaxByIdWithHttpInfo
      *
-     * @param  int $id ID of brand to delete (required)
+     * @param  int $id ID of tax to delete (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteBrandByIdWithHttpInfo($id)
+    public function deleteTaxByIdWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteBrandByIdRequest($id);
+        $request = $this->deleteTaxByIdRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -421,18 +413,18 @@ class BrandsApi
     }
 
     /**
-     * Operation deleteBrandByIdAsync
+     * Operation deleteTaxByIdAsync
      *
      * 
      *
-     * @param  int $id ID of brand to delete (required)
+     * @param  int $id ID of tax to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBrandByIdAsync($id)
+    public function deleteTaxByIdAsync($id)
     {
-        return $this->deleteBrandByIdAsyncWithHttpInfo($id)
+        return $this->deleteTaxByIdAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -441,19 +433,19 @@ class BrandsApi
     }
 
     /**
-     * Operation deleteBrandByIdAsyncWithHttpInfo
+     * Operation deleteTaxByIdAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $id ID of brand to delete (required)
+     * @param  int $id ID of tax to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteBrandByIdAsyncWithHttpInfo($id)
+    public function deleteTaxByIdAsyncWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteBrandByIdRequest($id);
+        $request = $this->deleteTaxByIdRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -479,23 +471,23 @@ class BrandsApi
     }
 
     /**
-     * Create request for operation 'deleteBrandById'
+     * Create request for operation 'deleteTaxById'
      *
-     * @param  int $id ID of brand to delete (required)
+     * @param  int $id ID of tax to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteBrandByIdRequest($id)
+    protected function deleteTaxByIdRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteBrandById'
+                'Missing the required parameter $id when calling deleteTaxById'
             );
         }
 
-        $resourcePath = '/brands/{id}/';
+        $resourcePath = '/taxes/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -582,37 +574,35 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrandById
+     * Operation getTaxById
      *
-     * @param  int $id ID of brand to fetch (required)
+     * @param  int $id ID of tax to fetch (required)
      * @param  string[] $includes Include associated objects within response (optional)
-     * @param  int $limit max records to return (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse201
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
-    public function getBrandById($id, $includes = null, $limit = null)
+    public function getTaxById($id, $includes = null)
     {
-        list($response) = $this->getBrandByIdWithHttpInfo($id, $includes, $limit);
+        list($response) = $this->getTaxByIdWithHttpInfo($id, $includes);
         return $response;
     }
 
     /**
-     * Operation getBrandByIdWithHttpInfo
+     * Operation getTaxByIdWithHttpInfo
      *
-     * @param  int $id ID of brand to fetch (required)
+     * @param  int $id ID of tax to fetch (required)
      * @param  string[] $includes Include associated objects within response (optional)
-     * @param  int $limit max records to return (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandByIdWithHttpInfo($id, $includes = null, $limit = null)
+    public function getTaxByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->getBrandByIdRequest($id, $includes, $limit);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->getTaxByIdRequest($id, $includes);
 
         try {
             $options = $this->createHttpClientOption();
@@ -663,7 +653,7 @@ class BrandsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse201',
+                        '\Swagger\Client\Model\InlineResponse2012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -682,20 +672,19 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrandByIdAsync
+     * Operation getTaxByIdAsync
      *
      * 
      *
-     * @param  int $id ID of brand to fetch (required)
+     * @param  int $id ID of tax to fetch (required)
      * @param  string[] $includes Include associated objects within response (optional)
-     * @param  int $limit max records to return (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrandByIdAsync($id, $includes = null, $limit = null)
+    public function getTaxByIdAsync($id, $includes = null)
     {
-        return $this->getBrandByIdAsyncWithHttpInfo($id, $includes, $limit)
+        return $this->getTaxByIdAsyncWithHttpInfo($id, $includes)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -704,21 +693,20 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrandByIdAsyncWithHttpInfo
+     * Operation getTaxByIdAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $id ID of brand to fetch (required)
+     * @param  int $id ID of tax to fetch (required)
      * @param  string[] $includes Include associated objects within response (optional)
-     * @param  int $limit max records to return (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrandByIdAsyncWithHttpInfo($id, $includes = null, $limit = null)
+    public function getTaxByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
-        $request = $this->getBrandByIdRequest($id, $includes, $limit);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->getTaxByIdRequest($id, $includes);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -758,25 +746,24 @@ class BrandsApi
     }
 
     /**
-     * Create request for operation 'getBrandById'
+     * Create request for operation 'getTaxById'
      *
-     * @param  int $id ID of brand to fetch (required)
+     * @param  int $id ID of tax to fetch (required)
      * @param  string[] $includes Include associated objects within response (optional)
-     * @param  int $limit max records to return (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getBrandByIdRequest($id, $includes = null, $limit = null)
+    protected function getTaxByIdRequest($id, $includes = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getBrandById'
+                'Missing the required parameter $id when calling getTaxById'
             );
         }
 
-        $resourcePath = '/brands/{id}/';
+        $resourcePath = '/taxes/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -789,10 +776,6 @@ class BrandsApi
         }
         if ($includes !== null) {
             $queryParams['includes'] = ObjectSerializer::toQueryValue($includes);
-        }
-        // query params
-        if ($limit !== null) {
-            $queryParams['limit'] = ObjectSerializer::toQueryValue($limit);
         }
 
         // path params
@@ -874,7 +857,7 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrands
+     * Operation getTaxes
      *
      * @param  string[] $includes Include associated objects within response (optional)
      * @param  int $limit max records to return (optional)
@@ -882,16 +865,16 @@ class BrandsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse200
+     * @return \Swagger\Client\Model\InlineResponse2004
      */
-    public function getBrands($includes = null, $limit = null, $order_by = null)
+    public function getTaxes($includes = null, $limit = null, $order_by = null)
     {
-        list($response) = $this->getBrandsWithHttpInfo($includes, $limit, $order_by);
+        list($response) = $this->getTaxesWithHttpInfo($includes, $limit, $order_by);
         return $response;
     }
 
     /**
-     * Operation getBrandsWithHttpInfo
+     * Operation getTaxesWithHttpInfo
      *
      * @param  string[] $includes Include associated objects within response (optional)
      * @param  int $limit max records to return (optional)
@@ -899,12 +882,12 @@ class BrandsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse200, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBrandsWithHttpInfo($includes = null, $limit = null, $order_by = null)
+    public function getTaxesWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse200';
-        $request = $this->getBrandsRequest($includes, $limit, $order_by);
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $request = $this->getTaxesRequest($includes, $limit, $order_by);
 
         try {
             $options = $this->createHttpClientOption();
@@ -955,7 +938,7 @@ class BrandsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse200',
+                        '\Swagger\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -974,7 +957,7 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrandsAsync
+     * Operation getTaxesAsync
      *
      * 
      *
@@ -985,9 +968,9 @@ class BrandsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrandsAsync($includes = null, $limit = null, $order_by = null)
+    public function getTaxesAsync($includes = null, $limit = null, $order_by = null)
     {
-        return $this->getBrandsAsyncWithHttpInfo($includes, $limit, $order_by)
+        return $this->getTaxesAsyncWithHttpInfo($includes, $limit, $order_by)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -996,7 +979,7 @@ class BrandsApi
     }
 
     /**
-     * Operation getBrandsAsyncWithHttpInfo
+     * Operation getTaxesAsyncWithHttpInfo
      *
      * 
      *
@@ -1007,10 +990,10 @@ class BrandsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBrandsAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
+    public function getTaxesAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse200';
-        $request = $this->getBrandsRequest($includes, $limit, $order_by);
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $request = $this->getTaxesRequest($includes, $limit, $order_by);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1050,7 +1033,7 @@ class BrandsApi
     }
 
     /**
-     * Create request for operation 'getBrands'
+     * Create request for operation 'getTaxes'
      *
      * @param  string[] $includes Include associated objects within response (optional)
      * @param  int $limit max records to return (optional)
@@ -1059,10 +1042,10 @@ class BrandsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getBrandsRequest($includes = null, $limit = null, $order_by = null)
+    protected function getTaxesRequest($includes = null, $limit = null, $order_by = null)
     {
 
-        $resourcePath = '/brands';
+        $resourcePath = '/taxes';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1159,34 +1142,35 @@ class BrandsApi
     }
 
     /**
-     * Operation updateBrandsById
+     * Operation updateTaxById
      *
-     * @param  int $id ID of brand to update (required)
-     * @param  object $brand Brand to update in store (required)
+     * @param  int $id ID of tax to update (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
-    public function updateBrandsById($id, $brand)
+    public function updateTaxById($id, $tax)
     {
-        $this->updateBrandsByIdWithHttpInfo($id, $brand);
+        list($response) = $this->updateTaxByIdWithHttpInfo($id, $tax);
+        return $response;
     }
 
     /**
-     * Operation updateBrandsByIdWithHttpInfo
+     * Operation updateTaxByIdWithHttpInfo
      *
-     * @param  int $id ID of brand to update (required)
-     * @param  object $brand Brand to update in store (required)
+     * @param  int $id ID of tax to update (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateBrandsByIdWithHttpInfo($id, $brand)
+    public function updateTaxByIdWithHttpInfo($id, $tax)
     {
-        $returnType = '';
-        $request = $this->updateBrandsByIdRequest($id, $brand);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->updateTaxByIdRequest($id, $tax);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1216,10 +1200,32 @@ class BrandsApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\InlineResponse2012',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -1234,19 +1240,19 @@ class BrandsApi
     }
 
     /**
-     * Operation updateBrandsByIdAsync
+     * Operation updateTaxByIdAsync
      *
      * 
      *
-     * @param  int $id ID of brand to update (required)
-     * @param  object $brand Brand to update in store (required)
+     * @param  int $id ID of tax to update (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBrandsByIdAsync($id, $brand)
+    public function updateTaxByIdAsync($id, $tax)
     {
-        return $this->updateBrandsByIdAsyncWithHttpInfo($id, $brand)
+        return $this->updateTaxByIdAsyncWithHttpInfo($id, $tax)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1255,26 +1261,40 @@ class BrandsApi
     }
 
     /**
-     * Operation updateBrandsByIdAsyncWithHttpInfo
+     * Operation updateTaxByIdAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $id ID of brand to update (required)
-     * @param  object $brand Brand to update in store (required)
+     * @param  int $id ID of tax to update (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateBrandsByIdAsyncWithHttpInfo($id, $brand)
+    public function updateTaxByIdAsyncWithHttpInfo($id, $tax)
     {
-        $returnType = '';
-        $request = $this->updateBrandsByIdRequest($id, $brand);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->updateTaxByIdRequest($id, $tax);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -1294,30 +1314,30 @@ class BrandsApi
     }
 
     /**
-     * Create request for operation 'updateBrandsById'
+     * Create request for operation 'updateTaxById'
      *
-     * @param  int $id ID of brand to update (required)
-     * @param  object $brand Brand to update in store (required)
+     * @param  int $id ID of tax to update (required)
+     * @param  \Swagger\Client\Model\Tax $tax Tax to add to the store (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateBrandsByIdRequest($id, $brand)
+    protected function updateTaxByIdRequest($id, $tax)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling updateBrandsById'
+                'Missing the required parameter $id when calling updateTaxById'
             );
         }
-        // verify the required parameter 'brand' is set
-        if ($brand === null) {
+        // verify the required parameter 'tax' is set
+        if ($tax === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $brand when calling updateBrandsById'
+                'Missing the required parameter $tax when calling updateTaxById'
             );
         }
 
-        $resourcePath = '/brands/{id}/';
+        $resourcePath = '/taxes/{id}/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1336,8 +1356,8 @@ class BrandsApi
 
         // body params
         $_tempBody = null;
-        if (isset($brand)) {
-            $_tempBody = $brand;
+        if (isset($tax)) {
+            $_tempBody = $tax;
         }
 
         if ($multipart) {
