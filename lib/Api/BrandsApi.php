@@ -167,7 +167,7 @@ class BrandsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse422',
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -410,7 +410,7 @@ class BrandsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Swagger\Client\Model\NotFoundResponse[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -960,10 +960,10 @@ class BrandsApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

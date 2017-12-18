@@ -402,7 +402,7 @@ class CategoriesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\NotFoundResponse[]',
+                        'object',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -660,10 +660,10 @@ class CategoriesApi
                     );
                     $e->setResponseObject($data);
                     break;
-                case 404:
+                case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Swagger\Client\Model\InlineResponse204',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
