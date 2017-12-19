@@ -4,12 +4,12 @@ All URIs are relative to *https://api.facestore.pt/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**uploadImages**](DefaultApi.md#uploadImages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
-[**uploadImages_0**](DefaultApi.md#uploadImages_0) | **POST** /categories/{id}/uploads/ | Upload de images for category
+[**uploadBrandImages**](DefaultApi.md#uploadBrandImages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
+[**uploadCategoryImages**](DefaultApi.md#uploadCategoryImages) | **POST** /categories/{id}/uploads/ | Upload de images for category
 
 
-# **uploadImages**
-> uploadImages($id, $image_small, $image_large)
+# **uploadBrandImages**
+> uploadBrandImages($id, $image_small, $image_large)
 
 Upload de images for brand
 
@@ -34,9 +34,9 @@ $image_small = "/path/to/file.txt"; // \SplFileObject | Small image for brand
 $image_large = "/path/to/file.txt"; // \SplFileObject | Large image for brand
 
 try {
-    $apiInstance->uploadImages($id, $image_small, $image_large);
+    $apiInstance->uploadBrandImages($id, $image_small, $image_large);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->uploadImages: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->uploadBrandImages: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -64,8 +64,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **uploadImages_0**
-> uploadImages_0($id, $image_small, $image_large)
+# **uploadCategoryImages**
+> uploadCategoryImages($id, $image_small, $image_large)
 
 Upload de images for category
 
@@ -90,9 +90,9 @@ $image_small = "/path/to/file.txt"; // \SplFileObject | Small image for category
 $image_large = "/path/to/file.txt"; // \SplFileObject | Large image for category
 
 try {
-    $apiInstance->uploadImages_0($id, $image_small, $image_large);
+    $apiInstance->uploadCategoryImages($id, $image_small, $image_large);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->uploadImages_0: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling DefaultApi->uploadCategoryImages: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
