@@ -32,6 +32,7 @@ use PHPUnit\Framework\TestCase;
 use PHPUnit_Framework_TestCase;
 use SplFileObject;
 use Swagger\Client\Api\CategoriesApi;
+use Swagger\Client\Api\DefaultApi;
 use Swagger\Client\Model\Category;
 use Swagger\Client\Model\I18n;
 use Swagger\Client\Model\InlineResponse200;
@@ -47,15 +48,16 @@ use Swagger\Client\Model\InlineResponse2011;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class CategoriesApiTest extends PHPUnit_Framework_TestCase
+class CategoriesApiTest extends \PHPUnit_Framework_TestCase
 {
 
+    private $config;
     /**
      * @var Api\CategoriesApi
      */
-    private $categoriesAPI;
+    private $resourceAPI;
 
-    private $idCategory = 99;
+    private $resourceId = 99;
 
     /**
      * Setup before running any test cases
@@ -85,17 +87,17 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ]
         );
 
-        $config = Configuration::getDefaultConfiguration()
+        $this->config = Configuration::getDefaultConfiguration()
             ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
 
-        $this->categoriesAPI = new CategoriesApi(
+        $this->resourceAPI = new CategoriesApi(
             new Client(),
-            $config
+            $this->config
         );
 
-        $response = $this->categoriesAPI->addCategories($category);
+        $response = $this->resourceAPI->addCategories($category);
 
-        $this->idCategory = $response->getData()[0]->getId();
+        $this->resourceId = $response->getData()[0]->getId();
     }
 
     /**
@@ -103,7 +105,6 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
      */
     public function tearDown()
     {
-
     }
 
     /**
@@ -171,9 +172,9 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ]
         );
 
-        $response = $this->categoriesAPI->addCategories($category);
-        $this->assertInstanceOf(InlineResponse2011::class, $response);
+        $response = $this->resourceAPI->addCategories($category);
 
+        $this->assertInstanceOf(InlineResponse2011::class, $response);
     }
 
     /**
@@ -210,7 +211,7 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
         );
         $category->setVisibility(['all']);
 
-        $this->categoriesAPI->addCategories($category);
+        $this->resourceAPI->addCategories($category);
     }
 
     /**
@@ -234,7 +235,7 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ]
         );
 
-        $this->categoriesAPI->addCategories($category);
+        $this->resourceAPI->addCategories($category);
     }
 
     /**
@@ -256,7 +257,7 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ]
         );
 
-        $response = $this->categoriesAPI->addCategories($category);
+        $response = $this->resourceAPI->addCategories($category);
 
         $this->assertInstanceOf(InlineResponse2011::class, $response);
     }
@@ -294,15 +295,9 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             $i18nUS
         ])->setActive(true)->setPosition(1);
 
-        $response = $this->categoriesAPI->addCategories($category);
+        $response = $this->resourceAPI->addCategories($category);
         $this->assertInstanceOf(InlineResponse2011::class, $response);
 
-    }
-
-    function prepareFileUpload($path = '/var/www/image.jpg') : SplFileObject
-    {
-        TestCase::assertFileExists($path);
-        return new SplFileObject($path, 'r+');
     }
 
     /**
@@ -337,18 +332,18 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ),
             $i18nUS
         ])->setActive(true);
-        $response = $this->categoriesAPI->addCategories($category, $this->prepareFileUpload());
+        $response = $this->resourceAPI->addCategories($category);
         $this->assertInstanceOf(InlineResponse2011::class, $response);
         /**
-         * @var $cateogryCreated Category
+         * @var $categoryCreated Category
          */
-        $cateogryCreated = $response->getData()[0];
-        $this->assertInstanceOf(Category::class, $cateogryCreated);
-        $this->assertTrue($cateogryCreated->getActive());
-        $this->assertEquals(99, $cateogryCreated->getPosition());
-        $this->assertCount(2, $cateogryCreated->getVisibility());
-        $this->assertInstanceOf(I18n::class, $cateogryCreated->getI18n()[0]);
-        $i18nPt = $cateogryCreated->getI18n()[0];
+        $categoryCreated = $response->getData()[0];
+        $this->assertInstanceOf(Category::class, $categoryCreated);
+        $this->assertTrue($categoryCreated->getActive());
+        $this->assertEquals(99, $categoryCreated->getPosition());
+        $this->assertCount(2, $categoryCreated->getVisibility());
+        $this->assertInstanceOf(I18n::class, $categoryCreated->getI18n()[0]);
+        $i18nPt = $categoryCreated->getI18n()[0];
         $this->assertEquals('pt_PT', $i18nPt->getLocale());
         $this->assertEquals('Category generated by integration test', $i18nPt->getName());
         $this->assertEquals('description', $i18nPt->getDescription());
@@ -364,7 +359,7 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(ApiException::class, null, 404);
 
-        $this->categoriesAPI->deleteCategoryById(-1);
+        $this->resourceAPI->deleteCategoryById(-1);
     }
 
     /**
@@ -377,9 +372,9 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
     {
         $this->setExpectedException(ApiException::class, null,404);
 
-        $this->categoriesAPI->deleteCategoryById($this->idCategory);
+        $this->resourceAPI->deleteCategoryById($this->resourceId);
 
-        $this->categoriesAPI->getCategoryById($this->idCategory);
+        $this->resourceAPI->getCategoryById($this->resourceId);
     }
 
     /**
@@ -390,9 +385,9 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
      */
     public function testGetCategories()
     {
-        $category = $this->categoriesAPI->getCategories();
+        $category = $this->resourceAPI->getCategories();
 
-        $this->assertInstanceOf( InlineResponse2001::class, $category);
+        $this->assertInstanceOf(InlineResponse2001::class, $category);
     }
 
     /**
@@ -403,7 +398,7 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
      */
     public function testGetCategoryById()
     {
-        $response = $this->categoriesAPI->getCategoryById($this->idCategory);
+        $response = $this->resourceAPI->getCategoryById($this->resourceId);
 
         $this->assertInstanceOf(InlineResponse2011::class,$response);
     }
@@ -445,11 +440,26 @@ class CategoriesApiTest extends PHPUnit_Framework_TestCase
             ]
         );
 
-        $this->categoriesAPI->updateCategoryById($this->idCategory, $category);
+        $this->resourceAPI->updateCategoryById($this->resourceId, $category);
 
-        $categoryResponse = $this->categoriesAPI->getCategoryById($this->idCategory);
+        $categoryResponse = $this->resourceAPI->getCategoryById($this->resourceId);
         $category = $categoryResponse->getData()[0];
         $this->assertEquals(555, $category->getPosition());
         $this->assertEquals(false, $category->getActive());
+    }
+
+    public function testUploadImagesBrand()
+    {
+        $this->resourceAPI->uploadImages(
+            $this->resourceId,
+            __DIR__ . '/image.jpg',
+            __DIR__ . '/image.jpg'
+        );
+
+        $categoryResponse = $this->resourceAPI->getCategoryById($this->resourceId);
+        
+        $imageSmall = $categoryResponse->getData()[0]->getImageSmall();
+
+        $this->assertNotEmpty($imageSmall);
     }
 }
