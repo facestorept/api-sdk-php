@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**getProducts**](ProductsApi.md#getProducts) | **GET** /products | 
 [**updateProductById**](ProductsApi.md#updateProductById) | **PUT** /products/{id}/ | 
 [**updateProductById_0**](ProductsApi.md#updateProductById_0) | **PATCH** /products/{id}/ | 
+[**uploadImages**](ProductsApi.md#uploadImages) | **POST** /products/{id}/uploads/ | Upload de images for product
 
 
 # **addProduct**
@@ -181,7 +182,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getProducts**
-> \Swagger\Client\Model\InlineResponse2006 getProducts($includes, $limit, $order_by)
+> \Swagger\Client\Model\InlineResponse2008 getProducts($includes, $limit, $order_by)
 
 
 
@@ -226,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\InlineResponse2006**](../Model/InlineResponse2006.md)
+[**\Swagger\Client\Model\InlineResponse2008**](../Model/InlineResponse2008.md)
 
 ### Authorization
 
@@ -347,6 +348,60 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json, multipart/form-data
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **uploadImages**
+> uploadImages($id, $files)
+
+Upload de images for product
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: APIKeyHeader
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('APIToken', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('APIToken', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\ProductsApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 789; // int | ID of product to update
+$files = "/path/to/file.txt"; // \SplFileObject | File for product
+
+try {
+    $apiInstance->uploadImages($id, $files);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductsApi->uploadImages: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**| ID of product to update |
+ **files** | **\SplFileObject**| File for product | [optional]
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[APIKeyHeader](../../README.md#APIKeyHeader)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
