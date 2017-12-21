@@ -83,15 +83,15 @@ Class | Method | HTTP request | Description
 *BrandsApi* | [**getBrandById**](docs/Api/BrandsApi.md#getbrandbyid) | **GET** /brands/{id}/ | 
 *BrandsApi* | [**getBrands**](docs/Api/BrandsApi.md#getbrands) | **GET** /brands | 
 *BrandsApi* | [**updateBrandsById**](docs/Api/BrandsApi.md#updatebrandsbyid) | **PUT** /brands/{id}/ | 
+*BrandsApi* | [**uploadImages**](docs/Api/BrandsApi.md#uploadimages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
 *CategoriesApi* | [**addCategories**](docs/Api/CategoriesApi.md#addcategories) | **POST** /categories | 
 *CategoriesApi* | [**deleteCategoryById**](docs/Api/CategoriesApi.md#deletecategorybyid) | **DELETE** /categories/{id}/ | 
 *CategoriesApi* | [**getCategories**](docs/Api/CategoriesApi.md#getcategories) | **GET** /categories | 
 *CategoriesApi* | [**getCategoryById**](docs/Api/CategoriesApi.md#getcategorybyid) | **GET** /categories/{id}/ | 
 *CategoriesApi* | [**updateCategoryById**](docs/Api/CategoriesApi.md#updatecategorybyid) | **PUT** /categories/{id}/ | 
+*CategoriesApi* | [**uploadImages**](docs/Api/CategoriesApi.md#uploadimages) | **POST** /categories/{id}/uploads/ | Upload de images for category
 *CustomersApi* | [**getCustomerById**](docs/Api/CustomersApi.md#getcustomerbyid) | **GET** /customers/{id}/ | 
 *CustomersApi* | [**getCustomers**](docs/Api/CustomersApi.md#getcustomers) | **GET** /customers | 
-*DefaultApi* | [**uploadImages**](docs/Api/DefaultApi.md#uploadimages) | **POST** /brands/{id}/uploads/ | Upload de images for brand
-*DefaultApi* | [**uploadImages_0**](docs/Api/DefaultApi.md#uploadimages_0) | **POST** /categories/{id}/uploads/ | Upload de images for category
 *OrdersApi* | [**getOrderById**](docs/Api/OrdersApi.md#getorderbyid) | **GET** /orders/{id}/ | 
 *OrdersApi* | [**getOrders**](docs/Api/OrdersApi.md#getorders) | **GET** /orders | 
 *PaymentsApi* | [**getPaymentById**](docs/Api/PaymentsApi.md#getpaymentbyid) | **GET** /payments/{id}/ | 
@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *ProductsApi* | [**getProducts**](docs/Api/ProductsApi.md#getproducts) | **GET** /products | 
 *ProductsApi* | [**updateProductById**](docs/Api/ProductsApi.md#updateproductbyid) | **PUT** /products/{id}/ | 
 *ProductsApi* | [**updateProductById_0**](docs/Api/ProductsApi.md#updateproductbyid_0) | **PATCH** /products/{id}/ | 
+*ProductsApi* | [**uploadImages**](docs/Api/ProductsApi.md#uploadimages) | **POST** /products/{id}/uploads/ | Upload de images for product
 *ProductsAttributesApi* | [**addProductsAttributes**](docs/Api/ProductsAttributesApi.md#addproductsattributes) | **POST** /attributes | 
 *ProductsAttributesApi* | [**deleteProductAttributeById**](docs/Api/ProductsAttributesApi.md#deleteproductattributebyid) | **DELETE** /attributes/{id}/ | 
 *ProductsAttributesApi* | [**getProductAttributeById**](docs/Api/ProductsAttributesApi.md#getproductattributebyid) | **GET** /attributes/{id}/ | 

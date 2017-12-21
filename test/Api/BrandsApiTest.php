@@ -28,10 +28,8 @@
 namespace Swagger\Client;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\UploadedFile;
 use PHPUnit\Framework\TestCase;
-use SplFileObject;
-use Swagger\Client\Api\DefaultApi;
+use PHPUnit_Framework_TestCase;
 use Swagger\Client\Model\Brand;
 use Swagger\Client\Model\I18n;
 use Swagger\Client\Model\InlineResponse200;
@@ -45,7 +43,7 @@ use Swagger\Client\Model\InlineResponse201;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class BrandsApiTest extends \PHPUnit_Framework_TestCase
+class BrandsApiTest extends PHPUnit_Framework_TestCase
 {
     private $config;
     /**
@@ -192,13 +190,6 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(InlineResponse201::class, $response);
     }
 
-    function prepareFileUpload($path = '/var/www/api-sdks/php/SwaggerClient-php/test/Api/image.jpg')
-    {
-        TestCase::assertFileExists($path);
-
-        return new \SplFileObject($path, 'r+');
-    }
-
     /**
      * Test case for addBrands
      *
@@ -339,9 +330,7 @@ class BrandsApiTest extends \PHPUnit_Framework_TestCase
 
     public function testUploadImagesBrand()
     {
-        $defaultAPI = new DefaultApi(new Client(), $this->config);
-
-        $defaultAPI->uploadImages(
+        $this->brandsAPI->uploadImages(
             $this->resourceId,
             __DIR__ . '/image.jpg',
             __DIR__ . '/image.jpg'
