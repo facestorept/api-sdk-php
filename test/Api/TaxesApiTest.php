@@ -31,10 +31,8 @@ use GuzzleHttp\Client;
 use Swagger\Client\Api\TaxesApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
-use Swagger\Client\Model\InlineResponse2002;
-use Swagger\Client\Model\InlineResponse2004;
+use Swagger\Client\Model\InlineResponse2006;
 use Swagger\Client\Model\InlineResponse2012;
-use Swagger\Client\Model\InlineResponse2014;
 use Swagger\Client\Model\Tax;
 use \Swagger\Client\ObjectSerializer;
 
@@ -179,7 +177,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
 
         $this->taxAPI->deleteTaxById($this->idTax);
 
-        $this->categoriesAPI->getCategoryById($this->idTax);
+        $this->taxAPI->getTaxById($this->idTax);
     }
 
     /**
@@ -205,7 +203,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
     {
         $taxs = $this->taxAPI->getTaxes();
 
-        $this->assertInstanceOf(InlineResponse2004::class,$taxs);
+        $this->assertInstanceOf(InlineResponse2006::class,$taxs);
     }
 
     /**
@@ -236,9 +234,6 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Test case for addTaxes
-     *
-     * .
-     *
      */
     public function testAddTaxesWithError()
     {
