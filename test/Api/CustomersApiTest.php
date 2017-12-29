@@ -27,8 +27,15 @@
 
 namespace Swagger\Client;
 
+use GuzzleHttp\Client;
+use Swagger\Client\Api\CustomersApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
+use Swagger\Client\Model\Customer;
+use Swagger\Client\Model\InlineResponse2002;
+use Swagger\Client\Model\InlineResponse2003;
+use Swagger\Client\Model\InlineResponse2004;
+use Swagger\Client\Model\InlineResponse2005;
 use \Swagger\Client\ObjectSerializer;
 
 /**
@@ -41,6 +48,10 @@ use \Swagger\Client\ObjectSerializer;
  */
 class CustomersApiTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @var Api\CustomersApi
+     */
+    private $customersAPI;
 
     /**
      * Setup before running any test cases
@@ -54,6 +65,13 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+        $config = Configuration::getDefaultConfiguration()
+            ->setApiKey('APIToken','083e7be2ca947a899db97d00db4f512db6a85551');
+
+        $this->customersAPI = new CustomersApi(
+            new Client(),
+            $config
+        );
     }
 
     /**
@@ -71,22 +89,40 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for getCustomerById
+     * Test case for testGetCustomerByIdWithResourceNotFound
      *
      * .
      *
      */
-    public function testGetCustomerById()
+    public function testGetCustomerByIdWithResourceNotFound()
     {
+        $this->setExpectedException(ApiException::class, null,404);
+
+        $this->customersAPI->getCustomerById(-1);
+    }
+
+    /**
+     * Test case for testGetCustomerByIdWithSuccess
+     *
+     * .
+     *
+     */
+    public function testGetCustomerByIdWithSuccess()
+    {
+        $customers = $this->customersAPI->getCustomer();
+
+        $customer = $this->customersAPI->getCustomerById($customers->getData()[0]->getId());
+
+        $this->assertInstanceOf(InlineResponse2005::class,$customer);
     }
 
     /**
      * Test case for getCustomers
-     *
-     * .
-     *
      */
     public function testGetCustomers()
     {
+        $customers = $this->customersAPI->getCustomer();
+
+        $this->assertInstanceOf(InlineResponse2004::class,$customers);
     }
 }
