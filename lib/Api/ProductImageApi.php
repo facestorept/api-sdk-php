@@ -1,6 +1,6 @@
 <?php
 /**
- * DefaultApi
+ * ProductImageApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * DefaultApi Class Doc Comment
+ * ProductImageApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DefaultApi
+class ProductImageApi
 {
     /**
      * @var ClientInterface
@@ -85,36 +85,30 @@ class DefaultApi
     /**
      * Operation deleteProductImageById
      *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
+     * @param  int $id ID of image to delete (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function deleteProductImageById($id, $id_image)
+    public function deleteProductImageById($id)
     {
-        $this->deleteProductImageByIdWithHttpInfo($id, $id_image);
+        $this->deleteProductImageByIdWithHttpInfo($id);
     }
 
     /**
      * Operation deleteProductImageByIdWithHttpInfo
      *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
+     * @param  int $id ID of image to delete (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProductImageByIdWithHttpInfo($id, $id_image)
+    public function deleteProductImageByIdWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id, $id_image);
+        $request = $this->deleteProductImageByIdRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -164,17 +158,16 @@ class DefaultApi
     /**
      * Operation deleteProductImageByIdAsync
      *
-     * Delete image for products
+     * 
      *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
+     * @param  int $id ID of image to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductImageByIdAsync($id, $id_image)
+    public function deleteProductImageByIdAsync($id)
     {
-        return $this->deleteProductImageByIdAsyncWithHttpInfo($id, $id_image)
+        return $this->deleteProductImageByIdAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -185,18 +178,17 @@ class DefaultApi
     /**
      * Operation deleteProductImageByIdAsyncWithHttpInfo
      *
-     * Delete image for products
+     * 
      *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
+     * @param  int $id ID of image to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductImageByIdAsyncWithHttpInfo($id, $id_image)
+    public function deleteProductImageByIdAsyncWithHttpInfo($id)
     {
         $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id, $id_image);
+        $request = $this->deleteProductImageByIdRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -224,24 +216,17 @@ class DefaultApi
     /**
      * Create request for operation 'deleteProductImageById'
      *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
+     * @param  int $id ID of image to delete (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteProductImageByIdRequest($id, $id_image)
+    protected function deleteProductImageByIdRequest($id)
     {
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $id when calling deleteProductImageById'
-            );
-        }
-        // verify the required parameter 'id_image' is set
-        if ($id_image === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id_image when calling deleteProductImageById'
             );
         }
 
@@ -258,14 +243,6 @@ class DefaultApi
             $resourcePath = str_replace(
                 '{' . 'id' . '}',
                 ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id_image !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id_image' . '}',
-                ObjectSerializer::toPathValue($id_image),
                 $resourcePath
             );
         }

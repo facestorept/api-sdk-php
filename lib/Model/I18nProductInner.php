@@ -1,6 +1,7 @@
 <?php
 /**
- * Configuration
+ * I18nProductInner
+ *
  * PHP version 5
  *
  * @category Class
@@ -26,404 +27,438 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client;
+namespace Swagger\Client\Model;
+
+use \ArrayAccess;
+use \Swagger\Client\ObjectSerializer;
 
 /**
- * Configuration Class Doc Comment
- * PHP version 5
+ * I18nProductInner Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Configuration
+class I18nProductInner implements ModelInterface, ArrayAccess
 {
-    private static $defaultConfiguration;
+    const DISCRIMINATOR = null;
 
     /**
-     * Associate array to store API key(s)
+      * The original name of the model.
+      *
+      * @var string
+      */
+    protected static $swaggerModelName = 'i18nProduct_inner';
+
+    /**
+      * Array of property to type mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $swaggerTypes = [
+        'locale' => 'string',
+        'name' => 'string',
+        'synopsis' => 'string',
+        'description' => 'string',
+        'characteristics' => 'string',
+        'seo' => '\Swagger\Client\Model\I18nProductInnerSeo'
+    ];
+
+    /**
+      * Array of property to format mappings. Used for (de)serialization
+      *
+      * @var string[]
+      */
+    protected static $swaggerFormats = [
+        'locale' => null,
+        'name' => null,
+        'synopsis' => null,
+        'description' => null,
+        'characteristics' => null,
+        'seo' => null
+    ];
+
+    /**
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function swaggerTypes()
+    {
+        return self::$swaggerTypes;
+    }
+
+    /**
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @return array
+     */
+    public static function swaggerFormats()
+    {
+        return self::$swaggerFormats;
+    }
+
+    /**
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
      *
      * @var string[]
      */
-    protected $apiKeys = [];
+    protected static $attributeMap = [
+        'locale' => 'locale',
+        'name' => 'name',
+        'synopsis' => 'synopsis',
+        'description' => 'description',
+        'characteristics' => 'characteristics',
+        'seo' => 'seo'
+    ];
 
     /**
-     * Associate array to store API prefix (e.g. Bearer)
+     * Array of attributes to setter functions (for deserialization of responses)
      *
      * @var string[]
      */
-    protected $apiKeyPrefixes = [];
+    protected static $setters = [
+        'locale' => 'setLocale',
+        'name' => 'setName',
+        'synopsis' => 'setSynopsis',
+        'description' => 'setDescription',
+        'characteristics' => 'setCharacteristics',
+        'seo' => 'setSeo'
+    ];
 
     /**
-     * Access token for OAuth
+     * Array of attributes to getter functions (for serialization of requests)
      *
-     * @var string
+     * @var string[]
      */
-    protected $accessToken = '';
+    protected static $getters = [
+        'locale' => 'getLocale',
+        'name' => 'getName',
+        'synopsis' => 'getSynopsis',
+        'description' => 'getDescription',
+        'characteristics' => 'getCharacteristics',
+        'seo' => 'getSeo'
+    ];
 
     /**
-     * Username for HTTP basic authentication
+     * Array of attributes where the key is the local name,
+     * and the value is the original name
      *
-     * @var string
+     * @return array
      */
-    protected $username = '';
+    public static function attributeMap()
+    {
+        return self::$attributeMap;
+    }
 
     /**
-     * Password for HTTP basic authentication
+     * Array of attributes to setter functions (for deserialization of responses)
      *
-     * @var string
+     * @return array
      */
-    protected $password = '';
+    public static function setters()
+    {
+        return self::$setters;
+    }
 
     /**
-     * The host
+     * Array of attributes to getter functions (for serialization of requests)
      *
-     * @var string
+     * @return array
      */
-    protected $host = 'http://api.facestore.local/v1';
+    public static function getters()
+    {
+        return self::$getters;
+    }
 
     /**
-     * User agent of the HTTP request, set to "PHP-Swagger" by default
+     * The original name of the model.
      *
-     * @var string
+     * @return string
      */
-    protected $userAgent = 'Swagger-Codegen/1.0.0/php';
+    public function getModelName()
+    {
+        return self::$swaggerModelName;
+    }
+
+    
+
+    
 
     /**
-     * Debug switch (default set to false)
+     * Associative array for storing property values
      *
-     * @var bool
+     * @var mixed[]
      */
-    protected $debug = false;
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
-    protected $debugFile = 'php://output';
-
-    /**
-     * Debug file location (log to STDOUT by default)
-     *
-     * @var string
-     */
-    protected $tempFolderPath;
+    protected $container = [];
 
     /**
      * Constructor
+     *
+     * @param mixed[] $data Associated array of property values
+     *                      initializing the model
      */
-    public function __construct()
+    public function __construct(array $data = null)
     {
-        $this->tempFolderPath = sys_get_temp_dir();
+        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
+        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['synopsis'] = isset($data['synopsis']) ? $data['synopsis'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['characteristics'] = isset($data['characteristics']) ? $data['characteristics'] : null;
+        $this->container['seo'] = isset($data['seo']) ? $data['seo'] : null;
     }
 
     /**
-     * Sets API key
+     * Show all the invalid properties with reasons.
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $key              API key or token
-     *
-     * @return $this
+     * @return array invalid properties with reasons
      */
-    public function setApiKey($apiKeyIdentifier, $key)
+    public function listInvalidProperties()
     {
-        $this->apiKeys[$apiKeyIdentifier] = $key;
-        return $this;
+        $invalidProperties = [];
+
+        if ($this->container['locale'] === null) {
+            $invalidProperties[] = "'locale' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        return $invalidProperties;
     }
 
     /**
-     * Gets API key
+     * Validate all the properties in the model
+     * return true if all passed
      *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     *
-     * @return string API key or token
+     * @return bool True if all properties are valid
      */
-    public function getApiKey($apiKeyIdentifier)
+    public function valid()
     {
-        return isset($this->apiKeys[$apiKeyIdentifier]) ? $this->apiKeys[$apiKeyIdentifier] : null;
+
+        if ($this->container['locale'] === null) {
+            return false;
+        }
+        if ($this->container['name'] === null) {
+            return false;
+        }
+        return true;
     }
 
-    /**
-     * Sets the prefix for API key (e.g. Bearer)
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
-     * @param string $prefix           API key prefix, e.g. Bearer
-     *
-     * @return $this
-     */
-    public function setApiKeyPrefix($apiKeyIdentifier, $prefix)
-    {
-        $this->apiKeyPrefixes[$apiKeyIdentifier] = $prefix;
-        return $this;
-    }
 
     /**
-     * Gets API key prefix
-     *
-     * @param string $apiKeyIdentifier API key identifier (authentication scheme)
+     * Gets locale
      *
      * @return string
      */
-    public function getApiKeyPrefix($apiKeyIdentifier)
+    public function getLocale()
     {
-        return isset($this->apiKeyPrefixes[$apiKeyIdentifier]) ? $this->apiKeyPrefixes[$apiKeyIdentifier] : null;
+        return $this->container['locale'];
     }
 
     /**
-     * Sets the access token for OAuth
+     * Sets locale
      *
-     * @param string $accessToken Token for OAuth
+     * @param string $locale locale
      *
      * @return $this
      */
-    public function setAccessToken($accessToken)
+    public function setLocale($locale)
     {
-        $this->accessToken = $accessToken;
+        $this->container['locale'] = $locale;
+
         return $this;
     }
 
     /**
-     * Gets the access token for OAuth
-     *
-     * @return string Access token for OAuth
-     */
-    public function getAccessToken()
-    {
-        return $this->accessToken;
-    }
-
-    /**
-     * Sets the username for HTTP basic authentication
-     *
-     * @param string $username Username for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setUsername($username)
-    {
-        $this->username = $username;
-        return $this;
-    }
-
-    /**
-     * Gets the username for HTTP basic authentication
-     *
-     * @return string Username for HTTP basic authentication
-     */
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
-    /**
-     * Sets the password for HTTP basic authentication
-     *
-     * @param string $password Password for HTTP basic authentication
-     *
-     * @return $this
-     */
-    public function setPassword($password)
-    {
-        $this->password = $password;
-        return $this;
-    }
-
-    /**
-     * Gets the password for HTTP basic authentication
-     *
-     * @return string Password for HTTP basic authentication
-     */
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Sets the host
-     *
-     * @param string $host Host
-     *
-     * @return $this
-     */
-    public function setHost($host)
-    {
-        $this->host = $host;
-        return $this;
-    }
-
-    /**
-     * Gets the host
-     *
-     * @return string Host
-     */
-    public function getHost()
-    {
-        return $this->host;
-    }
-
-    /**
-     * Sets the user agent of the api client
-     *
-     * @param string $userAgent the user agent of the api client
-     *
-     * @throws \InvalidArgumentException
-     * @return $this
-     */
-    public function setUserAgent($userAgent)
-    {
-        if (!is_string($userAgent)) {
-            throw new \InvalidArgumentException('User-agent must be a string.');
-        }
-
-        $this->userAgent = $userAgent;
-        return $this;
-    }
-
-    /**
-     * Gets the user agent of the api client
-     *
-     * @return string user agent
-     */
-    public function getUserAgent()
-    {
-        return $this->userAgent;
-    }
-
-    /**
-     * Sets debug flag
-     *
-     * @param bool $debug Debug flag
-     *
-     * @return $this
-     */
-    public function setDebug($debug)
-    {
-        $this->debug = $debug;
-        return $this;
-    }
-
-    /**
-     * Gets the debug flag
-     *
-     * @return bool
-     */
-    public function getDebug()
-    {
-        return $this->debug;
-    }
-
-    /**
-     * Sets the debug file
-     *
-     * @param string $debugFile Debug file
-     *
-     * @return $this
-     */
-    public function setDebugFile($debugFile)
-    {
-        $this->debugFile = $debugFile;
-        return $this;
-    }
-
-    /**
-     * Gets the debug file
+     * Gets name
      *
      * @return string
      */
-    public function getDebugFile()
+    public function getName()
     {
-        return $this->debugFile;
+        return $this->container['name'];
     }
 
     /**
-     * Sets the temp folder path
+     * Sets name
      *
-     * @param string $tempFolderPath Temp folder path
+     * @param string $name name
      *
      * @return $this
      */
-    public function setTempFolderPath($tempFolderPath)
+    public function setName($name)
     {
-        $this->tempFolderPath = $tempFolderPath;
+        $this->container['name'] = $name;
+
         return $this;
     }
 
     /**
-     * Gets the temp folder path
+     * Gets synopsis
      *
-     * @return string Temp folder path
+     * @return string
      */
-    public function getTempFolderPath()
+    public function getSynopsis()
     {
-        return $this->tempFolderPath;
+        return $this->container['synopsis'];
     }
 
     /**
-     * Gets the default configuration instance
+     * Sets synopsis
      *
-     * @return Configuration
+     * @param string $synopsis synopsis
+     *
+     * @return $this
      */
-    public static function getDefaultConfiguration()
+    public function setSynopsis($synopsis)
     {
-        if (self::$defaultConfiguration === null) {
-            self::$defaultConfiguration = new Configuration();
-        }
+        $this->container['synopsis'] = $synopsis;
 
-        return self::$defaultConfiguration;
+        return $this;
     }
 
     /**
-     * Sets the detault configuration instance
+     * Gets description
      *
-     * @param Configuration $config An instance of the Configuration Object
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string $description description
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets characteristics
+     *
+     * @return string
+     */
+    public function getCharacteristics()
+    {
+        return $this->container['characteristics'];
+    }
+
+    /**
+     * Sets characteristics
+     *
+     * @param string $characteristics characteristics
+     *
+     * @return $this
+     */
+    public function setCharacteristics($characteristics)
+    {
+        $this->container['characteristics'] = $characteristics;
+
+        return $this;
+    }
+
+    /**
+     * Gets seo
+     *
+     * @return \Swagger\Client\Model\I18nProductInnerSeo
+     */
+    public function getSeo()
+    {
+        return $this->container['seo'];
+    }
+
+    /**
+     * Sets seo
+     *
+     * @param \Swagger\Client\Model\I18nProductInnerSeo $seo seo
+     *
+     * @return $this
+     */
+    public function setSeo($seo)
+    {
+        $this->container['seo'] = $seo;
+
+        return $this;
+    }
+    /**
+     * Returns true if offset exists. False otherwise.
+     *
+     * @param integer $offset Offset
+     *
+     * @return boolean
+     */
+    public function offsetExists($offset)
+    {
+        return isset($this->container[$offset]);
+    }
+
+    /**
+     * Gets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return mixed
+     */
+    public function offsetGet($offset)
+    {
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+    }
+
+    /**
+     * Sets value based on offset.
+     *
+     * @param integer $offset Offset
+     * @param mixed   $value  Value to be set
      *
      * @return void
      */
-    public static function setDefaultConfiguration(Configuration $config)
+    public function offsetSet($offset, $value)
     {
-        self::$defaultConfiguration = $config;
-    }
-
-    /**
-     * Gets the essential information for debugging
-     *
-     * @return string The report for debugging
-     */
-    public static function toDebugReport()
-    {
-        $report  = 'PHP SDK (Swagger\Client) Debug Report:' . PHP_EOL;
-        $report .= '    OS: ' . php_uname() . PHP_EOL;
-        $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    OpenAPI Spec Version: 0.1.4' . PHP_EOL;
-        $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
-
-        return $report;
-    }
-
-    /**
-     * Get API key (with prefix if set)
-     *
-     * @param  string $apiKeyIdentifier name of apikey
-     *
-     * @return string API key with the prefix
-     */
-    public function getApiKeyWithPrefix($apiKeyIdentifier)
-    {
-        $prefix = $this->getApiKeyPrefix($apiKeyIdentifier);
-        $apiKey = $this->getApiKey($apiKeyIdentifier);
-
-        if ($apiKey === null) {
-            return null;
-        }
-
-        if ($prefix === null) {
-            $keyWithPrefix = $apiKey;
+        if (is_null($offset)) {
+            $this->container[] = $value;
         } else {
-            $keyWithPrefix = $prefix . ' ' . $apiKey;
+            $this->container[$offset] = $value;
+        }
+    }
+
+    /**
+     * Unsets offset.
+     *
+     * @param integer $offset Offset
+     *
+     * @return void
+     */
+    public function offsetUnset($offset)
+    {
+        unset($this->container[$offset]);
+    }
+
+    /**
+     * Gets the string presentation of the object
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
+            return json_encode(
+                ObjectSerializer::sanitizeForSerialization($this),
+                JSON_PRETTY_PRINT
+            );
         }
 
-        return $keyWithPrefix;
+        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
     }
 }
+
+

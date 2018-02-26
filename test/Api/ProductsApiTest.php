@@ -27,9 +27,12 @@
 
 namespace Swagger\Client;
 
-use \Swagger\Client\Configuration;
-use \Swagger\Client\ApiException;
-use \Swagger\Client\ObjectSerializer;
+use GuzzleHttp\Client;
+use Swagger\Client\Api\ProductsApi;
+use Swagger\Client\Model\InlineResponse2008;
+use Swagger\Client\Model\InlineResponse2014;
+use Swagger\Client\Model\InlineResponse2015;
+use Swagger\Client\Model\Product;
 
 /**
  * ProductsApiTest Class Doc Comment
@@ -41,12 +44,66 @@ use \Swagger\Client\ObjectSerializer;
  */
 class ProductsApiTest extends \PHPUnit_Framework_TestCase
 {
+    private static $config;
+    /**
+     * @var Api\ProductsApi
+     */
+    private static $resourceAPI;
+
+    private static $resourceId = 99;
+
 
     /**
      * Setup before running any test cases
      */
     public static function setUpBeforeClass()
     {
+        $product = new Product();
+        $product->setSku('Foobar Sku128');
+        $product->setManual('Foobar Manual');
+        $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
+        $product->setVisibility([Product::VISIBILITY_MOBILE]);
+        $product->setInHomepage(true);
+        $product->setIsPrefered(true);
+        $product->setIsDigital(true);
+        $product->setIsNew(true);
+        $product->setActive(true);
+        $product->setBrand(1);
+        $product->setPosition(666);
+        $product->setIdTaxesGroup(1);
+
+        $productCategories = new Model\ProductCategories();
+        $productCategories->setPosition(1);
+        $productCategories->setId(1);
+
+
+        $i18n = new Model\I18nProduct();
+        $i18n->setLocale('pt_PT');
+        $i18n->setCharacteristics('Foobar Characteristics');
+        $i18n->setDescription('Foobar Description');
+        $i18n->setName('Foobar name');
+        $i18n->setSynopsis('Foobar synopsis');
+
+//        $seo=new Model\I18nProductSeo();
+//        $seo->setTitle('Foobar title');
+//        $seo->setKeywords('Foobar keywords');
+//        $seo->setDescription('Foobar Description');
+//
+//        $i18n->setSeo($seo);
+        $product->setI18n([$i18n]);
+        $product->setCategories([$productCategories]);
+
+        self::$config = Configuration::getDefaultConfiguration()
+            ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
+
+        self::$resourceAPI = new ProductsApi(
+            new Client(),
+            self::$config
+        );
+
+       $response = self::$resourceAPI->addProduct($product);
+
+       self::$resourceId = $response->getData()[0]->getId();
     }
 
     /**
@@ -54,6 +111,8 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
+
+
     }
 
     /**
@@ -68,6 +127,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function tearDownAfterClass()
     {
+
     }
 
     /**
@@ -78,16 +138,63 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddProduct()
     {
+        $product = new Product();
+        $product->setSku('Foobar Sku128');
+        $product->setManual('Foobar Manual');
+        $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
+        $product->setVisibility([Product::VISIBILITY_MOBILE]);
+        $product->setInHomepage(true);
+        $product->setIsPrefered(true);
+        $product->setIsDigital(true);
+        $product->setIsNew(true);
+        $product->setActive(true);
+        $product->setBrand(2);
+        $product->setPosition(555);
+        $product->setIdTaxesGroup(1);
+
+        $productCategories = new Model\ProductCategories();
+        $productCategories->setPosition(1);
+        $productCategories->setId(1);
+
+        $i18n = new Model\I18nProduct();
+        $i18n->setLocale('pt_PT');
+        $i18n->setCharacteristics('Foobar Characteristics');
+        $i18n->setDescription('Foobar Description');
+        $i18n->setName('Foobar name');
+        $i18n->setSynopsis('Foobar synopsis');
+
+//        $seo=new Model\I18nProductSeo();
+//        $seo->setTitle('Foobar title');
+//        $seo->setKeywords('Foobar keywords');
+//        $seo->setDescription('Foobar Description');
+//
+//        $i18n->setSeo($seo);
+        $product->setI18n([$i18n]);
+        $product->setCategories([$productCategories]);
+
+        $resourceAPI = new ProductsApi(
+            new Client(),
+            self::$config
+        );
+        $response = $resourceAPI->addProduct($product);
+
+        $this->assertInstanceOf(InlineResponse2014::class,$response);
     }
 
     /**
      * Test case for deleteProductById
+     *
      *
      * .
      *
      */
     public function testDeleteProductById()
     {
+        $this->setExpectedException(ApiException::class, null,404);
+
+        self::$resourceAPI->deleteProductById(self::$resourceId);
+
+        self::$resourceAPI->deleteProductById(self::$resourceId);
     }
 
     /**
@@ -98,6 +205,9 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetProductById()
     {
+        $product = self::$resourceAPI->getProductById(self::$resourceId);
+
+        $this->assertInstanceOf(InlineResponse2014::class, $product);
     }
 
     /**
@@ -108,6 +218,98 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetProducts()
     {
+        $product = self::$resourceAPI->getProducts();
+
+        $this->assertInstanceOf(InlineResponse2008::class, $product);
+    }
+
+    /**
+     * Test case for UploadImagesProducts
+     *
+     * .
+     *
+     */
+    public function testUploadImagesProducts()
+    {
+        $image = self::$resourceAPI->uploadProductsImages(
+            self::$resourceId,
+            __DIR__ . '/image.jpg'
+        );
+
+        $this->assertInstanceOf(InlineResponse2015::class, $image);
+    }
+
+    /**
+     * Test case for DeleteImagesProductsByIdWithSuccess
+     *
+     * .
+     *
+     */
+    public function testDeleteImagesProductsByIdWithSuccess()
+    {
+        $product = $this->createDataProductForTest();
+        $resourceAPI = new ProductsApi(
+            new Client(),
+            self::$config
+        );
+
+        $image = self::$resourceAPI->uploadProductsImages(
+            self::$resourceId,
+            __DIR__ . '/image.jpg'
+        );
+
+        $response = $resourceAPI->addProduct($product);
+
+        self::$resourceAPI->deleteProductImageById($response->getData()[0]->getId(), $image->getData()[0]->getId());
+    }
+
+    /**
+     * Test case for DeleteImagesNotAssociatedToProduct
+     *
+     * .
+     *
+     */
+    public function testDeleteImagesNotAssociatedToProduct()
+    {
+        $this->setExpectedException(ApiException::class, null,404);
+
+        $product = $this->createDataProductForTest();
+        $resourceAPI = new ProductsApi(
+            new Client(),
+            self::$config
+        );
+
+        $response = $resourceAPI->addProduct($product);
+
+        self::$resourceAPI->deleteProductImageById($response->getData()[0]->getId(), 1);
+    }
+
+    /**
+     * Test case for DeleteImagesNotAssociatedToProduct
+     *
+     * .
+     *
+     */
+    public function testDeleteProductNotAssociatedToImage()
+    {
+        $this->setExpectedException(ApiException::class, null,404);
+
+        $image = self::$resourceAPI->uploadProductsImages(
+            self::$resourceId,
+            __DIR__ . '/image.jpg'
+        );
+        self::$resourceAPI->deleteProductImageById(1, $image->getData()[0]->getId());
+    }
+
+    /**
+     * Test case for DeleteProductAndAllImagesOfThem
+     *
+     * .
+     *
+     */
+    public function testDeleteProductAndAllImagesOfThem()
+    {
+
     }
 
     /**
@@ -116,17 +318,95 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      * .
      *
      */
-    public function testUpdateProductById()
+    public function testUpdateProductByIdWithSuccess()
     {
+        $product = new Product();
+        $product->setSku('Foobar Sku128');
+        $product->setManual('Foobar Manual');
+        $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
+        $product->setVisibility([Product::VISIBILITY_MOBILE]);
+        $product->setInHomepage(true);
+        $product->setIsPrefered(true);
+        $product->setIsDigital(true);
+        $product->setIsNew(true);
+        $product->setActive(false);
+        $product->setBrand(2);
+        $product->setPosition(666);
+        $product->setIdTaxesGroup(1);
+
+        $productCategories = new Model\ProductCategories();
+        $productCategories->setPosition(1);
+        $productCategories->setId(1);
+
+
+        $i18n = new Model\I18nProduct();
+        $i18n->setLocale('pt_PT');
+        $i18n->setCharacteristics('Foobar Characteristics');
+        $i18n->setDescription('Foobar Description');
+        $i18n->setName('Foobar name');
+        $i18n->setSynopsis('Foobar synopsis');
+
+//        $seo=new Model\I18nProductSeo();
+//        $seo->setTitle('Foobar title');
+//        $seo->setKeywords('Foobar keywords');
+//        $seo->setDescription('Foobar Description');
+//
+//        $i18n->setSeo($seo);
+        $product->setI18n([$i18n]);
+        $product->setCategories([$productCategories]);
+
+        self::$resourceAPI->updateProductById( self::$resourceId, $product);
+
+        $productResponse = self::$resourceAPI->getProductById( self::$resourceId);
+        $product = $productResponse->getData()[0];
+        $this->assertEquals(666, $product->getPosition());
+        $this->assertEquals(false, $product->getActive());
     }
 
     /**
-     * Test case for updateProductById_0
+     * createDataProductForTest
      *
      * .
      *
      */
-    public function testUpdateProductById0()
+    public function createDataProductForTest(): Product
     {
+        $product = new Product();
+        $product->setSku('Foobar Sku128');
+        $product->setManual('Foobar Manual');
+        $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
+        $product->setVisibility([Product::VISIBILITY_MOBILE]);
+        $product->setInHomepage(true);
+        $product->setIsPrefered(true);
+        $product->setIsDigital(true);
+        $product->setIsNew(true);
+        $product->setActive(true);
+        $product->setBrand(2);
+        $product->setPosition(555);
+        $product->setIdTaxesGroup(1);
+
+        $productCategories = new Model\ProductCategories();
+        $productCategories->setPosition(1);
+        $productCategories->setId(1);
+
+        $i18n = new Model\I18nProduct();
+        $i18n->setLocale('pt_PT');
+        $i18n->setCharacteristics('Foobar Characteristics');
+        $i18n->setDescription('Foobar Description');
+        $i18n->setName('Foobar name');
+        $i18n->setSynopsis('Foobar synopsis');
+
+//        $seo=new Model\I18nProductSeo();
+//        $seo->setTitle('Foobar title');
+//        $seo->setKeywords('Foobar keywords');
+//        $seo->setDescription('Foobar Description');
+//
+//        $i18n->setSeo($seo);
+        $product->setI18n([$i18n]);
+        $product->setCategories([$productCategories]);
+
+        return $product;
     }
+
+
 }
