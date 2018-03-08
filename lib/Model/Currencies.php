@@ -1,6 +1,6 @@
 <?php
 /**
- * InlineResponse2009
+ * Currencies
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * InlineResponse2009 Class Doc Comment
+ * Currencies Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class InlineResponse2009 implements ModelInterface, ArrayAccess
+class Currencies implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'inline_response_200_9';
+    protected static $swaggerModelName = 'Currencies';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Currencies[]',
-        'meta' => '\Swagger\Client\Model\MetaPartialResponse'
+        'code' => 'string',
+        'iso' => 'string',
+        'symbol' => 'string'
     ];
 
     /**
@@ -67,8 +68,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'data' => null,
-        'meta' => null
+        'code' => null,
+        'iso' => null,
+        'symbol' => null
     ];
 
     /**
@@ -98,8 +100,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'data' => 'data',
-        'meta' => 'meta'
+        'code' => 'code',
+        'iso' => 'iso',
+        'symbol' => 'symbol'
     ];
 
     /**
@@ -108,8 +111,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'data' => 'setData',
-        'meta' => 'setMeta'
+        'code' => 'setCode',
+        'iso' => 'setIso',
+        'symbol' => 'setSymbol'
     ];
 
     /**
@@ -118,8 +122,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'data' => 'getData',
-        'meta' => 'getMeta'
+        'code' => 'getCode',
+        'iso' => 'getIso',
+        'symbol' => 'getSymbol'
     ];
 
     /**
@@ -182,8 +187,9 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
-        $this->container['meta'] = isset($data['meta']) ? $data['meta'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['iso'] = isset($data['iso']) ? $data['iso'] : null;
+        $this->container['symbol'] = isset($data['symbol']) ? $data['symbol'] : null;
     }
 
     /**
@@ -212,49 +218,73 @@ class InlineResponse2009 implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets data
+     * Gets code
      *
-     * @return \Swagger\Client\Model\Currencies[]
+     * @return string
      */
-    public function getData()
+    public function getCode()
     {
-        return $this->container['data'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets data
+     * Sets code
      *
-     * @param \Swagger\Client\Model\Currencies[] $data data
+     * @param string $code code
      *
      * @return $this
      */
-    public function setData($data)
+    public function setCode($code)
     {
-        $this->container['data'] = $data;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets meta
+     * Gets iso
      *
-     * @return \Swagger\Client\Model\MetaPartialResponse
+     * @return string
      */
-    public function getMeta()
+    public function getIso()
     {
-        return $this->container['meta'];
+        return $this->container['iso'];
     }
 
     /**
-     * Sets meta
+     * Sets iso
      *
-     * @param \Swagger\Client\Model\MetaPartialResponse $meta meta
+     * @param string $iso iso
      *
      * @return $this
      */
-    public function setMeta($meta)
+    public function setIso($iso)
     {
-        $this->container['meta'] = $meta;
+        $this->container['iso'] = $iso;
+
+        return $this;
+    }
+
+    /**
+     * Gets symbol
+     *
+     * @return string
+     */
+    public function getSymbol()
+    {
+        return $this->container['symbol'];
+    }
+
+    /**
+     * Sets symbol
+     *
+     * @param string $symbol symbol
+     *
+     * @return $this
+     */
+    public function setSymbol($symbol)
+    {
+        $this->container['symbol'] = $symbol;
 
         return $this;
     }
