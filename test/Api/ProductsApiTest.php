@@ -27,6 +27,8 @@
 
 namespace Swagger\Client;
 
+use DateTime;
+use DateTimeZone;
 use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
 use Swagger\Client\Model\InlineResponse2008;
@@ -59,7 +61,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $product = new Product();
-        $product->setSku('Foobar Sku128');
+        $product->setSku('Sku1248wwqndq2');
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -68,14 +70,62 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(1);
-        $product->setPosition(666);
+        $product->setBrand(2);
+        $product->setPosition(555);
         $product->setIdTaxesGroup(1);
+
+        $prices = new Model\ProductPrices();
+        $prices->setPrice(20);
+
+        $dateTimeBeginDiscount = new DateTime();
+        $dateTimeBeginDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndDiscount = new DateTime();
+        $dateTimeEndDiscount->format(DateTime::ATOM);
+        $dateTimeEndDiscount->modify('+1 month');
+
+        $pricesDiscount = new Model\ProductPricesDiscounts();
+        $pricesDiscount->setDiscountPercentage(50);
+        $pricesDiscount->setDiscountPrice(10);
+        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
+        $pricesDiscount->setEndAt($dateTimeEndDiscount);
+        $pricesDiscount->setActive(true);
+        $prices->setDiscounts([$pricesDiscount]);
+
+        $variants = new Model\ProductVariants();
+        $variants->setSku('Varitgan2dt Sddqmkue');
+        $variants->setQuantity(10);
+
+        $pricesVariants = new Model\ProductPrices();
+        $pricesVariants->setPrice(20);
+
+        $dateTimeBeginVariantDiscount = new DateTime();
+        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndVariantDiscount = new DateTime();
+        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
+        $dateTimeEndVariantDiscount->modify('+1 month');
+
+        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
+        $pricesVariantDiscount->setDiscountPercentage(50);
+        $pricesVariantDiscount->setDiscountPrice(10);
+        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
+        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
+        $pricesVariantDiscount->setActive(true);
+        $prices->setDiscounts([$pricesVariantDiscount]);
+
+        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
+
+        $attributes = new Model\ProductAttributes();
+        $attributes->setId(1);
+        $attributes->setIdOption(19);
+
+        $variants->setPrices($pricesVariants);
+        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
         $productCategories->setId(1);
-
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -90,8 +140,11 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $seo->setDescription('Foobar Description');
 //
 //        $i18n->setSeo($seo);
-        $product->setI18n([$i18n]);
+
+        $product->setPrices($prices);
+        $product->setVariants([$variants]);
         $product->setCategories([$productCategories]);
+        $product->setI18n([$i18n]);
 
         self::$config = Configuration::getDefaultConfiguration()
             ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
@@ -136,10 +189,10 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      * .
      *
      */
-    public function testAddProduct()
+        public function testAddProduct()
     {
         $product = new Product();
-        $product->setSku('Foobar Sku128');
+        $product->setSku('Foobar Sku1oqrseqdd2d8');
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -151,6 +204,55 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setBrand(2);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
+
+        $prices = new Model\ProductPrices();
+        $prices->setPrice(20);
+
+        $dateTimeBeginDiscount = new DateTime();
+        $dateTimeBeginDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndDiscount = new DateTime();
+        $dateTimeEndDiscount->format(DateTime::ATOM);
+        $dateTimeEndDiscount->modify('+1 month');
+
+        $pricesDiscount = new Model\ProductPricesDiscounts();
+        $pricesDiscount->setDiscountPercentage(50);
+        $pricesDiscount->setDiscountPrice(10);
+        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
+        $pricesDiscount->setEndAt($dateTimeEndDiscount);
+        $pricesDiscount->setActive(true);
+        $prices->setDiscounts([$pricesDiscount]);
+
+        $variants = new Model\ProductVariants();
+        $variants->setSku('Varian2dt Sddqjqkue');
+        $variants->setQuantity(10);
+
+        $pricesVariants = new Model\ProductPrices();
+        $pricesVariants->setPrice(20);
+
+        $dateTimeBeginVariantDiscount = new DateTime();
+        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndVariantDiscount = new DateTime();
+        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
+        $dateTimeEndVariantDiscount->modify('+1 month');
+
+        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
+        $pricesVariantDiscount->setDiscountPercentage(50);
+        $pricesVariantDiscount->setDiscountPrice(10);
+        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
+        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
+        $pricesVariantDiscount->setActive(true);
+        $prices->setDiscounts([$pricesVariantDiscount]);
+
+        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
+
+        $attributes = new Model\ProductAttributes();
+        $attributes->setId(1);
+        $attributes->setIdOption(19);
+
+        $variants->setPrices($pricesVariants);
+        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
@@ -169,8 +271,11 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $seo->setDescription('Foobar Description');
 //
 //        $i18n->setSeo($seo);
-        $product->setI18n([$i18n]);
+
+        $product->setPrices($prices);
+        $product->setVariants([$variants]);
         $product->setCategories([$productCategories]);
+        $product->setI18n([$i18n]);
 
         $resourceAPI = new ProductsApi(
             new Client(),
@@ -321,7 +426,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     public function testUpdateProductByIdWithSuccess()
     {
         $product = new Product();
-        $product->setSku('Foobar Sku128');
+        $product->setSku('Foobar Skdju128');
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -333,6 +438,55 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setBrand(2);
         $product->setPosition(666);
         $product->setIdTaxesGroup(1);
+
+        $prices = new Model\ProductPrices();
+        $prices->setPrice(20);
+
+        $dateTimeBeginDiscount = new DateTime();
+        $dateTimeBeginDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndDiscount = new DateTime();
+        $dateTimeEndDiscount->format(DateTime::ATOM);
+        $dateTimeEndDiscount->modify('+1 month');
+
+        $pricesDiscount = new Model\ProductPricesDiscounts();
+        $pricesDiscount->setDiscountPercentage(50);
+        $pricesDiscount->setDiscountPrice(10);
+        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
+        $pricesDiscount->setEndAt($dateTimeEndDiscount);
+        $pricesDiscount->setActive(true);
+        $prices->setDiscounts([$pricesDiscount]);
+
+        $variants = new Model\ProductVariants();
+        $variants->setSku('Varian62sdt Sddqqkue');
+        $variants->setQuantity(10);
+
+        $pricesVariants = new Model\ProductPrices();
+        $pricesVariants->setPrice(20);
+
+        $dateTimeBeginVariantDiscount = new DateTime();
+        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndVariantDiscount = new DateTime();
+        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
+        $dateTimeEndVariantDiscount->modify('+1 month');
+
+        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
+        $pricesVariantDiscount->setDiscountPercentage(50);
+        $pricesVariantDiscount->setDiscountPrice(10);
+        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
+        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
+        $pricesVariantDiscount->setActive(true);
+        $prices->setDiscounts([$pricesVariantDiscount]);
+
+        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
+
+        $attributes = new Model\ProductAttributes();
+        $attributes->setId(1);
+        $attributes->setIdOption(19);
+
+        $variants->setPrices($pricesVariants);
+        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
@@ -352,10 +506,13 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $seo->setDescription('Foobar Description');
 //
 //        $i18n->setSeo($seo);
+
+        $product->setPrices($prices);
+        $product->setVariants([$variants]);
         $product->setI18n([$i18n]);
         $product->setCategories([$productCategories]);
 
-        self::$resourceAPI->updateProductById( self::$resourceId, $product);
+        self::$resourceAPI->updateProductById(self::$resourceId, $product);
 
         $productResponse = self::$resourceAPI->getProductById( self::$resourceId);
         $product = $productResponse->getData()[0];
@@ -372,7 +529,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     public function createDataProductForTest(): Product
     {
         $product = new Product();
-        $product->setSku('Foobar Sku128');
+        $product->setSku('Foobar 2Skddqu128');
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -380,14 +537,64 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsPrefered(true);
         $product->setIsDigital(true);
         $product->setIsNew(true);
-        $product->setActive(true);
+        $product->setActive(false);
         $product->setBrand(2);
-        $product->setPosition(555);
+        $product->setPosition(666);
         $product->setIdTaxesGroup(1);
+
+        $prices = new Model\ProductPrices();
+        $prices->setPrice(20);
+
+        $dateTimeBeginDiscount = new DateTime();
+        $dateTimeBeginDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndDiscount = new DateTime();
+        $dateTimeEndDiscount->format(DateTime::ATOM);
+        $dateTimeEndDiscount->modify('+1 month');
+
+        $pricesDiscount = new Model\ProductPricesDiscounts();
+        $pricesDiscount->setDiscountPercentage(50);
+        $pricesDiscount->setDiscountPrice(10);
+        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
+        $pricesDiscount->setEndAt($dateTimeEndDiscount);
+        $pricesDiscount->setActive(true);
+        $prices->setDiscounts([$pricesDiscount]);
+
+        $variants = new Model\ProductVariants();
+        $variants->setSku('Varih1an2sdt Sddqqkue');
+        $variants->setQuantity(10);
+
+        $pricesVariants = new Model\ProductPrices();
+        $pricesVariants->setPrice(20);
+
+        $dateTimeBeginVariantDiscount = new DateTime();
+        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
+
+        $dateTimeEndVariantDiscount = new DateTime();
+        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
+        $dateTimeEndVariantDiscount->modify('+1 month');
+
+        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
+        $pricesVariantDiscount->setDiscountPercentage(50);
+        $pricesVariantDiscount->setDiscountPrice(10);
+        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
+        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
+        $pricesVariantDiscount->setActive(true);
+        $prices->setDiscounts([$pricesVariantDiscount]);
+
+        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
+
+        $attributes = new Model\ProductAttributes();
+        $attributes->setId(1);
+        $attributes->setIdOption(19);
+
+        $variants->setPrices($pricesVariants);
+        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
         $productCategories->setId(1);
+
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -402,6 +609,9 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $seo->setDescription('Foobar Description');
 //
 //        $i18n->setSeo($seo);
+
+        $product->setPrices($prices);
+        $product->setVariants([$variants]);
         $product->setI18n([$i18n]);
         $product->setCategories([$productCategories]);
 

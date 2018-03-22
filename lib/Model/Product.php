@@ -75,7 +75,9 @@ class Product implements ModelInterface, ArrayAccess
         'categories' => '\Swagger\Client\Model\ProductCategories[]',
         'brand' => 'int',
         'position' => 'int',
-        'id_taxes_group' => 'int'
+        'id_taxes_group' => 'int',
+        'prices' => '\Swagger\Client\Model\ProductPrices',
+        'variants' => '\Swagger\Client\Model\ProductVariants[]'
     ];
 
     /**
@@ -102,7 +104,9 @@ class Product implements ModelInterface, ArrayAccess
         'categories' => null,
         'brand' => 'int64',
         'position' => 'int64',
-        'id_taxes_group' => 'int64'
+        'id_taxes_group' => 'int64',
+        'prices' => null,
+        'variants' => null
     ];
 
     /**
@@ -150,7 +154,9 @@ class Product implements ModelInterface, ArrayAccess
         'categories' => 'categories',
         'brand' => 'brand',
         'position' => 'position',
-        'id_taxes_group' => 'id_taxes_group'
+        'id_taxes_group' => 'id_taxes_group',
+        'prices' => 'prices',
+        'variants' => 'variants'
     ];
 
     /**
@@ -177,7 +183,9 @@ class Product implements ModelInterface, ArrayAccess
         'categories' => 'setCategories',
         'brand' => 'setBrand',
         'position' => 'setPosition',
-        'id_taxes_group' => 'setIdTaxesGroup'
+        'id_taxes_group' => 'setIdTaxesGroup',
+        'prices' => 'setPrices',
+        'variants' => 'setVariants'
     ];
 
     /**
@@ -204,7 +212,9 @@ class Product implements ModelInterface, ArrayAccess
         'categories' => 'getCategories',
         'brand' => 'getBrand',
         'position' => 'getPosition',
-        'id_taxes_group' => 'getIdTaxesGroup'
+        'id_taxes_group' => 'getIdTaxesGroup',
+        'prices' => 'getPrices',
+        'variants' => 'getVariants'
     ];
 
     /**
@@ -307,6 +317,8 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['id_taxes_group'] = isset($data['id_taxes_group']) ? $data['id_taxes_group'] : null;
+        $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
+        $this->container['variants'] = isset($data['variants']) ? $data['variants'] : null;
     }
 
     /**
@@ -801,6 +813,54 @@ class Product implements ModelInterface, ArrayAccess
     public function setIdTaxesGroup($id_taxes_group)
     {
         $this->container['id_taxes_group'] = $id_taxes_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices
+     *
+     * @return \Swagger\Client\Model\ProductPrices
+     */
+    public function getPrices()
+    {
+        return $this->container['prices'];
+    }
+
+    /**
+     * Sets prices
+     *
+     * @param \Swagger\Client\Model\ProductPrices $prices prices
+     *
+     * @return $this
+     */
+    public function setPrices($prices)
+    {
+        $this->container['prices'] = $prices;
+
+        return $this;
+    }
+
+    /**
+     * Gets variants
+     *
+     * @return \Swagger\Client\Model\ProductVariants[]
+     */
+    public function getVariants()
+    {
+        return $this->container['variants'];
+    }
+
+    /**
+     * Sets variants
+     *
+     * @param \Swagger\Client\Model\ProductVariants[] $variants variants
+     *
+     * @return $this
+     */
+    public function setVariants($variants)
+    {
+        $this->container['variants'] = $variants;
 
         return $this;
     }
