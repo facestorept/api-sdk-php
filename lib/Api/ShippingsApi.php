@@ -89,7 +89,7 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2013
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function addShipping($shipping)
     {
@@ -104,11 +104,11 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function addShippingWithHttpInfo($shipping)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->addShippingRequest($shipping);
 
         try {
@@ -160,7 +160,7 @@ class ShippingsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2013',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class ShippingsApi
      */
     public function addShippingAsyncWithHttpInfo($shipping)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->addShippingRequest($shipping);
 
         return $this->client
@@ -582,7 +582,7 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2013
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function getShippingById($id, $includes = null)
     {
@@ -598,11 +598,11 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function getShippingByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->getShippingByIdRequest($id, $includes);
 
         try {
@@ -654,7 +654,7 @@ class ShippingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2013',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -706,7 +706,7 @@ class ShippingsApi
      */
     public function getShippingByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->getShippingByIdRequest($id, $includes);
 
         return $this->client
@@ -866,7 +866,7 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2005
+     * @return \Swagger\Client\Model\InlineResponse2009
      */
     public function getShippings($includes = null, $limit = null, $order_by = null)
     {
@@ -883,11 +883,11 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
     public function getShippingsWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2009';
         $request = $this->getShippingsRequest($includes, $limit, $order_by);
 
         try {
@@ -939,7 +939,7 @@ class ShippingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2005',
+                        '\Swagger\Client\Model\InlineResponse2009',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -993,7 +993,7 @@ class ShippingsApi
      */
     public function getShippingsAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2009';
         $request = $this->getShippingsRequest($includes, $limit, $order_by);
 
         return $this->client
@@ -1150,7 +1150,7 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2013
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function updateShippingById($id, $tax)
     {
@@ -1166,11 +1166,11 @@ class ShippingsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateShippingByIdWithHttpInfo($id, $tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->updateShippingByIdRequest($id, $tax);
 
         try {
@@ -1222,7 +1222,7 @@ class ShippingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2013',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1274,7 +1274,7 @@ class ShippingsApi
      */
     public function updateShippingByIdAsyncWithHttpInfo($id, $tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2013';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->updateShippingByIdRequest($id, $tax);
 
         return $this->client

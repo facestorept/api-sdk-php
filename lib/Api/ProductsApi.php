@@ -89,7 +89,7 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2014
+     * @return \Swagger\Client\Model\InlineResponse2015
      */
     public function addProduct($product)
     {
@@ -104,11 +104,11 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProductWithHttpInfo($product)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2014';
+        $returnType = '\Swagger\Client\Model\InlineResponse2015';
         $request = $this->addProductRequest($product);
 
         try {
@@ -160,7 +160,7 @@ class ProductsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2014',
+                        '\Swagger\Client\Model\InlineResponse2015',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class ProductsApi
      */
     public function addProductAsyncWithHttpInfo($product)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2014';
+        $returnType = '\Swagger\Client\Model\InlineResponse2015';
         $request = $this->addProductRequest($product);
 
         return $this->client
@@ -575,263 +575,6 @@ class ProductsApi
     }
 
     /**
-     * Operation deleteProductImageById
-     *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function deleteProductImageById($id, $id_image)
-    {
-        $this->deleteProductImageByIdWithHttpInfo($id, $id_image);
-    }
-
-    /**
-     * Operation deleteProductImageByIdWithHttpInfo
-     *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function deleteProductImageByIdWithHttpInfo($id, $id_image)
-    {
-        $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id, $id_image);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation deleteProductImageByIdAsync
-     *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteProductImageByIdAsync($id, $id_image)
-    {
-        return $this->deleteProductImageByIdAsyncWithHttpInfo($id, $id_image)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation deleteProductImageByIdAsyncWithHttpInfo
-     *
-     * Delete image for products
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function deleteProductImageByIdAsyncWithHttpInfo($id, $id_image)
-    {
-        $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id, $id_image);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'deleteProductImageById'
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function deleteProductImageByIdRequest($id, $id_image)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteProductImageById'
-            );
-        }
-        // verify the required parameter 'id_image' is set
-        if ($id_image === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id_image when calling deleteProductImageById'
-            );
-        }
-
-        $resourcePath = '/products/{id}/uploads/{id_image}/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id_image !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id_image' . '}',
-                ObjectSerializer::toPathValue($id_image),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json', 'multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APIToken');
-        if ($apiKey !== null) {
-            $headers['APIToken'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'DELETE',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getProductById
      *
      * @param  int $id ID of product to fetch (required)
@@ -840,7 +583,7 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2014
+     * @return \Swagger\Client\Model\InlineResponse2015
      */
     public function getProductById($id, $includes = null, $limit = null)
     {
@@ -857,11 +600,11 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductByIdWithHttpInfo($id, $includes = null, $limit = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2014';
+        $returnType = '\Swagger\Client\Model\InlineResponse2015';
         $request = $this->getProductByIdRequest($id, $includes, $limit);
 
         try {
@@ -913,7 +656,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2014',
+                        '\Swagger\Client\Model\InlineResponse2015',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -967,7 +710,7 @@ class ProductsApi
      */
     public function getProductByIdAsyncWithHttpInfo($id, $includes = null, $limit = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2014';
+        $returnType = '\Swagger\Client\Model\InlineResponse2015';
         $request = $this->getProductByIdRequest($id, $includes, $limit);
 
         return $this->client
@@ -1124,501 +867,6 @@ class ProductsApi
     }
 
     /**
-     * Operation getProductImages
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getProductImages($id)
-    {
-        $this->getProductImagesWithHttpInfo($id);
-    }
-
-    /**
-     * Operation getProductImagesWithHttpInfo
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProductImagesWithHttpInfo($id)
-    {
-        $returnType = '';
-        $request = $this->getProductImagesRequest($id);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProductImagesAsync
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductImagesAsync($id)
-    {
-        return $this->getProductImagesAsyncWithHttpInfo($id)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProductImagesAsyncWithHttpInfo
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductImagesAsyncWithHttpInfo($id)
-    {
-        $returnType = '';
-        $request = $this->getProductImagesRequest($id);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProductImages'
-     *
-     * @param  int $id ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getProductImagesRequest($id)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getProductImages'
-            );
-        }
-
-        $resourcePath = '/products/{id}/uploads/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APIToken');
-        if ($apiKey !== null) {
-            $headers['APIToken'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation getProductImagesById
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function getProductImagesById($id, $id_image)
-    {
-        $this->getProductImagesByIdWithHttpInfo($id, $id_image);
-    }
-
-    /**
-     * Operation getProductImagesByIdWithHttpInfo
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function getProductImagesByIdWithHttpInfo($id, $id_image)
-    {
-        $returnType = '';
-        $request = $this->getProductImagesByIdRequest($id, $id_image);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation getProductImagesByIdAsync
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductImagesByIdAsync($id, $id_image)
-    {
-        return $this->getProductImagesByIdAsyncWithHttpInfo($id, $id_image)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation getProductImagesByIdAsyncWithHttpInfo
-     *
-     * Get images for product
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function getProductImagesByIdAsyncWithHttpInfo($id, $id_image)
-    {
-        $returnType = '';
-        $request = $this->getProductImagesByIdRequest($id, $id_image);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'getProductImagesById'
-     *
-     * @param  int $id ID of product to get (required)
-     * @param  int $id_image ID of productImage to get (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function getProductImagesByIdRequest($id, $id_image)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getProductImagesById'
-            );
-        }
-        // verify the required parameter 'id_image' is set
-        if ($id_image === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id_image when calling getProductImagesById'
-            );
-        }
-
-        $resourcePath = '/products/{id}/uploads/{id_image}/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($id_image !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id_image' . '}',
-                ObjectSerializer::toPathValue($id_image),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json', 'multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APIToken');
-        if ($apiKey !== null) {
-            $headers['APIToken'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
      * Operation getProducts
      *
      * @param  string[] $includes Include associated objects within response (optional)
@@ -1627,7 +875,7 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2008
+     * @return \Swagger\Client\Model\InlineResponse20012
      */
     public function getProducts($includes = null, $limit = null, $order_by = null)
     {
@@ -1644,11 +892,11 @@ class ProductsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2008, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductsWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2008';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductsRequest($includes, $limit, $order_by);
 
         try {
@@ -1700,7 +948,7 @@ class ProductsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2008',
+                        '\Swagger\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1754,7 +1002,7 @@ class ProductsApi
      */
     public function getProductsAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2008';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductsRequest($includes, $limit, $order_by);
 
         return $this->client
@@ -2393,299 +1641,6 @@ class ProductsApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'PATCH',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation uploadProductsImages
-     *
-     * Upload de images for product
-     *
-     * @param  int $id ID of product to update (required)
-     * @param  \SplFileObject $files File for product (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2015
-     */
-    public function uploadProductsImages($id, $files = null)
-    {
-        list($response) = $this->uploadProductsImagesWithHttpInfo($id, $files);
-        return $response;
-    }
-
-    /**
-     * Operation uploadProductsImagesWithHttpInfo
-     *
-     * Upload de images for product
-     *
-     * @param  int $id ID of product to update (required)
-     * @param  \SplFileObject $files File for product (optional)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2015, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function uploadProductsImagesWithHttpInfo($id, $files = null)
-    {
-        $returnType = '\Swagger\Client\Model\InlineResponse2015';
-        $request = $this->uploadProductsImagesRequest($id, $files);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 201:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2015',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 423:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'object',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation uploadProductsImagesAsync
-     *
-     * Upload de images for product
-     *
-     * @param  int $id ID of product to update (required)
-     * @param  \SplFileObject $files File for product (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function uploadProductsImagesAsync($id, $files = null)
-    {
-        return $this->uploadProductsImagesAsyncWithHttpInfo($id, $files)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation uploadProductsImagesAsyncWithHttpInfo
-     *
-     * Upload de images for product
-     *
-     * @param  int $id ID of product to update (required)
-     * @param  \SplFileObject $files File for product (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function uploadProductsImagesAsyncWithHttpInfo($id, $files = null)
-    {
-        $returnType = '\Swagger\Client\Model\InlineResponse2015';
-        $request = $this->uploadProductsImagesRequest($id, $files);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'uploadProductsImages'
-     *
-     * @param  int $id ID of product to update (required)
-     * @param  \SplFileObject $files File for product (optional)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function uploadProductsImagesRequest($id, $files = null)
-    {
-        // verify the required parameter 'id' is set
-        if ($id === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling uploadProductsImages'
-            );
-        }
-
-        $resourcePath = '/products/{id}/uploads/';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
-
-        // form params
-        if ($files !== null) {
-            $multipart = true;
-            $formParams['files'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($files), 'rb');
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json', 'multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('APIToken');
-        if ($apiKey !== null) {
-            $headers['APIToken'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

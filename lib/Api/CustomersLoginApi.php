@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductImageApi
+ * CustomersLoginApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ProductImageApi Class Doc Comment
+ * CustomersLoginApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ProductImageApi
+class CustomersLoginApi
 {
     /**
      * @var ClientInterface
@@ -83,32 +83,33 @@ class ProductImageApi
     }
 
     /**
-     * Operation deleteProductImageById
+     * Operation customerLogin
      *
-     * @param  int $id ID of image to delete (required)
+     * @param  \Swagger\Client\Model\CustomerLogin $login Customer login (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
-    public function deleteProductImageById($id)
+    public function customerLogin($login)
     {
-        $this->deleteProductImageByIdWithHttpInfo($id);
+        list($response) = $this->customerLoginWithHttpInfo($login);
+        return $response;
     }
 
     /**
-     * Operation deleteProductImageByIdWithHttpInfo
+     * Operation customerLoginWithHttpInfo
      *
-     * @param  int $id ID of image to delete (required)
+     * @param  \Swagger\Client\Model\CustomerLogin $login Customer login (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteProductImageByIdWithHttpInfo($id)
+    public function customerLoginWithHttpInfo($login)
     {
-        $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->customerLoginRequest($login);
 
         try {
             $options = $this->createHttpClientOption();
@@ -138,14 +139,28 @@ class ProductImageApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 404:
+                case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        '\Swagger\Client\Model\InlineResponse2012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -156,18 +171,18 @@ class ProductImageApi
     }
 
     /**
-     * Operation deleteProductImageByIdAsync
+     * Operation customerLoginAsync
      *
      * 
      *
-     * @param  int $id ID of image to delete (required)
+     * @param  \Swagger\Client\Model\CustomerLogin $login Customer login (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductImageByIdAsync($id)
+    public function customerLoginAsync($login)
     {
-        return $this->deleteProductImageByIdAsyncWithHttpInfo($id)
+        return $this->customerLoginAsyncWithHttpInfo($login)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -176,25 +191,39 @@ class ProductImageApi
     }
 
     /**
-     * Operation deleteProductImageByIdAsyncWithHttpInfo
+     * Operation customerLoginAsyncWithHttpInfo
      *
      * 
      *
-     * @param  int $id ID of image to delete (required)
+     * @param  \Swagger\Client\Model\CustomerLogin $login Customer login (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteProductImageByIdAsyncWithHttpInfo($id)
+    public function customerLoginAsyncWithHttpInfo($login)
     {
-        $returnType = '';
-        $request = $this->deleteProductImageByIdRequest($id);
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $request = $this->customerLoginRequest($login);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -214,23 +243,23 @@ class ProductImageApi
     }
 
     /**
-     * Create request for operation 'deleteProductImageById'
+     * Create request for operation 'customerLogin'
      *
-     * @param  int $id ID of image to delete (required)
+     * @param  \Swagger\Client\Model\CustomerLogin $login Customer login (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteProductImageByIdRequest($id)
+    protected function customerLoginRequest($login)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null) {
+        // verify the required parameter 'login' is set
+        if ($login === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling deleteProductImageById'
+                'Missing the required parameter $login when calling customerLogin'
             );
         }
 
-        $resourcePath = '/products/{id}/uploads/{id_image}/';
+        $resourcePath = '/customers/login/';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -238,17 +267,12 @@ class ProductImageApi
         $multipart = false;
 
 
-        // path params
-        if ($id !== null) {
-            $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
-                $resourcePath
-            );
-        }
 
         // body params
         $_tempBody = null;
+        if (isset($login)) {
+            $_tempBody = $login;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -309,7 +333,7 @@ class ProductImageApi
 
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
-            'DELETE',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

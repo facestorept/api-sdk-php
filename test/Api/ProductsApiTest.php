@@ -27,11 +27,11 @@
 
 namespace Swagger\Client;
 
-use DateTime;
-use DateTimeZone;
 use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
+use Swagger\Client\Model\InlineResponse20012;
 use Swagger\Client\Model\InlineResponse2008;
+use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2014;
 use Swagger\Client\Model\InlineResponse2015;
 use Swagger\Client\Model\Product;
@@ -60,8 +60,10 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public static function setUpBeforeClass()
     {
+        $productSku = 'kverpobw';
+
         $product = new Product();
-        $product->setSku('Sku1248wwqndq2');
+        $product->setSku($productSku);
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -76,52 +78,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $prices = new Model\ProductPrices();
         $prices->setPrice(20);
-
-        $dateTimeBeginDiscount = new DateTime();
-        $dateTimeBeginDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndDiscount = new DateTime();
-        $dateTimeEndDiscount->format(DateTime::ATOM);
-        $dateTimeEndDiscount->modify('+1 month');
-
-        $pricesDiscount = new Model\ProductPricesDiscounts();
-        $pricesDiscount->setDiscountPercentage(50);
-        $pricesDiscount->setDiscountPrice(10);
-        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
-        $pricesDiscount->setEndAt($dateTimeEndDiscount);
-        $pricesDiscount->setActive(true);
-        $prices->setDiscounts([$pricesDiscount]);
-
-        $variants = new Model\ProductVariants();
-        $variants->setSku('Varitgan2dt Sddqmkue');
-        $variants->setQuantity(10);
-
-        $pricesVariants = new Model\ProductPrices();
-        $pricesVariants->setPrice(20);
-
-        $dateTimeBeginVariantDiscount = new DateTime();
-        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndVariantDiscount = new DateTime();
-        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
-        $dateTimeEndVariantDiscount->modify('+1 month');
-
-        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
-        $pricesVariantDiscount->setDiscountPercentage(50);
-        $pricesVariantDiscount->setDiscountPrice(10);
-        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
-        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
-        $pricesVariantDiscount->setActive(true);
-        $prices->setDiscounts([$pricesVariantDiscount]);
-
-        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
-
-        $attributes = new Model\ProductAttributes();
-        $attributes->setId(1);
-        $attributes->setIdOption(19);
-
-        $variants->setPrices($pricesVariants);
-        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
@@ -142,7 +98,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $i18n->setSeo($seo);
 
         $product->setPrices($prices);
-        $product->setVariants([$variants]);
         $product->setCategories([$productCategories]);
         $product->setI18n([$i18n]);
 
@@ -154,9 +109,9 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
             self::$config
         );
 
-       $response = self::$resourceAPI->addProduct($product);
+        $response = self::$resourceAPI->addProduct($product);
 
-       self::$resourceId = $response->getData()[0]->getId();
+        self::$resourceId = $response->getData()[0]->getId();
     }
 
     /**
@@ -189,10 +144,12 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      * .
      *
      */
-        public function testAddProduct()
+    public function testAddProduct()
     {
+        $productSku = 'kverpobw';
+
         $product = new Product();
-        $product->setSku('Foobar Sku1oqrseqdd2d8');
+        $product->setSku($productSku);
         $product->setManual('Foobar Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
@@ -208,52 +165,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $prices = new Model\ProductPrices();
         $prices->setPrice(20);
 
-        $dateTimeBeginDiscount = new DateTime();
-        $dateTimeBeginDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndDiscount = new DateTime();
-        $dateTimeEndDiscount->format(DateTime::ATOM);
-        $dateTimeEndDiscount->modify('+1 month');
-
-        $pricesDiscount = new Model\ProductPricesDiscounts();
-        $pricesDiscount->setDiscountPercentage(50);
-        $pricesDiscount->setDiscountPrice(10);
-        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
-        $pricesDiscount->setEndAt($dateTimeEndDiscount);
-        $pricesDiscount->setActive(true);
-        $prices->setDiscounts([$pricesDiscount]);
-
-        $variants = new Model\ProductVariants();
-        $variants->setSku('Varian2dt Sddqjqkue');
-        $variants->setQuantity(10);
-
-        $pricesVariants = new Model\ProductPrices();
-        $pricesVariants->setPrice(20);
-
-        $dateTimeBeginVariantDiscount = new DateTime();
-        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndVariantDiscount = new DateTime();
-        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
-        $dateTimeEndVariantDiscount->modify('+1 month');
-
-        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
-        $pricesVariantDiscount->setDiscountPercentage(50);
-        $pricesVariantDiscount->setDiscountPrice(10);
-        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
-        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
-        $pricesVariantDiscount->setActive(true);
-        $prices->setDiscounts([$pricesVariantDiscount]);
-
-        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
-
-        $attributes = new Model\ProductAttributes();
-        $attributes->setId(1);
-        $attributes->setIdOption(19);
-
-        $variants->setPrices($pricesVariants);
-        $variants->setAttributes([$attributes]);
-
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
         $productCategories->setId(1);
@@ -273,7 +184,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $i18n->setSeo($seo);
 
         $product->setPrices($prices);
-        $product->setVariants([$variants]);
         $product->setCategories([$productCategories]);
         $product->setI18n([$i18n]);
 
@@ -283,23 +193,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         );
         $response = $resourceAPI->addProduct($product);
 
-        $this->assertInstanceOf(InlineResponse2014::class,$response);
-    }
-
-    /**
-     * Test case for deleteProductById
-     *
-     *
-     * .
-     *
-     */
-    public function testDeleteProductById()
-    {
-        $this->setExpectedException(ApiException::class, null,404);
-
-        self::$resourceAPI->deleteProductById(self::$resourceId);
-
-        self::$resourceAPI->deleteProductById(self::$resourceId);
+        $this->assertInstanceOf(InlineResponse2015::class, $response);
     }
 
     /**
@@ -312,7 +206,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     {
         $product = self::$resourceAPI->getProductById(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse2014::class, $product);
+        $this->assertInstanceOf(InlineResponse2015::class, $product);
     }
 
     /**
@@ -325,96 +219,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     {
         $product = self::$resourceAPI->getProducts();
 
-        $this->assertInstanceOf(InlineResponse2008::class, $product);
-    }
-
-    /**
-     * Test case for UploadImagesProducts
-     *
-     * .
-     *
-     */
-    public function testUploadImagesProducts()
-    {
-        $image = self::$resourceAPI->uploadProductsImages(
-            self::$resourceId,
-            __DIR__ . '/image.jpg'
-        );
-
-        $this->assertInstanceOf(InlineResponse2015::class, $image);
-    }
-
-    /**
-     * Test case for DeleteImagesProductsByIdWithSuccess
-     *
-     * .
-     *
-     */
-    public function testDeleteImagesProductsByIdWithSuccess()
-    {
-        $product = $this->createDataProductForTest();
-        $resourceAPI = new ProductsApi(
-            new Client(),
-            self::$config
-        );
-
-        $image = self::$resourceAPI->uploadProductsImages(
-            self::$resourceId,
-            __DIR__ . '/image.jpg'
-        );
-
-        $response = $resourceAPI->addProduct($product);
-
-        self::$resourceAPI->deleteProductImageById($response->getData()[0]->getId(), $image->getData()[0]->getId());
-    }
-
-    /**
-     * Test case for DeleteImagesNotAssociatedToProduct
-     *
-     * .
-     *
-     */
-    public function testDeleteImagesNotAssociatedToProduct()
-    {
-        $this->setExpectedException(ApiException::class, null,404);
-
-        $product = $this->createDataProductForTest();
-        $resourceAPI = new ProductsApi(
-            new Client(),
-            self::$config
-        );
-
-        $response = $resourceAPI->addProduct($product);
-
-        self::$resourceAPI->deleteProductImageById($response->getData()[0]->getId(), 1);
-    }
-
-    /**
-     * Test case for DeleteImagesNotAssociatedToProduct
-     *
-     * .
-     *
-     */
-    public function testDeleteProductNotAssociatedToImage()
-    {
-        $this->setExpectedException(ApiException::class, null,404);
-
-        $image = self::$resourceAPI->uploadProductsImages(
-            self::$resourceId,
-            __DIR__ . '/image.jpg'
-        );
-        self::$resourceAPI->deleteProductImageById(1, $image->getData()[0]->getId());
-    }
-
-    /**
-     * Test case for DeleteProductAndAllImagesOfThem
-     *
-     * .
-     *
-     */
-    public function testDeleteProductAndAllImagesOfThem()
-    {
-
+        $this->assertInstanceOf(InlineResponse20012::class, $product);
     }
 
     /**
@@ -425,9 +230,11 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testUpdateProductByIdWithSuccess()
     {
+        $productSku = 'ckverpoibm';
+
         $product = new Product();
-        $product->setSku('Foobar Skdju128');
-        $product->setManual('Foobar Manual');
+        $product->setSku($productSku);
+        $product->setManual('Manual');
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
         $product->setInHomepage(true);
@@ -441,52 +248,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $prices = new Model\ProductPrices();
         $prices->setPrice(20);
-
-        $dateTimeBeginDiscount = new DateTime();
-        $dateTimeBeginDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndDiscount = new DateTime();
-        $dateTimeEndDiscount->format(DateTime::ATOM);
-        $dateTimeEndDiscount->modify('+1 month');
-
-        $pricesDiscount = new Model\ProductPricesDiscounts();
-        $pricesDiscount->setDiscountPercentage(50);
-        $pricesDiscount->setDiscountPrice(10);
-        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
-        $pricesDiscount->setEndAt($dateTimeEndDiscount);
-        $pricesDiscount->setActive(true);
-        $prices->setDiscounts([$pricesDiscount]);
-
-        $variants = new Model\ProductVariants();
-        $variants->setSku('Varian62sdt Sddqqkue');
-        $variants->setQuantity(10);
-
-        $pricesVariants = new Model\ProductPrices();
-        $pricesVariants->setPrice(20);
-
-        $dateTimeBeginVariantDiscount = new DateTime();
-        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndVariantDiscount = new DateTime();
-        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
-        $dateTimeEndVariantDiscount->modify('+1 month');
-
-        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
-        $pricesVariantDiscount->setDiscountPercentage(50);
-        $pricesVariantDiscount->setDiscountPrice(10);
-        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
-        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
-        $pricesVariantDiscount->setActive(true);
-        $prices->setDiscounts([$pricesVariantDiscount]);
-
-        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
-
-        $attributes = new Model\ProductAttributes();
-        $attributes->setId(1);
-        $attributes->setIdOption(19);
-
-        $variants->setPrices($pricesVariants);
-        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
@@ -508,16 +269,32 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $i18n->setSeo($seo);
 
         $product->setPrices($prices);
-        $product->setVariants([$variants]);
         $product->setI18n([$i18n]);
         $product->setCategories([$productCategories]);
 
         self::$resourceAPI->updateProductById(self::$resourceId, $product);
 
-        $productResponse = self::$resourceAPI->getProductById( self::$resourceId);
+        $productResponse = self::$resourceAPI->getProductById(self::$resourceId);
+
         $product = $productResponse->getData()[0];
-        $this->assertEquals(666, $product->getPosition());
-        $this->assertEquals(false, $product->getActive());
+
+        $this->assertEquals('https://www.youtube.com/watch?v=VJPrV0K8RPg', $product->getUrlVideo());
+    }
+
+    /**
+     * Test case for deleteProductById
+     *
+     *
+     * .
+     *
+     */
+    public function testDeleteProductById()
+    {
+        $this->setExpectedException(ApiException::class, null, 404);
+
+        self::$resourceAPI->deleteProductById(self::$resourceId);
+
+        self::$resourceAPI->getProductById(self::$resourceId);
     }
 
     /**
@@ -528,9 +305,11 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
      */
     public function createDataProductForTest(): Product
     {
+        $productSku = 'vemrb';
+
         $product = new Product();
         $product->setSku('Foobar 2Skddqu128');
-        $product->setManual('Foobar Manual');
+        $product->setManual($productSku);
         $product->setUrlVideo('https://www.youtube.com/watch?v=VJPrV0K8RPg');
         $product->setVisibility([Product::VISIBILITY_MOBILE]);
         $product->setInHomepage(true);
@@ -545,51 +324,8 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $prices = new Model\ProductPrices();
         $prices->setPrice(20);
 
-        $dateTimeBeginDiscount = new DateTime();
-        $dateTimeBeginDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndDiscount = new DateTime();
-        $dateTimeEndDiscount->format(DateTime::ATOM);
-        $dateTimeEndDiscount->modify('+1 month');
-
-        $pricesDiscount = new Model\ProductPricesDiscounts();
-        $pricesDiscount->setDiscountPercentage(50);
-        $pricesDiscount->setDiscountPrice(10);
-        $pricesDiscount->setBeginAt($dateTimeBeginDiscount);
-        $pricesDiscount->setEndAt($dateTimeEndDiscount);
-        $pricesDiscount->setActive(true);
-        $prices->setDiscounts([$pricesDiscount]);
-
-        $variants = new Model\ProductVariants();
-        $variants->setSku('Varih1an2sdt Sddqqkue');
-        $variants->setQuantity(10);
-
         $pricesVariants = new Model\ProductPrices();
         $pricesVariants->setPrice(20);
-
-        $dateTimeBeginVariantDiscount = new DateTime();
-        $dateTimeBeginVariantDiscount->format(DateTime::ATOM);
-
-        $dateTimeEndVariantDiscount = new DateTime();
-        $dateTimeEndVariantDiscount->format(DateTime::ATOM);
-        $dateTimeEndVariantDiscount->modify('+1 month');
-
-        $pricesVariantDiscount = new Model\ProductPricesDiscounts();
-        $pricesVariantDiscount->setDiscountPercentage(50);
-        $pricesVariantDiscount->setDiscountPrice(10);
-        $pricesVariantDiscount->setBeginAt($dateTimeBeginVariantDiscount);
-        $pricesVariantDiscount->setEndAt($dateTimeEndVariantDiscount);
-        $pricesVariantDiscount->setActive(true);
-        $prices->setDiscounts([$pricesVariantDiscount]);
-
-        $pricesVariants->setDiscounts([$pricesVariantDiscount]);
-
-        $attributes = new Model\ProductAttributes();
-        $attributes->setId(1);
-        $attributes->setIdOption(19);
-
-        $variants->setPrices($pricesVariants);
-        $variants->setAttributes([$attributes]);
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
@@ -611,7 +347,6 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 //        $i18n->setSeo($seo);
 
         $product->setPrices($prices);
-        $product->setVariants([$variants]);
         $product->setI18n([$i18n]);
         $product->setCategories([$productCategories]);
 

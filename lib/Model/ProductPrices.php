@@ -57,8 +57,7 @@ class ProductPrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'price' => 'float',
-        'discounts' => '\Swagger\Client\Model\ProductPricesDiscounts[]'
+        'price' => 'float'
     ];
 
     /**
@@ -67,8 +66,7 @@ class ProductPrices implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'price' => 'float',
-        'discounts' => null
+        'price' => 'float'
     ];
 
     /**
@@ -98,8 +96,7 @@ class ProductPrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'price' => 'price',
-        'discounts' => 'discounts'
+        'price' => 'price'
     ];
 
     /**
@@ -108,8 +105,7 @@ class ProductPrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'price' => 'setPrice',
-        'discounts' => 'setDiscounts'
+        'price' => 'setPrice'
     ];
 
     /**
@@ -118,8 +114,7 @@ class ProductPrices implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'price' => 'getPrice',
-        'discounts' => 'getDiscounts'
+        'price' => 'getPrice'
     ];
 
     /**
@@ -183,7 +178,6 @@ class ProductPrices implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
-        $this->container['discounts'] = isset($data['discounts']) ? $data['discounts'] : null;
     }
 
     /**
@@ -231,30 +225,6 @@ class ProductPrices implements ModelInterface, ArrayAccess
     public function setPrice($price)
     {
         $this->container['price'] = $price;
-
-        return $this;
-    }
-
-    /**
-     * Gets discounts
-     *
-     * @return \Swagger\Client\Model\ProductPricesDiscounts[]
-     */
-    public function getDiscounts()
-    {
-        return $this->container['discounts'];
-    }
-
-    /**
-     * Sets discounts
-     *
-     * @param \Swagger\Client\Model\ProductPricesDiscounts[] $discounts discounts
-     *
-     * @return $this
-     */
-    public function setDiscounts($discounts)
-    {
-        $this->container['discounts'] = $discounts;
 
         return $this;
     }

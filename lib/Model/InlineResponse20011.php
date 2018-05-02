@@ -1,6 +1,6 @@
 <?php
 /**
- * I18nProductInner
+ * InlineResponse20011
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * I18nProductInner Class Doc Comment
+ * InlineResponse20011 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class I18nProductInner implements ModelInterface, ArrayAccess
+class InlineResponse20011 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'i18nProduct_inner';
+    protected static $swaggerModelName = 'inline_response_200_11';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'locale' => 'string',
-        'name' => 'string',
-        'synopsis' => 'string',
-        'description' => 'string',
-        'characteristics' => 'string',
-        'seo' => '\Swagger\Client\Model\I18nProductInnerSeo'
+        'data' => '\Swagger\Client\Model\Payment[]'
     ];
 
     /**
@@ -71,12 +66,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'locale' => null,
-        'name' => null,
-        'synopsis' => null,
-        'description' => null,
-        'characteristics' => null,
-        'seo' => null
+        'data' => null
     ];
 
     /**
@@ -106,12 +96,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'locale' => 'locale',
-        'name' => 'name',
-        'synopsis' => 'synopsis',
-        'description' => 'description',
-        'characteristics' => 'characteristics',
-        'seo' => 'seo'
+        'data' => 'data'
     ];
 
     /**
@@ -120,12 +105,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'locale' => 'setLocale',
-        'name' => 'setName',
-        'synopsis' => 'setSynopsis',
-        'description' => 'setDescription',
-        'characteristics' => 'setCharacteristics',
-        'seo' => 'setSeo'
+        'data' => 'setData'
     ];
 
     /**
@@ -134,12 +114,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'locale' => 'getLocale',
-        'name' => 'getName',
-        'synopsis' => 'getSynopsis',
-        'description' => 'getDescription',
-        'characteristics' => 'getCharacteristics',
-        'seo' => 'getSeo'
+        'data' => 'getData'
     ];
 
     /**
@@ -202,12 +177,7 @@ class I18nProductInner implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['synopsis'] = isset($data['synopsis']) ? $data['synopsis'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['characteristics'] = isset($data['characteristics']) ? $data['characteristics'] : null;
-        $this->container['seo'] = isset($data['seo']) ? $data['seo'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -219,12 +189,6 @@ class I18nProductInner implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['locale'] === null) {
-            $invalidProperties[] = "'locale' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -237,156 +201,30 @@ class I18nProductInner implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['locale'] === null) {
-            return false;
-        }
-        if ($this->container['name'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets locale
+     * Gets data
      *
-     * @return string
+     * @return \Swagger\Client\Model\Payment[]
      */
-    public function getLocale()
+    public function getData()
     {
-        return $this->container['locale'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets locale
+     * Sets data
      *
-     * @param string $locale locale
+     * @param \Swagger\Client\Model\Payment[] $data data
      *
      * @return $this
      */
-    public function setLocale($locale)
+    public function setData($data)
     {
-        $this->container['locale'] = $locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return $this
-     */
-    public function setName($name)
-    {
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets synopsis
-     *
-     * @return string
-     */
-    public function getSynopsis()
-    {
-        return $this->container['synopsis'];
-    }
-
-    /**
-     * Sets synopsis
-     *
-     * @param string $synopsis synopsis
-     *
-     * @return $this
-     */
-    public function setSynopsis($synopsis)
-    {
-        $this->container['synopsis'] = $synopsis;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets characteristics
-     *
-     * @return string
-     */
-    public function getCharacteristics()
-    {
-        return $this->container['characteristics'];
-    }
-
-    /**
-     * Sets characteristics
-     *
-     * @param string $characteristics characteristics
-     *
-     * @return $this
-     */
-    public function setCharacteristics($characteristics)
-    {
-        $this->container['characteristics'] = $characteristics;
-
-        return $this;
-    }
-
-    /**
-     * Gets seo
-     *
-     * @return \Swagger\Client\Model\I18nProductInnerSeo
-     */
-    public function getSeo()
-    {
-        return $this->container['seo'];
-    }
-
-    /**
-     * Sets seo
-     *
-     * @param \Swagger\Client\Model\I18nProductInnerSeo $seo seo
-     *
-     * @return $this
-     */
-    public function setSeo($seo)
-    {
-        $this->container['seo'] = $seo;
+        $this->container['data'] = $data;
 
         return $this;
     }

@@ -76,8 +76,7 @@ class Product implements ModelInterface, ArrayAccess
         'brand' => 'int',
         'position' => 'int',
         'id_taxes_group' => 'int',
-        'prices' => '\Swagger\Client\Model\ProductPrices',
-        'variants' => '\Swagger\Client\Model\ProductVariants[]'
+        'prices' => '\Swagger\Client\Model\ProductPrices'
     ];
 
     /**
@@ -105,8 +104,7 @@ class Product implements ModelInterface, ArrayAccess
         'brand' => 'int64',
         'position' => 'int64',
         'id_taxes_group' => 'int64',
-        'prices' => null,
-        'variants' => null
+        'prices' => null
     ];
 
     /**
@@ -155,8 +153,7 @@ class Product implements ModelInterface, ArrayAccess
         'brand' => 'brand',
         'position' => 'position',
         'id_taxes_group' => 'id_taxes_group',
-        'prices' => 'prices',
-        'variants' => 'variants'
+        'prices' => 'prices'
     ];
 
     /**
@@ -184,8 +181,7 @@ class Product implements ModelInterface, ArrayAccess
         'brand' => 'setBrand',
         'position' => 'setPosition',
         'id_taxes_group' => 'setIdTaxesGroup',
-        'prices' => 'setPrices',
-        'variants' => 'setVariants'
+        'prices' => 'setPrices'
     ];
 
     /**
@@ -213,8 +209,7 @@ class Product implements ModelInterface, ArrayAccess
         'brand' => 'getBrand',
         'position' => 'getPosition',
         'id_taxes_group' => 'getIdTaxesGroup',
-        'prices' => 'getPrices',
-        'variants' => 'getVariants'
+        'prices' => 'getPrices'
     ];
 
     /**
@@ -318,7 +313,6 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['id_taxes_group'] = isset($data['id_taxes_group']) ? $data['id_taxes_group'] : null;
         $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
-        $this->container['variants'] = isset($data['variants']) ? $data['variants'] : null;
     }
 
     /**
@@ -837,30 +831,6 @@ class Product implements ModelInterface, ArrayAccess
     public function setPrices($prices)
     {
         $this->container['prices'] = $prices;
-
-        return $this;
-    }
-
-    /**
-     * Gets variants
-     *
-     * @return \Swagger\Client\Model\ProductVariants[]
-     */
-    public function getVariants()
-    {
-        return $this->container['variants'];
-    }
-
-    /**
-     * Sets variants
-     *
-     * @param \Swagger\Client\Model\ProductVariants[] $variants variants
-     *
-     * @return $this
-     */
-    public function setVariants($variants)
-    {
-        $this->container['variants'] = $variants;
 
         return $this;
     }

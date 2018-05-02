@@ -1,6 +1,6 @@
 <?php
 /**
- * I18nProductInnerSeo
+ * InlineResponse20013
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * I18nProductInnerSeo Class Doc Comment
+ * InlineResponse20013 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class I18nProductInnerSeo implements ModelInterface, ArrayAccess
+class InlineResponse20013 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'i18nProduct_inner_seo';
+    protected static $swaggerModelName = 'inline_response_200_13';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'title' => 'string',
-        'keywords' => 'string',
-        'description' => 'string'
+        'data' => '\Swagger\Client\Model\ProductImage[]'
     ];
 
     /**
@@ -68,9 +66,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'title' => null,
-        'keywords' => null,
-        'description' => null
+        'data' => null
     ];
 
     /**
@@ -100,9 +96,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'keywords' => 'keywords',
-        'description' => 'description'
+        'data' => 'data'
     ];
 
     /**
@@ -111,9 +105,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'keywords' => 'setKeywords',
-        'description' => 'setDescription'
+        'data' => 'setData'
     ];
 
     /**
@@ -122,9 +114,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'keywords' => 'getKeywords',
-        'description' => 'getDescription'
+        'data' => 'getData'
     ];
 
     /**
@@ -187,9 +177,7 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['keywords'] = isset($data['keywords']) ? $data['keywords'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -218,73 +206,25 @@ class I18nProductInnerSeo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets data
      *
-     * @return string
+     * @return \Swagger\Client\Model\ProductImage[]
      */
-    public function getTitle()
+    public function getData()
     {
-        return $this->container['title'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets title
+     * Sets data
      *
-     * @param string $title title
+     * @param \Swagger\Client\Model\ProductImage[] $data data
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setData($data)
     {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets keywords
-     *
-     * @return string
-     */
-    public function getKeywords()
-    {
-        return $this->container['keywords'];
-    }
-
-    /**
-     * Sets keywords
-     *
-     * @param string $keywords keywords
-     *
-     * @return $this
-     */
-    public function setKeywords($keywords)
-    {
-        $this->container['keywords'] = $keywords;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description description
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
+        $this->container['data'] = $data;
 
         return $this;
     }

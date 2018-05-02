@@ -85,29 +85,31 @@ class SettingsApi
     /**
      * Operation getCurrencies
      *
+     * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2009
+     * @return \Swagger\Client\Model\InlineResponse20017
      */
-    public function getCurrencies()
+    public function getCurrencies($includes = null)
     {
-        list($response) = $this->getCurrenciesWithHttpInfo();
+        list($response) = $this->getCurrenciesWithHttpInfo($includes);
         return $response;
     }
 
     /**
      * Operation getCurrenciesWithHttpInfo
      *
+     * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrenciesWithHttpInfo()
+    public function getCurrenciesWithHttpInfo($includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2009';
-        $request = $this->getCurrenciesRequest();
+        $returnType = '\Swagger\Client\Model\InlineResponse20017';
+        $request = $this->getCurrenciesRequest($includes);
 
         try {
             $options = $this->createHttpClientOption();
@@ -158,7 +160,7 @@ class SettingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2009',
+                        '\Swagger\Client\Model\InlineResponse20017',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -173,13 +175,14 @@ class SettingsApi
      *
      * 
      *
+     * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsync()
+    public function getCurrenciesAsync($includes = null)
     {
-        return $this->getCurrenciesAsyncWithHttpInfo()
+        return $this->getCurrenciesAsyncWithHttpInfo($includes)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -192,14 +195,15 @@ class SettingsApi
      *
      * 
      *
+     * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsyncWithHttpInfo()
+    public function getCurrenciesAsyncWithHttpInfo($includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2009';
-        $request = $this->getCurrenciesRequest();
+        $returnType = '\Swagger\Client\Model\InlineResponse20017';
+        $request = $this->getCurrenciesRequest($includes);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -241,11 +245,12 @@ class SettingsApi
     /**
      * Create request for operation 'getCurrencies'
      *
+     * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCurrenciesRequest()
+    protected function getCurrenciesRequest($includes = null)
     {
 
         $resourcePath = '/settings/currencies';
@@ -255,6 +260,13 @@ class SettingsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if (is_array($includes)) {
+            $includes = ObjectSerializer::serializeCollection($includes, 'csv', true);
+        }
+        if ($includes !== null) {
+            $queryParams['includes'] = ObjectSerializer::toQueryValue($includes);
+        }
 
 
         // body params
