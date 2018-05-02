@@ -57,10 +57,19 @@ class Order implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'id' => 'int',
-        'name' => 'string',
+        'uid' => 'int',
+        'order_number' => 'int',
+        'customer' => '\Swagger\Client\Model\OrderCustomer',
+        'iso_currency' => 'string',
+        'delivery' => '\Swagger\Client\Model\OrderDelivery',
+        'payment' => '\Swagger\Client\Model\OrderPayment',
+        'status' => 'string',
+        'total_amount' => 'float',
+        'total_tax_amount' => 'float',
+        'observation' => 'string',
         'created_at' => '\DateTime',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'products' => '\Swagger\Client\Model\OrderProducts[]'
     ];
 
     /**
@@ -69,10 +78,19 @@ class Order implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'id' => 'int64',
-        'name' => null,
+        'uid' => 'int64',
+        'order_number' => 'int64',
+        'customer' => null,
+        'iso_currency' => null,
+        'delivery' => null,
+        'payment' => null,
+        'status' => null,
+        'total_amount' => 'float',
+        'total_tax_amount' => 'float',
+        'observation' => null,
         'created_at' => 'date-time',
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'products' => null
     ];
 
     /**
@@ -102,10 +120,19 @@ class Order implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'name' => 'name',
+        'uid' => 'uid',
+        'order_number' => 'order_number',
+        'customer' => 'customer',
+        'iso_currency' => 'iso_currency',
+        'delivery' => 'delivery',
+        'payment' => 'payment',
+        'status' => 'status',
+        'total_amount' => 'total_amount',
+        'total_tax_amount' => 'total_tax_amount',
+        'observation' => 'observation',
         'created_at' => 'created_at',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'products' => 'products'
     ];
 
     /**
@@ -114,10 +141,19 @@ class Order implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'name' => 'setName',
+        'uid' => 'setUid',
+        'order_number' => 'setOrderNumber',
+        'customer' => 'setCustomer',
+        'iso_currency' => 'setIsoCurrency',
+        'delivery' => 'setDelivery',
+        'payment' => 'setPayment',
+        'status' => 'setStatus',
+        'total_amount' => 'setTotalAmount',
+        'total_tax_amount' => 'setTotalTaxAmount',
+        'observation' => 'setObservation',
         'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'products' => 'setProducts'
     ];
 
     /**
@@ -126,10 +162,19 @@ class Order implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'name' => 'getName',
+        'uid' => 'getUid',
+        'order_number' => 'getOrderNumber',
+        'customer' => 'getCustomer',
+        'iso_currency' => 'getIsoCurrency',
+        'delivery' => 'getDelivery',
+        'payment' => 'getPayment',
+        'status' => 'getStatus',
+        'total_amount' => 'getTotalAmount',
+        'total_tax_amount' => 'getTotalTaxAmount',
+        'observation' => 'getObservation',
         'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'products' => 'getProducts'
     ];
 
     /**
@@ -192,10 +237,19 @@ class Order implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['uid'] = isset($data['uid']) ? $data['uid'] : null;
+        $this->container['order_number'] = isset($data['order_number']) ? $data['order_number'] : null;
+        $this->container['customer'] = isset($data['customer']) ? $data['customer'] : null;
+        $this->container['iso_currency'] = isset($data['iso_currency']) ? $data['iso_currency'] : null;
+        $this->container['delivery'] = isset($data['delivery']) ? $data['delivery'] : null;
+        $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['total_amount'] = isset($data['total_amount']) ? $data['total_amount'] : null;
+        $this->container['total_tax_amount'] = isset($data['total_tax_amount']) ? $data['total_tax_amount'] : null;
+        $this->container['observation'] = isset($data['observation']) ? $data['observation'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['products'] = isset($data['products']) ? $data['products'] : null;
     }
 
     /**
@@ -207,9 +261,6 @@ class Order implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -222,57 +273,246 @@ class Order implements ModelInterface, ArrayAccess
     public function valid()
     {
 
-        if ($this->container['id'] === null) {
-            return false;
-        }
         return true;
     }
 
 
     /**
-     * Gets id
+     * Gets uid
      *
      * @return int
      */
-    public function getId()
+    public function getUid()
     {
-        return $this->container['id'];
+        return $this->container['uid'];
     }
 
     /**
-     * Sets id
+     * Sets uid
      *
-     * @param int $id id
+     * @param int $uid uid
      *
      * @return $this
      */
-    public function setId($id)
+    public function setUid($uid)
     {
-        $this->container['id'] = $id;
+        $this->container['uid'] = $uid;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets order_number
      *
-     * @return string
+     * @return int
      */
-    public function getName()
+    public function getOrderNumber()
     {
-        return $this->container['name'];
+        return $this->container['order_number'];
     }
 
     /**
-     * Sets name
+     * Sets order_number
      *
-     * @param string $name name
+     * @param int $order_number order_number
      *
      * @return $this
      */
-    public function setName($name)
+    public function setOrderNumber($order_number)
     {
-        $this->container['name'] = $name;
+        $this->container['order_number'] = $order_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets customer
+     *
+     * @return \Swagger\Client\Model\OrderCustomer
+     */
+    public function getCustomer()
+    {
+        return $this->container['customer'];
+    }
+
+    /**
+     * Sets customer
+     *
+     * @param \Swagger\Client\Model\OrderCustomer $customer customer
+     *
+     * @return $this
+     */
+    public function setCustomer($customer)
+    {
+        $this->container['customer'] = $customer;
+
+        return $this;
+    }
+
+    /**
+     * Gets iso_currency
+     *
+     * @return string
+     */
+    public function getIsoCurrency()
+    {
+        return $this->container['iso_currency'];
+    }
+
+    /**
+     * Sets iso_currency
+     *
+     * @param string $iso_currency iso_currency
+     *
+     * @return $this
+     */
+    public function setIsoCurrency($iso_currency)
+    {
+        $this->container['iso_currency'] = $iso_currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery
+     *
+     * @return \Swagger\Client\Model\OrderDelivery
+     */
+    public function getDelivery()
+    {
+        return $this->container['delivery'];
+    }
+
+    /**
+     * Sets delivery
+     *
+     * @param \Swagger\Client\Model\OrderDelivery $delivery delivery
+     *
+     * @return $this
+     */
+    public function setDelivery($delivery)
+    {
+        $this->container['delivery'] = $delivery;
+
+        return $this;
+    }
+
+    /**
+     * Gets payment
+     *
+     * @return \Swagger\Client\Model\OrderPayment
+     */
+    public function getPayment()
+    {
+        return $this->container['payment'];
+    }
+
+    /**
+     * Sets payment
+     *
+     * @param \Swagger\Client\Model\OrderPayment $payment payment
+     *
+     * @return $this
+     */
+    public function setPayment($payment)
+    {
+        $this->container['payment'] = $payment;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param string $status status
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_amount
+     *
+     * @return float
+     */
+    public function getTotalAmount()
+    {
+        return $this->container['total_amount'];
+    }
+
+    /**
+     * Sets total_amount
+     *
+     * @param float $total_amount total_amount
+     *
+     * @return $this
+     */
+    public function setTotalAmount($total_amount)
+    {
+        $this->container['total_amount'] = $total_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_tax_amount
+     *
+     * @return float
+     */
+    public function getTotalTaxAmount()
+    {
+        return $this->container['total_tax_amount'];
+    }
+
+    /**
+     * Sets total_tax_amount
+     *
+     * @param float $total_tax_amount total_tax_amount
+     *
+     * @return $this
+     */
+    public function setTotalTaxAmount($total_tax_amount)
+    {
+        $this->container['total_tax_amount'] = $total_tax_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets observation
+     *
+     * @return string
+     */
+    public function getObservation()
+    {
+        return $this->container['observation'];
+    }
+
+    /**
+     * Sets observation
+     *
+     * @param string $observation observation
+     *
+     * @return $this
+     */
+    public function setObservation($observation)
+    {
+        $this->container['observation'] = $observation;
 
         return $this;
     }
@@ -321,6 +561,30 @@ class Order implements ModelInterface, ArrayAccess
     public function setUpdatedAt($updated_at)
     {
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets products
+     *
+     * @return \Swagger\Client\Model\OrderProducts[]
+     */
+    public function getProducts()
+    {
+        return $this->container['products'];
+    }
+
+    /**
+     * Sets products
+     *
+     * @param \Swagger\Client\Model\OrderProducts[] $products products
+     *
+     * @return $this
+     */
+    public function setProducts($products)
+    {
+        $this->container['products'] = $products;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Shipping[]',
+        'data' => '\Swagger\Client\Model\CustomerAddress[]',
         'meta' => '\Swagger\Client\Model\InlineResponse2001Meta'
     ];
 
@@ -214,7 +214,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Shipping[]
+     * @return \Swagger\Client\Model\CustomerAddress[]
      */
     public function getData()
     {
@@ -224,7 +224,7 @@ class InlineResponse2005 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Shipping[] $data data
+     * @param \Swagger\Client\Model\CustomerAddress[] $data data
      *
      * @return $this
      */
