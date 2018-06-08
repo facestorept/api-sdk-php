@@ -58,6 +58,7 @@ class Category implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'id' => 'int',
+        'id_parent' => 'int',
         'position' => 'int',
         'image_small' => 'string',
         'image_larger' => 'string',
@@ -65,7 +66,9 @@ class Category implements ModelInterface, ArrayAccess
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'visibility' => 'string[]',
-        'i18n' => '\Swagger\Client\Model\I18n[]'
+        'i18n' => '\Swagger\Client\Model\I18n[]',
+        'parents' => 'object',
+        'children' => '\Swagger\Client\Model\Category[]'
     ];
 
     /**
@@ -75,6 +78,7 @@ class Category implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'id' => null,
+        'id_parent' => null,
         'position' => null,
         'image_small' => null,
         'image_larger' => null,
@@ -82,7 +86,9 @@ class Category implements ModelInterface, ArrayAccess
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'visibility' => null,
-        'i18n' => null
+        'i18n' => null,
+        'parents' => null,
+        'children' => null
     ];
 
     /**
@@ -113,6 +119,7 @@ class Category implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'id_parent' => 'id_parent',
         'position' => 'position',
         'image_small' => 'image_small',
         'image_larger' => 'image_larger',
@@ -120,7 +127,9 @@ class Category implements ModelInterface, ArrayAccess
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'visibility' => 'visibility',
-        'i18n' => 'i18n'
+        'i18n' => 'i18n',
+        'parents' => 'parents',
+        'children' => 'children'
     ];
 
     /**
@@ -130,6 +139,7 @@ class Category implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'id' => 'setId',
+        'id_parent' => 'setIdParent',
         'position' => 'setPosition',
         'image_small' => 'setImageSmall',
         'image_larger' => 'setImageLarger',
@@ -137,7 +147,9 @@ class Category implements ModelInterface, ArrayAccess
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'visibility' => 'setVisibility',
-        'i18n' => 'setI18n'
+        'i18n' => 'setI18n',
+        'parents' => 'setParents',
+        'children' => 'setChildren'
     ];
 
     /**
@@ -147,6 +159,7 @@ class Category implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'id' => 'getId',
+        'id_parent' => 'getIdParent',
         'position' => 'getPosition',
         'image_small' => 'getImageSmall',
         'image_larger' => 'getImageLarger',
@@ -154,7 +167,9 @@ class Category implements ModelInterface, ArrayAccess
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'visibility' => 'getVisibility',
-        'i18n' => 'getI18n'
+        'i18n' => 'getI18n',
+        'parents' => 'getParents',
+        'children' => 'getChildren'
     ];
 
     /**
@@ -239,6 +254,7 @@ class Category implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['id_parent'] = isset($data['id_parent']) ? $data['id_parent'] : null;
         $this->container['position'] = isset($data['position']) ? $data['position'] : null;
         $this->container['image_small'] = isset($data['image_small']) ? $data['image_small'] : null;
         $this->container['image_larger'] = isset($data['image_larger']) ? $data['image_larger'] : null;
@@ -247,6 +263,8 @@ class Category implements ModelInterface, ArrayAccess
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['visibility'] = isset($data['visibility']) ? $data['visibility'] : null;
         $this->container['i18n'] = isset($data['i18n']) ? $data['i18n'] : null;
+        $this->container['parents'] = isset($data['parents']) ? $data['parents'] : null;
+        $this->container['children'] = isset($data['children']) ? $data['children'] : null;
     }
 
     /**
@@ -300,6 +318,30 @@ class Category implements ModelInterface, ArrayAccess
     public function setId($id)
     {
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets id_parent
+     *
+     * @return int
+     */
+    public function getIdParent()
+    {
+        return $this->container['id_parent'];
+    }
+
+    /**
+     * Sets id_parent
+     *
+     * @param int $id_parent id_parent
+     *
+     * @return $this
+     */
+    public function setIdParent($id_parent)
+    {
+        $this->container['id_parent'] = $id_parent;
 
         return $this;
     }
@@ -501,6 +543,54 @@ class Category implements ModelInterface, ArrayAccess
     public function setI18n($i18n)
     {
         $this->container['i18n'] = $i18n;
+
+        return $this;
+    }
+
+    /**
+     * Gets parents
+     *
+     * @return object
+     */
+    public function getParents()
+    {
+        return $this->container['parents'];
+    }
+
+    /**
+     * Sets parents
+     *
+     * @param object $parents Parent of category
+     *
+     * @return $this
+     */
+    public function setParents($parents)
+    {
+        $this->container['parents'] = $parents;
+
+        return $this;
+    }
+
+    /**
+     * Gets children
+     *
+     * @return \Swagger\Client\Model\Category[]
+     */
+    public function getChildren()
+    {
+        return $this->container['children'];
+    }
+
+    /**
+     * Sets children
+     *
+     * @param \Swagger\Client\Model\Category[] $children Children categories of category
+     *
+     * @return $this
+     */
+    public function setChildren($children)
+    {
+        $this->container['children'] = $children;
 
         return $this;
     }

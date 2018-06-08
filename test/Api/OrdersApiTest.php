@@ -27,8 +27,12 @@
 
 namespace Swagger\Client;
 
+use GuzzleHttp\Client;
+use Swagger\Client\Api\OrdersApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
+use Swagger\Client\Model\InlineResponse2006;
+use Swagger\Client\Model\InlineResponse2007;
 use \Swagger\Client\ObjectSerializer;
 
 /**
@@ -41,12 +45,26 @@ use \Swagger\Client\ObjectSerializer;
  */
 class OrdersApiTest extends \PHPUnit_Framework_TestCase
 {
+    private static $config;
+    /**
+     * @var Api\OrdersApi
+     */
+    private static $order;
+
+    private static $resourceId = 138;
 
     /**
      * Setup before running any test cases
      */
     public static function setUpBeforeClass()
     {
+        self::$config = Configuration::getDefaultConfiguration()
+            ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
+
+        self::$order = new OrdersApi(
+            new Client(),
+            self::$config
+        );
     }
 
     /**
@@ -78,6 +96,9 @@ class OrdersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetOrderById()
     {
+        $orders = self::$order->getOrderById(self::$resourceId);
+
+        $this->assertInstanceOf(InlineResponse2007::class, $orders);
     }
 
     /**
@@ -88,5 +109,8 @@ class OrdersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetOrders()
     {
+        $orders = self::$order->getOrders();
+
+        $this->assertInstanceOf(InlineResponse2007::class, $orders);
     }
 }
