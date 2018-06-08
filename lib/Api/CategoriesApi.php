@@ -408,6 +408,14 @@ class CategoriesApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 423:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }

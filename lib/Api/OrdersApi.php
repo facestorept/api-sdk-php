@@ -85,12 +85,12 @@ class OrdersApi
     /**
      * Operation getOrderById
      *
-     * @param  int $id ID of customer (required)
+     * @param  int $id ID of order (required)
      * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Order[]
+     * @return \Swagger\Client\Model\InlineResponse2007
      */
     public function getOrderById($id, $includes = null)
     {
@@ -101,16 +101,16 @@ class OrdersApi
     /**
      * Operation getOrderByIdWithHttpInfo
      *
-     * @param  int $id ID of customer (required)
+     * @param  int $id ID of order (required)
      * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Order[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\Order[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getOrderByIdRequest($id, $includes);
 
         try {
@@ -162,7 +162,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Order[]',
+                        '\Swagger\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,7 +185,7 @@ class OrdersApi
      *
      * 
      *
-     * @param  int $id ID of customer (required)
+     * @param  int $id ID of order (required)
      * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
@@ -206,7 +206,7 @@ class OrdersApi
      *
      * 
      *
-     * @param  int $id ID of customer (required)
+     * @param  int $id ID of order (required)
      * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
@@ -214,7 +214,7 @@ class OrdersApi
      */
     public function getOrderByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\Order[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getOrderByIdRequest($id, $includes);
 
         return $this->client
@@ -257,7 +257,7 @@ class OrdersApi
     /**
      * Create request for operation 'getOrderById'
      *
-     * @param  int $id ID of customer (required)
+     * @param  int $id ID of order (required)
      * @param  string[] $includes Include associated objects within response (optional)
      *
      * @throws \InvalidArgumentException
@@ -374,7 +374,7 @@ class OrdersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\Order[]
+     * @return \Swagger\Client\Model\InlineResponse2007
      */
     public function getOrders($includes = null, $limit = null, $order_by = null)
     {
@@ -391,11 +391,11 @@ class OrdersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\Order[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrdersWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\Order[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getOrdersRequest($includes, $limit, $order_by);
 
         try {
@@ -447,7 +447,7 @@ class OrdersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\Order[]',
+                        '\Swagger\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -501,7 +501,7 @@ class OrdersApi
      */
     public function getOrdersAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\Order[]';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getOrdersRequest($includes, $limit, $order_by);
 
         return $this->client

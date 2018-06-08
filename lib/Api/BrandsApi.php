@@ -168,7 +168,7 @@ class BrandsApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse204',
+                        '\Swagger\Client\Model\InlineResponse422',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
