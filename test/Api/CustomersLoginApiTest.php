@@ -70,7 +70,7 @@ class CustomersLoginApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('11qrqvb111gw23@gmail.com');
+        $customer->setEmail('111qrqvb111gw23@gmail.com');
         $customer->setFirstname('Manel');
         $customer->setLastname('Silva');
         $customer->setGender('Male');
@@ -122,7 +122,7 @@ class CustomersLoginApiTest extends \PHPUnit_Framework_TestCase
     public function testCustomerLogin()
     {
         $customerLogin = new CustomerLogin();
-        $customerLogin->setEmail('11qrqvb111gw23@gmail.com');
+        $customerLogin->setEmail('111qrqvb111gw23@gmail.com');
         $customerLogin->setPassword('vtrbe');
 
         self::$resourceLogin = new CustomersLoginApi(

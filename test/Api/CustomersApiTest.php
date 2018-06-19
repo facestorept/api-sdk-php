@@ -71,7 +71,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('rqv4qb11dwe1gfwew23@gmail.com');
+        $customer->setEmail('rqv4qqwdb11dwe1gfwew23@gmail.com');
         $customer->setFirstname('Manel');
         $customer->setLastname('Silva');
         $customer->setGender('Male');
@@ -166,7 +166,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('124td31yh1jq15754hg@gmail.com');
+        $customer->setEmail('124tqdd31yh1jq15754hg@gmail.com');
         $customer->setFirstname('Male');
         $customer->setLastname('Silva');
         $customer->setGender('M');
