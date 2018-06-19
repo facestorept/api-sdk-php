@@ -61,9 +61,10 @@ class Customer implements ModelInterface, ArrayAccess
         'firstname' => 'string',
         'lastname' => 'string',
         'active' => 'bool',
-        'birhday' => '\DateTime',
+        'birthday' => '\DateTime',
         'vat' => 'int',
         'email' => 'string',
+        'password' => 'string',
         'phone' => 'string',
         'company' => 'string',
         'gender' => 'string',
@@ -82,9 +83,10 @@ class Customer implements ModelInterface, ArrayAccess
         'firstname' => null,
         'lastname' => null,
         'active' => null,
-        'birhday' => 'date',
+        'birthday' => 'date',
         'vat' => 'int64',
         'email' => null,
+        'password' => null,
         'phone' => 'int64',
         'company' => null,
         'gender' => null,
@@ -124,9 +126,10 @@ class Customer implements ModelInterface, ArrayAccess
         'firstname' => 'firstname',
         'lastname' => 'lastname',
         'active' => 'active',
-        'birhday' => 'birhday',
+        'birthday' => 'birthday',
         'vat' => 'vat',
         'email' => 'email',
+        'password' => 'password',
         'phone' => 'phone',
         'company' => 'company',
         'gender' => 'gender',
@@ -145,9 +148,10 @@ class Customer implements ModelInterface, ArrayAccess
         'firstname' => 'setFirstname',
         'lastname' => 'setLastname',
         'active' => 'setActive',
-        'birhday' => 'setBirhday',
+        'birthday' => 'setBirthday',
         'vat' => 'setVat',
         'email' => 'setEmail',
+        'password' => 'setPassword',
         'phone' => 'setPhone',
         'company' => 'setCompany',
         'gender' => 'setGender',
@@ -166,9 +170,10 @@ class Customer implements ModelInterface, ArrayAccess
         'firstname' => 'getFirstname',
         'lastname' => 'getLastname',
         'active' => 'getActive',
-        'birhday' => 'getBirhday',
+        'birthday' => 'getBirthday',
         'vat' => 'getVat',
         'email' => 'getEmail',
+        'password' => 'getPassword',
         'phone' => 'getPhone',
         'company' => 'getCompany',
         'gender' => 'getGender',
@@ -241,9 +246,10 @@ class Customer implements ModelInterface, ArrayAccess
         $this->container['firstname'] = isset($data['firstname']) ? $data['firstname'] : null;
         $this->container['lastname'] = isset($data['lastname']) ? $data['lastname'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
-        $this->container['birhday'] = isset($data['birhday']) ? $data['birhday'] : null;
+        $this->container['birthday'] = isset($data['birthday']) ? $data['birthday'] : null;
         $this->container['vat'] = isset($data['vat']) ? $data['vat'] : null;
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
         $this->container['company'] = isset($data['company']) ? $data['company'] : null;
         $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
@@ -380,25 +386,25 @@ class Customer implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets birhday
+     * Gets birthday
      *
      * @return \DateTime
      */
-    public function getBirhday()
+    public function getBirthday()
     {
-        return $this->container['birhday'];
+        return $this->container['birthday'];
     }
 
     /**
-     * Sets birhday
+     * Sets birthday
      *
-     * @param \DateTime $birhday birhday
+     * @param \DateTime $birthday birthday
      *
      * @return $this
      */
-    public function setBirhday($birhday)
+    public function setBirthday($birthday)
     {
-        $this->container['birhday'] = $birhday;
+        $this->container['birthday'] = $birthday;
 
         return $this;
     }
@@ -447,6 +453,30 @@ class Customer implements ModelInterface, ArrayAccess
     public function setEmail($email)
     {
         $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string $password password
+     *
+     * @return $this
+     */
+    public function setPassword($password)
+    {
+        $this->container['password'] = $password;
 
         return $this;
     }

@@ -57,7 +57,7 @@ class InlineResponse2012 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Tax[]'
+        'data' => '\Swagger\Client\Model\Attribute[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class InlineResponse2012 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Tax[]
+     * @return \Swagger\Client\Model\Attribute[]
      */
     public function getData()
     {
@@ -218,7 +218,7 @@ class InlineResponse2012 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Tax[] $data data
+     * @param \Swagger\Client\Model\Attribute[] $data data
      *
      * @return $this
      */

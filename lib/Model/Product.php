@@ -66,12 +66,19 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'bool',
         'is_digital' => 'bool',
         'url_digital' => 'string',
+        'shipping_amount' => 'float',
+        'shipping_multiples' => 'float',
         'is_new' => 'bool',
-        'i18n' => '\Swagger\Client\Model\I18nProduct',
+        'i18n' => '\Swagger\Client\Model\I18nProduct[]',
         'active' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
-        'expires_at' => '\DateTime'
+        'expires_at' => '\DateTime',
+        'categories' => '\Swagger\Client\Model\ProductCategories[]',
+        'brand' => 'int',
+        'position' => 'int',
+        'id_taxes_group' => 'int',
+        'prices' => '\Swagger\Client\Model\ProductPrices'
     ];
 
     /**
@@ -89,12 +96,19 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => null,
         'is_digital' => null,
         'url_digital' => null,
+        'shipping_amount' => 'float',
+        'shipping_multiples' => 'float',
         'is_new' => null,
         'i18n' => null,
         'active' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
-        'expires_at' => 'date-time'
+        'expires_at' => 'date-time',
+        'categories' => null,
+        'brand' => 'int64',
+        'position' => 'int64',
+        'id_taxes_group' => 'int64',
+        'prices' => null
     ];
 
     /**
@@ -133,12 +147,19 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'is_prefered',
         'is_digital' => 'is_digital',
         'url_digital' => 'url_digital',
+        'shipping_amount' => 'shipping_amount',
+        'shipping_multiples' => 'shipping_multiples',
         'is_new' => 'is_new',
         'i18n' => 'i18n',
         'active' => 'active',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
-        'expires_at' => 'expires_at'
+        'expires_at' => 'expires_at',
+        'categories' => 'categories',
+        'brand' => 'brand',
+        'position' => 'position',
+        'id_taxes_group' => 'id_taxes_group',
+        'prices' => 'prices'
     ];
 
     /**
@@ -156,12 +177,19 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'setIsPrefered',
         'is_digital' => 'setIsDigital',
         'url_digital' => 'setUrlDigital',
+        'shipping_amount' => 'setShippingAmount',
+        'shipping_multiples' => 'setShippingMultiples',
         'is_new' => 'setIsNew',
         'i18n' => 'setI18n',
         'active' => 'setActive',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
-        'expires_at' => 'setExpiresAt'
+        'expires_at' => 'setExpiresAt',
+        'categories' => 'setCategories',
+        'brand' => 'setBrand',
+        'position' => 'setPosition',
+        'id_taxes_group' => 'setIdTaxesGroup',
+        'prices' => 'setPrices'
     ];
 
     /**
@@ -179,12 +207,19 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'getIsPrefered',
         'is_digital' => 'getIsDigital',
         'url_digital' => 'getUrlDigital',
+        'shipping_amount' => 'getShippingAmount',
+        'shipping_multiples' => 'getShippingMultiples',
         'is_new' => 'getIsNew',
         'i18n' => 'getI18n',
         'active' => 'getActive',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
-        'expires_at' => 'getExpiresAt'
+        'expires_at' => 'getExpiresAt',
+        'categories' => 'getCategories',
+        'brand' => 'getBrand',
+        'position' => 'getPosition',
+        'id_taxes_group' => 'getIdTaxesGroup',
+        'prices' => 'getPrices'
     ];
 
     /**
@@ -277,12 +312,19 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['is_prefered'] = isset($data['is_prefered']) ? $data['is_prefered'] : null;
         $this->container['is_digital'] = isset($data['is_digital']) ? $data['is_digital'] : null;
         $this->container['url_digital'] = isset($data['url_digital']) ? $data['url_digital'] : null;
+        $this->container['shipping_amount'] = isset($data['shipping_amount']) ? $data['shipping_amount'] : null;
+        $this->container['shipping_multiples'] = isset($data['shipping_multiples']) ? $data['shipping_multiples'] : null;
         $this->container['is_new'] = isset($data['is_new']) ? $data['is_new'] : null;
         $this->container['i18n'] = isset($data['i18n']) ? $data['i18n'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['expires_at'] = isset($data['expires_at']) ? $data['expires_at'] : null;
+        $this->container['categories'] = isset($data['categories']) ? $data['categories'] : null;
+        $this->container['brand'] = isset($data['brand']) ? $data['brand'] : null;
+        $this->container['position'] = isset($data['position']) ? $data['position'] : null;
+        $this->container['id_taxes_group'] = isset($data['id_taxes_group']) ? $data['id_taxes_group'] : null;
+        $this->container['prices'] = isset($data['prices']) ? $data['prices'] : null;
     }
 
     /**
@@ -542,6 +584,54 @@ class Product implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets shipping_amount
+     *
+     * @return float
+     */
+    public function getShippingAmount()
+    {
+        return $this->container['shipping_amount'];
+    }
+
+    /**
+     * Sets shipping_amount
+     *
+     * @param float $shipping_amount shipping_amount
+     *
+     * @return $this
+     */
+    public function setShippingAmount($shipping_amount)
+    {
+        $this->container['shipping_amount'] = $shipping_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_multiples
+     *
+     * @return float
+     */
+    public function getShippingMultiples()
+    {
+        return $this->container['shipping_multiples'];
+    }
+
+    /**
+     * Sets shipping_multiples
+     *
+     * @param float $shipping_multiples shipping_multiples
+     *
+     * @return $this
+     */
+    public function setShippingMultiples($shipping_multiples)
+    {
+        $this->container['shipping_multiples'] = $shipping_multiples;
+
+        return $this;
+    }
+
+    /**
      * Gets is_new
      *
      * @return bool
@@ -568,7 +658,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Gets i18n
      *
-     * @return \Swagger\Client\Model\I18nProduct
+     * @return \Swagger\Client\Model\I18nProduct[]
      */
     public function getI18n()
     {
@@ -578,7 +668,7 @@ class Product implements ModelInterface, ArrayAccess
     /**
      * Sets i18n
      *
-     * @param \Swagger\Client\Model\I18nProduct $i18n i18n
+     * @param \Swagger\Client\Model\I18nProduct[] $i18n i18n
      *
      * @return $this
      */
@@ -681,6 +771,126 @@ class Product implements ModelInterface, ArrayAccess
     public function setExpiresAt($expires_at)
     {
         $this->container['expires_at'] = $expires_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets categories
+     *
+     * @return \Swagger\Client\Model\ProductCategories[]
+     */
+    public function getCategories()
+    {
+        return $this->container['categories'];
+    }
+
+    /**
+     * Sets categories
+     *
+     * @param \Swagger\Client\Model\ProductCategories[] $categories categories
+     *
+     * @return $this
+     */
+    public function setCategories($categories)
+    {
+        $this->container['categories'] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Gets brand
+     *
+     * @return int
+     */
+    public function getBrand()
+    {
+        return $this->container['brand'];
+    }
+
+    /**
+     * Sets brand
+     *
+     * @param int $brand brand
+     *
+     * @return $this
+     */
+    public function setBrand($brand)
+    {
+        $this->container['brand'] = $brand;
+
+        return $this;
+    }
+
+    /**
+     * Gets position
+     *
+     * @return int
+     */
+    public function getPosition()
+    {
+        return $this->container['position'];
+    }
+
+    /**
+     * Sets position
+     *
+     * @param int $position position
+     *
+     * @return $this
+     */
+    public function setPosition($position)
+    {
+        $this->container['position'] = $position;
+
+        return $this;
+    }
+
+    /**
+     * Gets id_taxes_group
+     *
+     * @return int
+     */
+    public function getIdTaxesGroup()
+    {
+        return $this->container['id_taxes_group'];
+    }
+
+    /**
+     * Sets id_taxes_group
+     *
+     * @param int $id_taxes_group id_taxes_group
+     *
+     * @return $this
+     */
+    public function setIdTaxesGroup($id_taxes_group)
+    {
+        $this->container['id_taxes_group'] = $id_taxes_group;
+
+        return $this;
+    }
+
+    /**
+     * Gets prices
+     *
+     * @return \Swagger\Client\Model\ProductPrices
+     */
+    public function getPrices()
+    {
+        return $this->container['prices'];
+    }
+
+    /**
+     * Sets prices
+     *
+     * @param \Swagger\Client\Model\ProductPrices $prices prices
+     *
+     * @return $this
+     */
+    public function setPrices($prices)
+    {
+        $this->container['prices'] = $prices;
 
         return $this;
     }

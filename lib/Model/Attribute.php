@@ -61,7 +61,7 @@ class Attribute implements ModelInterface, ArrayAccess
         'position' => 'int',
         'is_searchable' => 'bool',
         'active' => 'bool',
-        'options' => '\Swagger\Client\Model\AttributeOptions',
+        'options' => '\Swagger\Client\Model\Options[]',
         'i18n' => '\Swagger\Client\Model\I18n[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -352,7 +352,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Gets options
      *
-     * @return \Swagger\Client\Model\AttributeOptions
+     * @return \Swagger\Client\Model\Options[]
      */
     public function getOptions()
     {
@@ -362,7 +362,7 @@ class Attribute implements ModelInterface, ArrayAccess
     /**
      * Sets options
      *
-     * @param \Swagger\Client\Model\AttributeOptions $options options
+     * @param \Swagger\Client\Model\Options[] $options Options of attributes
      *
      * @return $this
      */

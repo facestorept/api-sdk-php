@@ -89,7 +89,7 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse201
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
     public function addProductsAttributes($attribute)
     {
@@ -104,11 +104,11 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse201, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProductsAttributesWithHttpInfo($attribute)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
         $request = $this->addProductsAttributesRequest($attribute);
 
         try {
@@ -160,7 +160,7 @@ class ProductsAttributesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse201',
+                        '\Swagger\Client\Model\InlineResponse2012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -168,7 +168,7 @@ class ProductsAttributesApi
                 case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse204',
+                        '\Swagger\Client\Model\InlineResponse422',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -210,7 +210,7 @@ class ProductsAttributesApi
      */
     public function addProductsAttributesAsyncWithHttpInfo($attribute)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse201';
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
         $request = $this->addProductsAttributesRequest($attribute);
 
         return $this->client
@@ -590,7 +590,7 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2003
+     * @return \Swagger\Client\Model\InlineResponse2012
      */
     public function getProductAttributeById($id, $includes = null)
     {
@@ -606,11 +606,11 @@ class ProductsAttributesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductAttributeByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2003';
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
         $request = $this->getProductAttributeByIdRequest($id, $includes);
 
         try {
@@ -662,7 +662,7 @@ class ProductsAttributesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2003',
+                        '\Swagger\Client\Model\InlineResponse2012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -714,7 +714,7 @@ class ProductsAttributesApi
      */
     public function getProductAttributeByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2003';
+        $returnType = '\Swagger\Client\Model\InlineResponse2012';
         $request = $this->getProductAttributeByIdRequest($id, $includes);
 
         return $this->client
