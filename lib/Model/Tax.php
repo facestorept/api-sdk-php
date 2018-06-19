@@ -60,6 +60,7 @@ class Tax implements ModelInterface, ArrayAccess
         'id' => 'int',
         'name' => 'string',
         'is_default' => 'bool',
+        'value' => 'float',
         'active' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -74,6 +75,7 @@ class Tax implements ModelInterface, ArrayAccess
         'id' => 'int64',
         'name' => null,
         'is_default' => null,
+        'value' => 'float',
         'active' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -109,6 +111,7 @@ class Tax implements ModelInterface, ArrayAccess
         'id' => 'id',
         'name' => 'name',
         'is_default' => 'is_default',
+        'value' => 'value',
         'active' => 'active',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -123,6 +126,7 @@ class Tax implements ModelInterface, ArrayAccess
         'id' => 'setId',
         'name' => 'setName',
         'is_default' => 'setIsDefault',
+        'value' => 'setValue',
         'active' => 'setActive',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -137,6 +141,7 @@ class Tax implements ModelInterface, ArrayAccess
         'id' => 'getId',
         'name' => 'getName',
         'is_default' => 'getIsDefault',
+        'value' => 'getValue',
         'active' => 'getActive',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -205,6 +210,7 @@ class Tax implements ModelInterface, ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
         $this->container['is_default'] = isset($data['is_default']) ? $data['is_default'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -309,6 +315,30 @@ class Tax implements ModelInterface, ArrayAccess
     public function setIsDefault($is_default)
     {
         $this->container['is_default'] = $is_default;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return float
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param float $value value
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

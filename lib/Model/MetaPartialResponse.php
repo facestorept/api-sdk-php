@@ -57,11 +57,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'total' => 'int',
+        'current_page' => 'int',
         'first_page_url' => 'string',
+        'from' => 'int',
+        'last_page' => 'int',
         'last_page_url' => 'string',
         'next_page_url' => 'string',
         'path' => 'string',
-        'prev_page_url' => 'string'
+        'per_page' => 'int',
+        'prev_page_url' => 'string',
+        'to' => 'int'
     ];
 
     /**
@@ -70,11 +76,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'total' => 'int64',
+        'current_page' => 'int64',
         'first_page_url' => null,
+        'from' => 'int64',
+        'last_page' => 'int64',
         'last_page_url' => null,
         'next_page_url' => null,
         'path' => null,
-        'prev_page_url' => null
+        'per_page' => 'int64',
+        'prev_page_url' => null,
+        'to' => 'int64'
     ];
 
     /**
@@ -104,11 +116,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'total' => 'total',
+        'current_page' => 'current_page',
         'first_page_url' => 'first_page_url',
+        'from' => 'from',
+        'last_page' => 'last_page',
         'last_page_url' => 'last_page_url',
         'next_page_url' => 'next_page_url',
         'path' => 'path',
-        'prev_page_url' => 'prev_page_url'
+        'per_page' => 'per_page',
+        'prev_page_url' => 'prev_page_url',
+        'to' => 'to'
     ];
 
     /**
@@ -117,11 +135,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'total' => 'setTotal',
+        'current_page' => 'setCurrentPage',
         'first_page_url' => 'setFirstPageUrl',
+        'from' => 'setFrom',
+        'last_page' => 'setLastPage',
         'last_page_url' => 'setLastPageUrl',
         'next_page_url' => 'setNextPageUrl',
         'path' => 'setPath',
-        'prev_page_url' => 'setPrevPageUrl'
+        'per_page' => 'setPerPage',
+        'prev_page_url' => 'setPrevPageUrl',
+        'to' => 'setTo'
     ];
 
     /**
@@ -130,11 +154,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'total' => 'getTotal',
+        'current_page' => 'getCurrentPage',
         'first_page_url' => 'getFirstPageUrl',
+        'from' => 'getFrom',
+        'last_page' => 'getLastPage',
         'last_page_url' => 'getLastPageUrl',
         'next_page_url' => 'getNextPageUrl',
         'path' => 'getPath',
-        'prev_page_url' => 'getPrevPageUrl'
+        'per_page' => 'getPerPage',
+        'prev_page_url' => 'getPrevPageUrl',
+        'to' => 'getTo'
     ];
 
     /**
@@ -197,11 +227,17 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['current_page'] = isset($data['current_page']) ? $data['current_page'] : null;
         $this->container['first_page_url'] = isset($data['first_page_url']) ? $data['first_page_url'] : null;
+        $this->container['from'] = isset($data['from']) ? $data['from'] : null;
+        $this->container['last_page'] = isset($data['last_page']) ? $data['last_page'] : null;
         $this->container['last_page_url'] = isset($data['last_page_url']) ? $data['last_page_url'] : null;
         $this->container['next_page_url'] = isset($data['next_page_url']) ? $data['next_page_url'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['per_page'] = isset($data['per_page']) ? $data['per_page'] : null;
         $this->container['prev_page_url'] = isset($data['prev_page_url']) ? $data['prev_page_url'] : null;
+        $this->container['to'] = isset($data['to']) ? $data['to'] : null;
     }
 
     /**
@@ -230,6 +266,54 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
 
 
     /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total total
+     *
+     * @return $this
+     */
+    public function setTotal($total)
+    {
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets current_page
+     *
+     * @return int
+     */
+    public function getCurrentPage()
+    {
+        return $this->container['current_page'];
+    }
+
+    /**
+     * Sets current_page
+     *
+     * @param int $current_page current_page
+     *
+     * @return $this
+     */
+    public function setCurrentPage($current_page)
+    {
+        $this->container['current_page'] = $current_page;
+
+        return $this;
+    }
+
+    /**
      * Gets first_page_url
      *
      * @return string
@@ -249,6 +333,54 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
     public function setFirstPageUrl($first_page_url)
     {
         $this->container['first_page_url'] = $first_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets from
+     *
+     * @return int
+     */
+    public function getFrom()
+    {
+        return $this->container['from'];
+    }
+
+    /**
+     * Sets from
+     *
+     * @param int $from from
+     *
+     * @return $this
+     */
+    public function setFrom($from)
+    {
+        $this->container['from'] = $from;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_page
+     *
+     * @return int
+     */
+    public function getLastPage()
+    {
+        return $this->container['last_page'];
+    }
+
+    /**
+     * Sets last_page
+     *
+     * @param int $last_page last_page
+     *
+     * @return $this
+     */
+    public function setLastPage($last_page)
+    {
+        $this->container['last_page'] = $last_page;
 
         return $this;
     }
@@ -326,6 +458,30 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets per_page
+     *
+     * @return int
+     */
+    public function getPerPage()
+    {
+        return $this->container['per_page'];
+    }
+
+    /**
+     * Sets per_page
+     *
+     * @param int $per_page per_page
+     *
+     * @return $this
+     */
+    public function setPerPage($per_page)
+    {
+        $this->container['per_page'] = $per_page;
+
+        return $this;
+    }
+
+    /**
      * Gets prev_page_url
      *
      * @return string
@@ -345,6 +501,30 @@ class MetaPartialResponse implements ModelInterface, ArrayAccess
     public function setPrevPageUrl($prev_page_url)
     {
         $this->container['prev_page_url'] = $prev_page_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets to
+     *
+     * @return int
+     */
+    public function getTo()
+    {
+        return $this->container['to'];
+    }
+
+    /**
+     * Sets to
+     *
+     * @param int $to to
+     *
+     * @return $this
+     */
+    public function setTo($to)
+    {
+        $this->container['to'] = $to;
 
         return $this;
     }

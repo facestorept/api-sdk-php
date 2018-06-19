@@ -36,6 +36,7 @@ use Swagger\Client\Model\InlineResponse2002;
 use Swagger\Client\Model\InlineResponse2003;
 use Swagger\Client\Model\InlineResponse2004;
 use Swagger\Client\Model\InlineResponse2005;
+use Swagger\Client\Model\InlineResponse2012;
 use \Swagger\Client\ObjectSerializer;
 
 /**
@@ -48,16 +49,47 @@ use \Swagger\Client\ObjectSerializer;
  */
 class CustomersApiTest extends \PHPUnit_Framework_TestCase
 {
+    private static $config;
     /**
      * @var Api\CustomersApi
      */
-    private $customersAPI;
+    private static $resourceAPI;
+
+    private static $resourceId = 99;
 
     /**
      * Setup before running any test cases
      */
     public static function setUpBeforeClass()
     {
+        $customer = new Customer();
+        $customer->setActive(true);
+
+        $birthday = new \DateTime();
+        $birthday->setDate(1999, 10, 24);
+
+        $customer->setBirthday($birthday);
+
+        $customer->setCompany('Facestore');
+        $customer->setEmail('rqv4qb11dwe1gfwew23@gmail.com');
+        $customer->setFirstname('Manel');
+        $customer->setLastname('Silva');
+        $customer->setGender('Male');
+        $customer->setPhone('548219578');
+        $customer->setReceivedNewsletter(true);
+        $customer->setVat(265879958);
+
+        self::$config = Configuration::getDefaultConfiguration()
+            ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
+
+        self::$resourceAPI = new CustomersApi(
+            new Client(),
+            self::$config
+        );
+
+        $response = self::$resourceAPI->addCustomer($customer);
+
+        self::$resourceId = $response->getData()[0]->getId();
     }
 
     /**
@@ -65,13 +97,6 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $config = Configuration::getDefaultConfiguration()
-            ->setApiKey('APIToken','083e7be2ca947a899db97d00db4f512db6a85551');
-
-        $this->customersAPI = new CustomersApi(
-            new Client(),
-            $config
-        );
     }
 
     /**
@@ -96,24 +121,9 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetCustomerByIdWithResourceNotFound()
     {
-        $this->setExpectedException(ApiException::class, null,404);
+        $this->setExpectedException(ApiException::class, null, 404);
 
-        $this->customersAPI->getCustomerById(-1);
-    }
-
-    /**
-     * Test case for testGetCustomerByIdWithSuccess
-     *
-     * .
-     *
-     */
-    public function testGetCustomerByIdWithSuccess()
-    {
-        $customers = $this->customersAPI->getCustomer();
-
-        $customer = $this->customersAPI->getCustomerById($customers->getData()[0]->getId());
-
-        $this->assertInstanceOf(InlineResponse2005::class,$customer);
+        self::$resourceAPI->getCustomerById(-1);
     }
 
     /**
@@ -121,8 +131,84 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetCustomers()
     {
-        $customers = $this->customersAPI->getCustomer();
+        $customers = self::$resourceAPI->getCustomers();
 
-        $this->assertInstanceOf(InlineResponse2004::class,$customers);
+        $this->assertInstanceOf(InlineResponse2003::class, $customers);
     }
+
+    /**
+     * Test case for testGetCustomerById
+     *
+     * .
+     *
+     */
+    public function testGetCustomerById()
+    {
+        $customer = self::$resourceAPI->getCustomerById(self::$resourceId);
+
+        $this->assertInstanceOf(InlineResponse2003::class, $customer);
+    }
+
+    /**
+     * Test case for testUpdateCustomerAddressById
+     *
+     * .
+     *
+     */
+    public function testUpdateCustomerAddressById()
+    {
+        $customer = new Customer();
+        $customer->setActive(true);
+
+        $birthday = new \DateTime();
+        $birthday->setDate(1999, 10, 24);
+
+        $customer->setBirthday($birthday);
+
+        $customer->setCompany('Facestore');
+        $customer->setEmail('124td31yh1jq15754hg@gmail.com');
+        $customer->setFirstname('Male');
+        $customer->setLastname('Silva');
+        $customer->setGender('M');
+        $customer->setPhone('548219578');
+        $customer->setReceivedNewsletter(true);
+        $customer->setVat(265879958);
+
+        self::$resourceAPI = new CustomersApi(
+            new Client(),
+            self::$config
+        );
+
+        $response = self::$resourceAPI->addCustomer($customer);
+
+        self::$resourceId = $response->getData()[0]->getId();
+
+        $customer->setGender('F');
+        $customer->setEmail(null);
+
+        self::$resourceAPI->updateCustomerById(self::$resourceId, $customer);
+
+        $discountResponse = self::$resourceAPI->getCustomerById(self::$resourceId);
+
+        $customerAddress = $discountResponse->getData()[0];
+
+        $this->assertEquals('F', $customerAddress->getGender());
+    }
+
+    /**
+     * Test case for testDeleteCustomerById
+     *
+     * .
+     *
+     */
+    public function testDeleteCustomerById()
+    {
+        $this->setExpectedException(ApiException::class, null, 404);
+
+        self::$resourceAPI->deleteCustomerById(self::$resourceId);
+
+        self::$resourceAPI->getCustomerById(self::$resourceId);
+    }
+
+
 }

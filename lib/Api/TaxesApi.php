@@ -89,7 +89,7 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2012
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function addTaxes($tax)
     {
@@ -104,11 +104,11 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function addTaxesWithHttpInfo($tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->addTaxesRequest($tax);
 
         try {
@@ -160,7 +160,7 @@ class TaxesApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2012',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class TaxesApi
      */
     public function addTaxesAsyncWithHttpInfo($tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->addTaxesRequest($tax);
 
         return $this->client
@@ -582,7 +582,7 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2012
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function getTaxById($id, $includes = null)
     {
@@ -598,11 +598,11 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->getTaxByIdRequest($id, $includes);
 
         try {
@@ -654,7 +654,7 @@ class TaxesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2012',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -706,7 +706,7 @@ class TaxesApi
      */
     public function getTaxByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->getTaxByIdRequest($id, $includes);
 
         return $this->client
@@ -866,7 +866,7 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2004
+     * @return \Swagger\Client\Model\InlineResponse2007
      */
     public function getTaxes($includes = null, $limit = null, $order_by = null)
     {
@@ -883,11 +883,11 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2007, HTTP status code, HTTP response headers (array of strings)
      */
     public function getTaxesWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getTaxesRequest($includes, $limit, $order_by);
 
         try {
@@ -939,7 +939,7 @@ class TaxesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2004',
+                        '\Swagger\Client\Model\InlineResponse2007',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -993,7 +993,7 @@ class TaxesApi
      */
     public function getTaxesAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2007';
         $request = $this->getTaxesRequest($includes, $limit, $order_by);
 
         return $this->client
@@ -1150,7 +1150,7 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2012
+     * @return \Swagger\Client\Model\InlineResponse2014
      */
     public function updateTaxById($id, $tax)
     {
@@ -1166,11 +1166,11 @@ class TaxesApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2014, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateTaxByIdWithHttpInfo($id, $tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->updateTaxByIdRequest($id, $tax);
 
         try {
@@ -1222,7 +1222,7 @@ class TaxesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2012',
+                        '\Swagger\Client\Model\InlineResponse2014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1274,7 +1274,7 @@ class TaxesApi
      */
     public function updateTaxByIdAsyncWithHttpInfo($id, $tax)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2014';
         $request = $this->updateTaxByIdRequest($id, $tax);
 
         return $this->client
