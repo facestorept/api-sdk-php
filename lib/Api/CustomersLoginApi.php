@@ -89,7 +89,7 @@ class CustomersLoginApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2012
+     * @return \Swagger\Client\Model\InlineResponse2013
      */
     public function customerLogin($login)
     {
@@ -104,11 +104,11 @@ class CustomersLoginApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2013, HTTP status code, HTTP response headers (array of strings)
      */
     public function customerLoginWithHttpInfo($login)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2013';
         $request = $this->customerLoginRequest($login);
 
         try {
@@ -160,7 +160,7 @@ class CustomersLoginApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2012',
+                        '\Swagger\Client\Model\InlineResponse2013',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class CustomersLoginApi
      */
     public function customerLoginAsyncWithHttpInfo($login)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2012';
+        $returnType = '\Swagger\Client\Model\InlineResponse2013';
         $request = $this->customerLoginRequest($login);
 
         return $this->client

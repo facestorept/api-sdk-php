@@ -29,11 +29,13 @@ namespace Swagger\Client;
 
 use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
+use Swagger\Client\Model\InlineResponse20011;
 use Swagger\Client\Model\InlineResponse20012;
 use Swagger\Client\Model\InlineResponse2008;
 use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2014;
 use Swagger\Client\Model\InlineResponse2015;
+use Swagger\Client\Model\InlineResponse2016;
 use Swagger\Client\Model\Product;
 
 /**
@@ -54,6 +56,8 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
     private static $resourceId = 99;
 
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
 
     /**
      * Setup before running any test cases
@@ -72,7 +76,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -81,7 +85,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -158,7 +162,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -167,7 +171,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -193,7 +197,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         );
         $response = $resourceAPI->addProduct($product);
 
-        $this->assertInstanceOf(InlineResponse2015::class, $response);
+        $this->assertInstanceOf(InlineResponse2016::class, $response);
     }
 
     /**
@@ -206,7 +210,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     {
         $product = self::$resourceAPI->getProductById(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse2015::class, $product);
+        $this->assertInstanceOf(InlineResponse2016::class, $product);
     }
 
     /**
@@ -219,7 +223,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
     {
         $product = self::$resourceAPI->getProducts();
 
-        $this->assertInstanceOf(InlineResponse20012::class, $product);
+        $this->assertInstanceOf(InlineResponse20011::class, $product);
     }
 
     /**
@@ -242,7 +246,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(false);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(666);
         $product->setIdTaxesGroup(1);
 
@@ -251,7 +255,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
 
         $i18n = new Model\I18nProduct();
@@ -317,7 +321,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(false);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(666);
         $product->setIdTaxesGroup(1);
 
@@ -329,7 +333,7 @@ class ProductsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
 
         $i18n = new Model\I18nProduct();

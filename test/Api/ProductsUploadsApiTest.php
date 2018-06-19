@@ -31,6 +31,7 @@ namespace Swagger\Client;
 use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
 use Swagger\Client\Api\ProductsUploadsApi;
+use Swagger\Client\Model\InlineResponse20012;
 use Swagger\Client\Model\InlineResponse20013;
 use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2015;
@@ -56,6 +57,8 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
     private static $resourceId = 99;
 
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
 
     /**
      * Setup before running any test cases
@@ -74,7 +77,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -83,7 +86,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -133,7 +136,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
         self::$productUploadId = $image->getData()[0]->getId();
 
-        $this->assertInstanceOf(InlineResponse20013::class, $image);
+        $this->assertInstanceOf(InlineResponse20012::class, $image);
     }
 
     /**
@@ -172,7 +175,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
         $image = self::$productUpload->getProductImages(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse20013::class, $image);
+        $this->assertInstanceOf(InlineResponse20012::class, $image);
     }
 
     /**
@@ -190,7 +193,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
         $image = self::$productUpload->getProductImagesById(self::$resourceId, self::$productUploadId);
 
-        $this->assertInstanceOf(InlineResponse20013::class, $image);
+        $this->assertInstanceOf(InlineResponse20012::class, $image);
     }
 
     /**
@@ -213,7 +216,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(false);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(666);
         $product->setIdTaxesGroup(1);
 
@@ -225,7 +228,7 @@ class ProductsUploadsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
 
         $i18n = new Model\I18nProduct();

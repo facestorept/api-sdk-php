@@ -57,7 +57,7 @@ class InlineResponse2017 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\VariantDiscount[]'
+        'data' => '\Swagger\Client\Model\Variant[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class InlineResponse2017 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\VariantDiscount[]
+     * @return \Swagger\Client\Model\Variant[]
      */
     public function getData()
     {
@@ -218,7 +218,7 @@ class InlineResponse2017 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\VariantDiscount[] $data data
+     * @param \Swagger\Client\Model\Variant[] $data data
      *
      * @return $this
      */

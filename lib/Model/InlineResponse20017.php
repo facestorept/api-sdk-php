@@ -57,7 +57,7 @@ class InlineResponse20017 implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'data' => '\Swagger\Client\Model\Currencies[]',
+        'data' => '\Swagger\Client\Model\ZipCode[]',
         'meta' => '\Swagger\Client\Model\MetaPartialResponse'
     ];
 
@@ -214,7 +214,7 @@ class InlineResponse20017 implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \Swagger\Client\Model\Currencies[]
+     * @return \Swagger\Client\Model\ZipCode[]
      */
     public function getData()
     {
@@ -224,7 +224,7 @@ class InlineResponse20017 implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \Swagger\Client\Model\Currencies[] $data data
+     * @param \Swagger\Client\Model\ZipCode[] $data data
      *
      * @return $this
      */

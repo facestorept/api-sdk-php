@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderTaxes
+ * ZipCode
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * OrderTaxes Class Doc Comment
+ * ZipCode Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderTaxes implements ModelInterface, ArrayAccess
+class ZipCode implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderTaxes implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Order_taxes';
+    protected static $swaggerModelName = 'ZipCode';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'name' => 'string',
-        'percentage' => 'float',
-        'amount' => 'float'
+        'id' => 'int',
+        'zip_code' => 'int',
+        'state' => 'string',
+        'city' => 'string',
+        'neighborhood' => 'string',
+        'address' => 'string',
+        'complement' => 'string'
     ];
 
     /**
@@ -68,9 +72,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'name' => null,
-        'percentage' => 'float',
-        'amount' => 'float'
+        'id' => 'int64',
+        'zip_code' => 'int64',
+        'state' => null,
+        'city' => null,
+        'neighborhood' => null,
+        'address' => null,
+        'complement' => null
     ];
 
     /**
@@ -100,9 +108,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'name' => 'name',
-        'percentage' => 'percentage',
-        'amount' => 'amount'
+        'id' => 'id',
+        'zip_code' => 'zip_code',
+        'state' => 'state',
+        'city' => 'city',
+        'neighborhood' => 'neighborhood',
+        'address' => 'address',
+        'complement' => 'complement'
     ];
 
     /**
@@ -111,9 +123,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'name' => 'setName',
-        'percentage' => 'setPercentage',
-        'amount' => 'setAmount'
+        'id' => 'setId',
+        'zip_code' => 'setZipCode',
+        'state' => 'setState',
+        'city' => 'setCity',
+        'neighborhood' => 'setNeighborhood',
+        'address' => 'setAddress',
+        'complement' => 'setComplement'
     ];
 
     /**
@@ -122,9 +138,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'name' => 'getName',
-        'percentage' => 'getPercentage',
-        'amount' => 'getAmount'
+        'id' => 'getId',
+        'zip_code' => 'getZipCode',
+        'state' => 'getState',
+        'city' => 'getCity',
+        'neighborhood' => 'getNeighborhood',
+        'address' => 'getAddress',
+        'complement' => 'getComplement'
     ];
 
     /**
@@ -187,9 +207,13 @@ class OrderTaxes implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['percentage'] = isset($data['percentage']) ? $data['percentage'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
+        $this->container['zip_code'] = isset($data['zip_code']) ? $data['zip_code'] : null;
+        $this->container['state'] = isset($data['state']) ? $data['state'] : null;
+        $this->container['city'] = isset($data['city']) ? $data['city'] : null;
+        $this->container['neighborhood'] = isset($data['neighborhood']) ? $data['neighborhood'] : null;
+        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
+        $this->container['complement'] = isset($data['complement']) ? $data['complement'] : null;
     }
 
     /**
@@ -218,73 +242,169 @@ class OrderTaxes implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets name
+     * Gets id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->container['id'];
+    }
+
+    /**
+     * Sets id
+     *
+     * @param int $id id
+     *
+     * @return $this
+     */
+    public function setId($id)
+    {
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets zip_code
+     *
+     * @return int
+     */
+    public function getZipCode()
+    {
+        return $this->container['zip_code'];
+    }
+
+    /**
+     * Sets zip_code
+     *
+     * @param int $zip_code zip_code
+     *
+     * @return $this
+     */
+    public function setZipCode($zip_code)
+    {
+        $this->container['zip_code'] = $zip_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets state
      *
      * @return string
      */
-    public function getName()
+    public function getState()
     {
-        return $this->container['name'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets name
+     * Sets state
      *
-     * @param string $name name
+     * @param string $state state
      *
      * @return $this
      */
-    public function setName($name)
+    public function setState($state)
     {
-        $this->container['name'] = $name;
+        $this->container['state'] = $state;
 
         return $this;
     }
 
     /**
-     * Gets percentage
+     * Gets city
      *
-     * @return float
+     * @return string
      */
-    public function getPercentage()
+    public function getCity()
     {
-        return $this->container['percentage'];
+        return $this->container['city'];
     }
 
     /**
-     * Sets percentage
+     * Sets city
      *
-     * @param float $percentage percentage
+     * @param string $city city
      *
      * @return $this
      */
-    public function setPercentage($percentage)
+    public function setCity($city)
     {
-        $this->container['percentage'] = $percentage;
+        $this->container['city'] = $city;
 
         return $this;
     }
 
     /**
-     * Gets amount
+     * Gets neighborhood
      *
-     * @return float
+     * @return string
      */
-    public function getAmount()
+    public function getNeighborhood()
     {
-        return $this->container['amount'];
+        return $this->container['neighborhood'];
     }
 
     /**
-     * Sets amount
+     * Sets neighborhood
      *
-     * @param float $amount amount
+     * @param string $neighborhood neighborhood
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setNeighborhood($neighborhood)
     {
-        $this->container['amount'] = $amount;
+        $this->container['neighborhood'] = $neighborhood;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param string $address address
+     *
+     * @return $this
+     */
+    public function setAddress($address)
+    {
+        $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets complement
+     *
+     * @return string
+     */
+    public function getComplement()
+    {
+        return $this->container['complement'];
+    }
+
+    /**
+     * Sets complement
+     *
+     * @param string $complement complement
+     *
+     * @return $this
+     */
+    public function setComplement($complement)
+    {
+        $this->container['complement'] = $complement;
 
         return $this;
     }

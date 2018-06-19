@@ -62,6 +62,9 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
 
     private $resourceId = 99;
 
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
+
     /**
      * Setup before running any test cases
      */
@@ -145,7 +148,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddCategoriesWithError()
     {
-        $this->setExpectedException(ApiException::class, null,422);
+        $this->setExpectedException(ApiException::class, null, 422);
 
         $category = new Category();
         $category->setVisibility(['all']);
@@ -160,7 +163,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         $i18nPT2->setLocale('pt_PT');
         $i18nPT2->setDescription('Foobar description');
 
-        $category->setI18n([$i18nPT,$i18nPT2]);
+        $category->setI18n([$i18nPT, $i18nPT2]);
 
         $this->resourceAPI->addCategories($category);
     }
@@ -173,7 +176,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddCategoriesWithoutI18n()
     {
-        $this->setExpectedException(ApiException::class, null,422);
+        $this->setExpectedException(ApiException::class, null, 422);
 
         $category = new Category();
         $category->setActive(true);
@@ -214,7 +217,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
     public function testAddFullCategoriesWithSuccess()
     {
         $category = new Category();
-        $category->setVisibility([Model\Brand::VISIBILITY_FACEBOOK,Model\Brand::VISIBILITY_MOBILE]);
+        $category->setVisibility([Model\Brand::VISIBILITY_FACEBOOK, Model\Brand::VISIBILITY_MOBILE]);
         $category->setPosition(1);
         $category->setActive(true);
 
@@ -228,7 +231,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         $i18nPT->setLocale('pt_PT');
         $i18nPT->setDescription('Foobar description');
 
-        $category->setI18n([$i18nUS,$i18nPT]);
+        $category->setI18n([$i18nUS, $i18nPT]);
 
         $response = $this->resourceAPI->addCategories($category);
 
@@ -294,7 +297,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testDeleteCategoryByIdSuccess()
     {
-        $this->setExpectedException(ApiException::class, null,404);
+        $this->setExpectedException(ApiException::class, null, 404);
 
         $this->resourceAPI->deleteCategoryById($this->resourceId);
 
@@ -324,7 +327,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
     {
         $response = $this->resourceAPI->getCategoryById($this->resourceId);
 
-        $this->assertInstanceOf(InlineResponse2011::class,$response);
+        $this->assertInstanceOf(InlineResponse2011::class, $response);
     }
 
     /**
@@ -353,7 +356,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddParentsOfCategoryWithError()
     {
-        $this->setExpectedException(ApiException::class, null,423);
+        $this->setExpectedException(ApiException::class, null, 423);
 
         $this->testAddParentsOfCategoryWithSuccess();
 
@@ -367,7 +370,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         $category4->setVisibility([Model\Brand::VISIBILITY_FACEBOOK]);
         $category4->setIdParent($lastValueArray->getData()[0]->getId());
 
-        $i18n4  = new Model\I18n();
+        $i18n4 = new Model\I18n();
         $i18n4->setDescription('Foobar description');
         $i18n4->setLocale('pt_PT');
         $i18n4->setName('Foobar name');
@@ -376,7 +379,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
 
         $createCategory4 = $this->resourceAPI->addCategories($category4);
 
-        $this->assertInstanceOf(InlineResponse2011::class,$createCategory4);
+        $this->assertInstanceOf(InlineResponse2011::class, $createCategory4);
 
         $this->resourceAPI->deleteCategoryById($this->resourceId);
     }
@@ -389,26 +392,26 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testDeleteParentsOfCategoryWithProductsWithError()
     {
-            $this->setExpectedException(ApiException::class, null,422);
+        $this->setExpectedException(ApiException::class, null, 422);
 
-            $categoriesCreatedArray = $this->createCategoriesDataForTest();
+        $categoriesCreatedArray = $this->createCategoriesDataForTest();
 
-            $lastValueArray = end($categoriesCreatedArray);
-            $firstValueArray = $categoriesCreatedArray[0];
+        $lastValueArray = end($categoriesCreatedArray);
+        $firstValueArray = $categoriesCreatedArray[0];
 
-            $product = $this->createProductDataForTest($lastValueArray);
+        $product = $this->createProductDataForTest($lastValueArray);
 
-            $resourceProductAPI = new ProductsApi(
-                new Client(),
-                $this->config
-            );
-            $response = $resourceProductAPI->addProduct($product);
+        $resourceProductAPI = new ProductsApi(
+            new Client(),
+            $this->config
+        );
+        $response = $resourceProductAPI->addProduct($product);
 
-            $this->assertInstanceOf(InlineResponse2014::class,$response);
+        $this->assertInstanceOf(InlineResponse2014::class, $response);
 
-            $this->resourceAPI->deleteCategoryById($firstValueArray->getData()[0]->getId());
+        $this->resourceAPI->deleteCategoryById($firstValueArray->getData()[0]->getId());
 
-            $this->cleanUpDataAfterDeleteCategoryTest($resourceProductAPI, $response, $firstValueArray);
+        $this->cleanUpDataAfterDeleteCategoryTest($resourceProductAPI, $response, $firstValueArray);
     }
 
     /**
@@ -438,9 +441,8 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
 
         $categories = $this->resourceAPI->getCategoryById($this->resourceId, $includes);
 
-        $this->assertInstanceOf(InlineResponse2011::class,$categories);
+        $this->assertInstanceOf(InlineResponse2011::class, $categories);
     }
-
 
 
     /**
@@ -486,7 +488,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         );
 
         $categoryResponse = $this->resourceAPI->getCategoryById($this->resourceId);
-        
+
         $imageSmall = $categoryResponse->getData()[0]->getImageSmall();
 
         $this->assertNotEmpty($imageSmall);
@@ -515,7 +517,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         $category2 = new Category();
         $category2->setPosition(2);
         $category2->setActive(true);
-        $category2->setVisibility([Category::VISIBILITY_FACEBOOK,Category::VISIBILITY_MOBILE]);
+        $category2->setVisibility([Category::VISIBILITY_FACEBOOK, Category::VISIBILITY_MOBILE]);
         $category2->setIdParent($createCategory1->getData()[0]->getId());
         $category2->setI18n([$i18n1]);
 
@@ -539,7 +541,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      * @param $lastValueArray
      * @return Product
      */
-        public function createProductDataForTest($lastValueArray): Product
+    public function createProductDataForTest($lastValueArray): Product
     {
         $product = new Product();
         $product->setSku('Foobar Sku128');
@@ -551,7 +553,7 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(50);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(2);
 
@@ -586,7 +588,6 @@ class CategoriesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function cleanUpDataAfterDeleteCategoryTest($resourceProductAPI, $response, $firstValueArray): void
     {
-//        var_dump("ff");exit;
         $resourceProductAPI->deleteProductById($response->getData()[0]->getId());
         $this->resourceAPI->deleteCategoryById($firstValueArray->getData()[0]->getId());
     }

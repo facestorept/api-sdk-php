@@ -66,6 +66,8 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'bool',
         'is_digital' => 'bool',
         'url_digital' => 'string',
+        'shipping_amount' => 'float',
+        'shipping_multiples' => 'float',
         'is_new' => 'bool',
         'i18n' => '\Swagger\Client\Model\I18nProduct[]',
         'active' => 'bool',
@@ -94,6 +96,8 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => null,
         'is_digital' => null,
         'url_digital' => null,
+        'shipping_amount' => 'float',
+        'shipping_multiples' => 'float',
         'is_new' => null,
         'i18n' => null,
         'active' => null,
@@ -143,6 +147,8 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'is_prefered',
         'is_digital' => 'is_digital',
         'url_digital' => 'url_digital',
+        'shipping_amount' => 'shipping_amount',
+        'shipping_multiples' => 'shipping_multiples',
         'is_new' => 'is_new',
         'i18n' => 'i18n',
         'active' => 'active',
@@ -171,6 +177,8 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'setIsPrefered',
         'is_digital' => 'setIsDigital',
         'url_digital' => 'setUrlDigital',
+        'shipping_amount' => 'setShippingAmount',
+        'shipping_multiples' => 'setShippingMultiples',
         'is_new' => 'setIsNew',
         'i18n' => 'setI18n',
         'active' => 'setActive',
@@ -199,6 +207,8 @@ class Product implements ModelInterface, ArrayAccess
         'is_prefered' => 'getIsPrefered',
         'is_digital' => 'getIsDigital',
         'url_digital' => 'getUrlDigital',
+        'shipping_amount' => 'getShippingAmount',
+        'shipping_multiples' => 'getShippingMultiples',
         'is_new' => 'getIsNew',
         'i18n' => 'getI18n',
         'active' => 'getActive',
@@ -302,6 +312,8 @@ class Product implements ModelInterface, ArrayAccess
         $this->container['is_prefered'] = isset($data['is_prefered']) ? $data['is_prefered'] : null;
         $this->container['is_digital'] = isset($data['is_digital']) ? $data['is_digital'] : null;
         $this->container['url_digital'] = isset($data['url_digital']) ? $data['url_digital'] : null;
+        $this->container['shipping_amount'] = isset($data['shipping_amount']) ? $data['shipping_amount'] : null;
+        $this->container['shipping_multiples'] = isset($data['shipping_multiples']) ? $data['shipping_multiples'] : null;
         $this->container['is_new'] = isset($data['is_new']) ? $data['is_new'] : null;
         $this->container['i18n'] = isset($data['i18n']) ? $data['i18n'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
@@ -567,6 +579,54 @@ class Product implements ModelInterface, ArrayAccess
     public function setUrlDigital($url_digital)
     {
         $this->container['url_digital'] = $url_digital;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_amount
+     *
+     * @return float
+     */
+    public function getShippingAmount()
+    {
+        return $this->container['shipping_amount'];
+    }
+
+    /**
+     * Sets shipping_amount
+     *
+     * @param float $shipping_amount shipping_amount
+     *
+     * @return $this
+     */
+    public function setShippingAmount($shipping_amount)
+    {
+        $this->container['shipping_amount'] = $shipping_amount;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_multiples
+     *
+     * @return float
+     */
+    public function getShippingMultiples()
+    {
+        return $this->container['shipping_multiples'];
+    }
+
+    /**
+     * Sets shipping_multiples
+     *
+     * @param float $shipping_multiples shipping_multiples
+     *
+     * @return $this
+     */
+    public function setShippingMultiples($shipping_multiples)
+    {
+        $this->container['shipping_multiples'] = $shipping_multiples;
 
         return $this;
     }

@@ -36,11 +36,14 @@ use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
 use Swagger\Client\Model\InlineResponse20010;
 use Swagger\Client\Model\InlineResponse20011;
+use Swagger\Client\Model\InlineResponse20013;
 use Swagger\Client\Model\InlineResponse20014;
+use Swagger\Client\Model\InlineResponse20015;
 use Swagger\Client\Model\InlineResponse20016;
 use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2016;
 use Swagger\Client\Model\InlineResponse2017;
+use Swagger\Client\Model\InlineResponse2018;
 use Swagger\Client\Model\Product;
 use Swagger\Client\Model\Variant;
 use \Swagger\Client\ObjectSerializer;
@@ -65,8 +68,11 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
     private static $productVariant;
     private static $productVariantId;
 
-
     private static $resourceId = 99;
+
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
+    private static $resourceIdVariantAttribute = 1;
 
     /**
      * Setup before running any test cases
@@ -86,7 +92,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -95,7 +101,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -135,7 +141,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
         $variant->setActive(true);
 
         $variantAttributes = new Model\VariantAttributes();
-        $variantAttributes->setId(1);
+        $variantAttributes->setId(self::$resourceIdVariantAttribute);
         $variantAttributes->setIdOption(18);
 
         $variant->setAttributes([$variantAttributes]);
@@ -207,7 +213,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
 
         self::$productVariantDiscountId = $response->getData()[0]->getId();
 
-        $this->assertInstanceOf(InlineResponse2017::class,$response);
+        $this->assertInstanceOf(InlineResponse2018::class,$response);
     }
 
     /**
@@ -220,7 +226,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
     {
         $discount = self::$productVariantDiscount->getProductVariantsDiscounts(self::$resourceId, self::$productVariantId);
 
-        $this->assertInstanceOf(InlineResponse20016::class, $discount);
+        $this->assertInstanceOf(InlineResponse20015::class, $discount);
     }
 
     /**
@@ -233,7 +239,7 @@ class ProductsVariantsDiscountsApiTest extends \PHPUnit_Framework_TestCase
     {
         $discount = self::$productVariantDiscount->getProductVariantsDiscountsByID(self::$resourceId, self::$productVariantId, self::$productVariantDiscountId);
 
-        $this->assertInstanceOf(InlineResponse20014::class, $discount);
+        $this->assertInstanceOf(InlineResponse20013::class, $discount);
     }
 
     /**

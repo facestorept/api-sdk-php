@@ -31,9 +31,11 @@ namespace Swagger\Client;
 use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
 use Swagger\Client\Api\ProductsDiscountsApi;
+use Swagger\Client\Model\InlineResponse20013;
 use Swagger\Client\Model\InlineResponse20014;
 use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2016;
+use Swagger\Client\Model\InlineResponse2017;
 use Swagger\Client\Model\Product;
 
 /**
@@ -56,6 +58,9 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
 
     private static $resourceId = 99;
 
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
+
     /**
      * Setup before running any test cases
      */
@@ -73,7 +78,7 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -82,7 +87,7 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -166,7 +171,7 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
 
         self::$productDiscountId = $response->getData()[0]->getId();
 
-        $this->assertInstanceOf(InlineResponse2016::class,$response);
+        $this->assertInstanceOf(InlineResponse2017::class,$response);
     }
 
     /**
@@ -179,7 +184,7 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
     {
         $discount = self::$productDiscount->getProductDiscounts(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse20014::class, $discount);
+        $this->assertInstanceOf(InlineResponse20013::class, $discount);
     }
 
     /**
@@ -192,7 +197,7 @@ class ProductsDiscountsApiTest extends \PHPUnit_Framework_TestCase
     {
         $discount = self::$productDiscount->getProductDiscountsByID(self::$resourceId, self::$productDiscountId);
 
-        $this->assertInstanceOf(InlineResponse20014::class, $discount);
+        $this->assertInstanceOf(InlineResponse20013::class, $discount);
     }
 
     /**

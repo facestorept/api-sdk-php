@@ -89,7 +89,7 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20011
+     * @return \Swagger\Client\Model\InlineResponse20010
      */
     public function getPaymentById($id)
     {
@@ -104,11 +104,11 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentByIdWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20011';
+        $returnType = '\Swagger\Client\Model\InlineResponse20010';
         $request = $this->getPaymentByIdRequest($id);
 
         try {
@@ -160,7 +160,7 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20011',
+                        '\Swagger\Client\Model\InlineResponse20010',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -210,7 +210,7 @@ class PaymentsApi
      */
     public function getPaymentByIdAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20011';
+        $returnType = '\Swagger\Client\Model\InlineResponse20010';
         $request = $this->getPaymentByIdRequest($id);
 
         return $this->client
@@ -362,7 +362,7 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20010
+     * @return \Swagger\Client\Model\InlineResponse2009
      */
     public function getPayments($includes = null, $limit = null, $order_by = null)
     {
@@ -379,11 +379,11 @@ class PaymentsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20010, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2009, HTTP status code, HTTP response headers (array of strings)
      */
     public function getPaymentsWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20010';
+        $returnType = '\Swagger\Client\Model\InlineResponse2009';
         $request = $this->getPaymentsRequest($includes, $limit, $order_by);
 
         try {
@@ -435,7 +435,7 @@ class PaymentsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20010',
+                        '\Swagger\Client\Model\InlineResponse2009',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -489,7 +489,7 @@ class PaymentsApi
      */
     public function getPaymentsAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20010';
+        $returnType = '\Swagger\Client\Model\InlineResponse2009';
         $request = $this->getPaymentsRequest($includes, $limit, $order_by);
 
         return $this->client

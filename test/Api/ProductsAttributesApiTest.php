@@ -33,10 +33,14 @@ use Swagger\Client\Api\ProductsAttributesApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
 use Swagger\Client\Model\Attribute;
+use Swagger\Client\Model\AttributeOptions;
 use Swagger\Client\Model\I18n;
 use Swagger\Client\Model\InlineResponse2002;
 use Swagger\Client\Model\InlineResponse2003;
+use Swagger\Client\Model\InlineResponse201;
+use Swagger\Client\Model\InlineResponse2012;
 use Swagger\Client\Model\InlineResponse2014;
+use Swagger\Client\Model\Options;
 use Swagger\Client\Model\Product;
 use \Swagger\Client\ObjectSerializer;
 
@@ -65,30 +69,30 @@ class ProductsAttributesApiTest extends \PHPUnit_Framework_TestCase
     public static function setUpBeforeClass()
     {
         $attribute = new Attribute();
-
-        $attribute-> setActive(true);
-        $attribute-> setPosition(1);
-        $attribute-> setIsSearchable(true);
+        $attribute->setActive(true);
+        $attribute->setPosition(1);
+        $attribute->setIsSearchable(true);
 
         $i18nAttribute = new Model\I18n();
 
-        $i18nAttribute-> setDescription('Foobar description');
-        $i18nAttribute-> setName('Foobar name');
-        $i18nAttribute-> setLocale('Foobar locale');
+        $i18nAttribute->setName('Foobar name');
+        $i18nAttribute->setLocale('pt_PT');
 
+        $attribute->setI18n([$i18nAttribute]);
 
-        $attributesOptions = new Model\AttributeOptions();
+        $attributeOption = new Options();
+        $attributeOption->setPosition(1);
+        $attributeOption->setAuxCode('P');
 
-        $options = new Model\Options();
-        $options-> setPosition(1);
-        $options-> setAuxCode('Foobar auxCode');
+        $i18nAttributeOption = new Model\I18n();
+        $i18nAttributeOption->setLocale('pt_PT');
+        $i18nAttributeOption->setName('i18n attribute option');
 
-        $i18nOptions = new Model\I18n();
+        $attributeOption->setI18n([$i18nAttributeOption]);
 
-        $i18nOptions->setName('Foobar name');
-        $i18nOptions->setLocale('Foobar locale');
-        $i18nOptions->setDescription('Foobar description');
+        $attribute->setOptions([$attributeOption]);
 
+//        var_dump($attribute);exit;
 
         self::$config = Configuration::getDefaultConfiguration()
             ->setApiKey('APIToken', '083e7be2ca947a899db97d00db4f512db6a85551');
@@ -99,9 +103,10 @@ class ProductsAttributesApiTest extends \PHPUnit_Framework_TestCase
         );
 
         $response = self::$resourceAPI->addProductsAttributes($attribute);
-//        var_dump($response);exit;
-        self::assertInstanceOf(InlineResponse2014::class, $response);
 
+        self::assertInstanceOf(InlineResponse2012::class, $response);
+
+        self::$resourceId = $response->getData()[0]->getId();
     }
 
     /**
@@ -153,9 +158,9 @@ class ProductsAttributesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetProductAttributeById()
     {
-        $attribute = self::$resourceAPI->getProductsAttributeById(self::$resourceId);
-        //var_dump($product);
-        self::assertInstanceOf(InlineResponse2003::class, $attribute);
+        $attribute = self::$resourceAPI->getProductAttributeById(self::$resourceId);
+
+        self::assertInstanceOf(InlineResponse2012::class, $attribute);
     }
 
     /**
@@ -166,7 +171,7 @@ class ProductsAttributesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetProductsAttributes()
     {
-        $attribute = self::$resourceAPI->addProductsAttributes();
+        $attribute = self::$resourceAPI->getProductsAttributes();
 
         self::assertInstanceOf(InlineResponse2002::class, $attribute);
     }

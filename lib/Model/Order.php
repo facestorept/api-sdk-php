@@ -57,7 +57,7 @@ class Order implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'uid' => 'int',
+        'uid' => 'string',
         'order_number' => 'int',
         'customer' => '\Swagger\Client\Model\OrderCustomer',
         'iso_currency' => 'string',
@@ -78,7 +78,7 @@ class Order implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'uid' => 'int64',
+        'uid' => null,
         'order_number' => 'int64',
         'customer' => null,
         'iso_currency' => null,
@@ -261,6 +261,9 @@ class Order implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['uid'] === null) {
+            $invalidProperties[] = "'uid' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -273,6 +276,9 @@ class Order implements ModelInterface, ArrayAccess
     public function valid()
     {
 
+        if ($this->container['uid'] === null) {
+            return false;
+        }
         return true;
     }
 
@@ -280,7 +286,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets uid
      *
-     * @return int
+     * @return string
      */
     public function getUid()
     {
@@ -290,7 +296,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets uid
      *
-     * @param int $uid uid
+     * @param string $uid uid
      *
      * @return $this
      */

@@ -90,7 +90,7 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2006
+     * @return \Swagger\Client\Model\InlineResponse2005
      */
     public function addCustomerAddress($id, $address)
     {
@@ -106,11 +106,11 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCustomerAddressWithHttpInfo($id, $address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->addCustomerAddressRequest($id, $address);
 
         try {
@@ -162,7 +162,7 @@ class CustomersAddressApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2006',
+                        '\Swagger\Client\Model\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -206,7 +206,7 @@ class CustomersAddressApi
      */
     public function addCustomerAddressAsyncWithHttpInfo($id, $address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->addCustomerAddressRequest($id, $address);
 
         return $this->client
@@ -619,7 +619,7 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2006
+     * @return \Swagger\Client\Model\InlineResponse2005
      */
     public function getCustomerAddresses($id)
     {
@@ -634,11 +634,11 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerAddressesWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->getCustomerAddressesRequest($id);
 
         try {
@@ -690,7 +690,7 @@ class CustomersAddressApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2006',
+                        '\Swagger\Client\Model\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -740,7 +740,7 @@ class CustomersAddressApi
      */
     public function getCustomerAddressesAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->getCustomerAddressesRequest($id);
 
         return $this->client
@@ -891,7 +891,7 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2006
+     * @return \Swagger\Client\Model\InlineResponse2005
      */
     public function getCustomersAddressByID($id, $id_address)
     {
@@ -907,11 +907,11 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2006, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersAddressByIDWithHttpInfo($id, $id_address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->getCustomersAddressByIDRequest($id, $id_address);
 
         try {
@@ -963,7 +963,7 @@ class CustomersAddressApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2006',
+                        '\Swagger\Client\Model\InlineResponse2005',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1015,7 +1015,7 @@ class CustomersAddressApi
      */
     public function getCustomersAddressByIDAsyncWithHttpInfo($id, $id_address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2006';
+        $returnType = '\Swagger\Client\Model\InlineResponse2005';
         $request = $this->getCustomersAddressByIDRequest($id, $id_address);
 
         return $this->client
@@ -1182,7 +1182,7 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2005
+     * @return \Swagger\Client\Model\InlineResponse2004
      */
     public function updateCustomerAddressById($id, $id_address, $address)
     {
@@ -1199,11 +1199,11 @@ class CustomersAddressApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerAddressByIdWithHttpInfo($id, $id_address, $address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
         $request = $this->updateCustomerAddressByIdRequest($id, $id_address, $address);
 
         try {
@@ -1255,7 +1255,7 @@ class CustomersAddressApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2005',
+                        '\Swagger\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1309,7 +1309,7 @@ class CustomersAddressApi
      */
     public function updateCustomerAddressByIdAsyncWithHttpInfo($id, $id_address, $address)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
         $request = $this->updateCustomerAddressByIdRequest($id, $id_address, $address);
 
         return $this->client

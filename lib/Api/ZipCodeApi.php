@@ -1,6 +1,6 @@
 <?php
 /**
- * SettingsApi
+ * ZipCodeApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * SettingsApi Class Doc Comment
+ * ZipCodeApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class SettingsApi
+class ZipCodeApi
 {
     /**
      * @var ClientInterface
@@ -83,33 +83,33 @@ class SettingsApi
     }
 
     /**
-     * Operation getCurrencies
+     * Operation getZipCode
      *
-     * @param  string[] $includes Include associated objects within response (optional)
+     * @param  int $id ID of zip code to get (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20016
+     * @return \Swagger\Client\Model\InlineResponse20017
      */
-    public function getCurrencies($includes = null)
+    public function getZipCode($id)
     {
-        list($response) = $this->getCurrenciesWithHttpInfo($includes);
+        list($response) = $this->getZipCodeWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation getCurrenciesWithHttpInfo
+     * Operation getZipCodeWithHttpInfo
      *
-     * @param  string[] $includes Include associated objects within response (optional)
+     * @param  int $id ID of zip code to get (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20017, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCurrenciesWithHttpInfo($includes = null)
+    public function getZipCodeWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20016';
-        $request = $this->getCurrenciesRequest($includes);
+        $returnType = '\Swagger\Client\Model\InlineResponse20017';
+        $request = $this->getZipCodeRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -160,7 +160,7 @@ class SettingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20016',
+                        '\Swagger\Client\Model\InlineResponse20017',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -171,18 +171,18 @@ class SettingsApi
     }
 
     /**
-     * Operation getCurrenciesAsync
+     * Operation getZipCodeAsync
      *
      * 
      *
-     * @param  string[] $includes Include associated objects within response (optional)
+     * @param  int $id ID of zip code to get (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsync($includes = null)
+    public function getZipCodeAsync($id)
     {
-        return $this->getCurrenciesAsyncWithHttpInfo($includes)
+        return $this->getZipCodeAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -191,19 +191,19 @@ class SettingsApi
     }
 
     /**
-     * Operation getCurrenciesAsyncWithHttpInfo
+     * Operation getZipCodeAsyncWithHttpInfo
      *
      * 
      *
-     * @param  string[] $includes Include associated objects within response (optional)
+     * @param  int $id ID of zip code to get (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCurrenciesAsyncWithHttpInfo($includes = null)
+    public function getZipCodeAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20016';
-        $request = $this->getCurrenciesRequest($includes);
+        $returnType = '\Swagger\Client\Model\InlineResponse20017';
+        $request = $this->getZipCodeRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -243,31 +243,38 @@ class SettingsApi
     }
 
     /**
-     * Create request for operation 'getCurrencies'
+     * Create request for operation 'getZipCode'
      *
-     * @param  string[] $includes Include associated objects within response (optional)
+     * @param  int $id ID of zip code to get (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getCurrenciesRequest($includes = null)
+    protected function getZipCodeRequest($id)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getZipCode'
+            );
+        }
 
-        $resourcePath = '/settings/currencies';
+        $resourcePath = '/zipcode/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        if (is_array($includes)) {
-            $includes = ObjectSerializer::serializeCollection($includes, 'csv', true);
-        }
-        if ($includes !== null) {
-            $queryParams['includes'] = ObjectSerializer::toQueryValue($includes);
-        }
 
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;

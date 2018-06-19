@@ -32,7 +32,9 @@ use Swagger\Client\Api\TaxesApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
 use Swagger\Client\Model\InlineResponse2006;
+use Swagger\Client\Model\InlineResponse2007;
 use Swagger\Client\Model\InlineResponse2012;
+use Swagger\Client\Model\InlineResponse2014;
 use Swagger\Client\Model\Tax;
 use \Swagger\Client\ObjectSerializer;
 
@@ -131,7 +133,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
         );
 
         $taxResponse = $this->taxAPI->addTaxes($taxs);
-        $this->assertInstanceOf(InlineResponse2012::class,$taxResponse);
+        $this->assertInstanceOf(InlineResponse2014::class,$taxResponse);
     }
 
     /**
@@ -149,7 +151,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
         );
 
         $taxResponse = $this->taxAPI->addTaxes($tax);
-        $this->assertInstanceOf(InlineResponse2012::class,$taxResponse);
+        $this->assertInstanceOf(InlineResponse2014::class,$taxResponse);
     }
 
     /**
@@ -190,7 +192,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
     {
         $response = $this->taxAPI->getTaxById($this->idTax);
 
-        $this->assertInstanceOf(InlineResponse2012::class,$response);
+        $this->assertInstanceOf(InlineResponse2014::class,$response);
     }
 
     /**
@@ -203,7 +205,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
     {
         $taxs = $this->taxAPI->getTaxes();
 
-        $this->assertInstanceOf(InlineResponse2006::class,$taxs);
+        $this->assertInstanceOf(InlineResponse2007::class,$taxs);
     }
 
     /**
@@ -237,7 +239,7 @@ class TaxesApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testAddTaxesWithError()
     {
-        $this->setExpectedException(ApiException::class, null,422);
+        $this->setExpectedException(ApiException::class, null,500);
 
         $taxe = new Tax();
 

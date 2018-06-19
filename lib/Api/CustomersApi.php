@@ -89,7 +89,7 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2004
+     * @return \Swagger\Client\Model\InlineResponse2003
      */
     public function addCustomer($costumer)
     {
@@ -104,11 +104,11 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function addCustomerWithHttpInfo($costumer)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->addCustomerRequest($costumer);
 
         try {
@@ -160,7 +160,7 @@ class CustomersApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2004',
+                        '\Swagger\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -202,7 +202,7 @@ class CustomersApi
      */
     public function addCustomerAsyncWithHttpInfo($costumer)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->addCustomerRequest($costumer);
 
         return $this->client
@@ -582,7 +582,7 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2004
+     * @return \Swagger\Client\Model\InlineResponse2003
      */
     public function getCustomerById($id, $includes = null)
     {
@@ -598,11 +598,11 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomerByIdWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getCustomerByIdRequest($id, $includes);
 
         try {
@@ -654,7 +654,7 @@ class CustomersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2004',
+                        '\Swagger\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -706,7 +706,7 @@ class CustomersApi
      */
     public function getCustomerByIdAsyncWithHttpInfo($id, $includes = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getCustomerByIdRequest($id, $includes);
 
         return $this->client
@@ -866,7 +866,7 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2004
+     * @return \Swagger\Client\Model\InlineResponse2003
      */
     public function getCustomers($includes = null, $limit = null, $order_by = null)
     {
@@ -883,11 +883,11 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2003, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCustomersWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getCustomersRequest($includes, $limit, $order_by);
 
         try {
@@ -939,7 +939,7 @@ class CustomersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2004',
+                        '\Swagger\Client\Model\InlineResponse2003',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -993,7 +993,7 @@ class CustomersApi
      */
     public function getCustomersAsyncWithHttpInfo($includes = null, $limit = null, $order_by = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2004';
+        $returnType = '\Swagger\Client\Model\InlineResponse2003';
         $request = $this->getCustomersRequest($includes, $limit, $order_by);
 
         return $this->client
@@ -1150,7 +1150,7 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2005
+     * @return \Swagger\Client\Model\InlineResponse2004
      */
     public function updateCustomerById($id, $customer)
     {
@@ -1166,11 +1166,11 @@ class CustomersApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2005, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2004, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateCustomerByIdWithHttpInfo($id, $customer)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
         $request = $this->updateCustomerByIdRequest($id, $customer);
 
         try {
@@ -1222,7 +1222,7 @@ class CustomersApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2005',
+                        '\Swagger\Client\Model\InlineResponse2004',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1274,7 +1274,7 @@ class CustomersApi
      */
     public function updateCustomerByIdAsyncWithHttpInfo($id, $customer)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2005';
+        $returnType = '\Swagger\Client\Model\InlineResponse2004';
         $request = $this->updateCustomerByIdRequest($id, $customer);
 
         return $this->client

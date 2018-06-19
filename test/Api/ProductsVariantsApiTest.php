@@ -32,11 +32,14 @@ use GuzzleHttp\Client;
 use Swagger\Client\Api\ProductsApi;
 use Swagger\Client\Api\ProductsVariantsApi;
 use Swagger\Client\Model\InlineResponse20010;
+use Swagger\Client\Model\InlineResponse20011;
 use Swagger\Client\Model\InlineResponse20012;
+use Swagger\Client\Model\InlineResponse20014;
 use Swagger\Client\Model\InlineResponse20015;
 use Swagger\Client\Model\InlineResponse2008;
 use Swagger\Client\Model\InlineResponse2009;
 use Swagger\Client\Model\InlineResponse2016;
+use Swagger\Client\Model\InlineResponse2017;
 use Swagger\Client\Model\Product;
 use Swagger\Client\Model\Variant;
 
@@ -60,6 +63,10 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
 
     private static $resourceId = 99;
 
+    private static $resourceIdBrands = 29;
+    private static $resourceIdCategory = 1;
+    private static $resourceIdVariantAttribute = 1;
+
     /**
      * Setup before running any test cases
      */
@@ -77,7 +84,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
         $product->setIsDigital(true);
         $product->setIsNew(true);
         $product->setActive(true);
-        $product->setBrand(2);
+        $product->setBrand(self::$resourceIdBrands);
         $product->setPosition(555);
         $product->setIdTaxesGroup(1);
 
@@ -86,7 +93,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
 
         $productCategories = new Model\ProductCategories();
         $productCategories->setPosition(1);
-        $productCategories->setId(1);
+        $productCategories->setId(self::$resourceIdCategory);
 
         $i18n = new Model\I18nProduct();
         $i18n->setLocale('pt_PT');
@@ -156,7 +163,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
         $variant->setActive(true);
 
         $variantAttributes = new Model\VariantAttributes();
-        $variantAttributes->setId(1);
+        $variantAttributes->setId(self::$resourceIdVariantAttribute);
         $variantAttributes->setIdOption(18);
 
         $variant->setAttributes([$variantAttributes]);
@@ -175,7 +182,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
 
         self::$productVariantId = $response->getData()[0]->getId();
 
-        $this->assertInstanceOf(InlineResponse2016::class,$response);
+        $this->assertInstanceOf(InlineResponse2017::class,$response);
     }
 
     /**
@@ -188,7 +195,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
     {
         $variants = self::$productVariant->getProductVariants(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse20012::class, $variants);
+        $this->assertInstanceOf(InlineResponse20011::class, $variants);
     }
 
     /**
@@ -201,7 +208,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
     {
         $variant = self::$productVariant->getProductVariantsByID(self::$resourceId, self::$productVariantId);
 
-        $this->assertInstanceOf(InlineResponse20015::class, $variant);
+        $this->assertInstanceOf(InlineResponse20014::class, $variant);
     }
 
     /**
@@ -220,7 +227,7 @@ class ProductsVariantsApiTest extends \PHPUnit_Framework_TestCase
         $variant->setActive(true);
 
         $variantAttributes = new Model\VariantAttributes();
-        $variantAttributes->setId(1);
+        $variantAttributes->setId(self::$resourceIdVariantAttribute);
         $variantAttributes->setIdOption(1);
 
         $variant->setAttributes([$variantAttributes]);

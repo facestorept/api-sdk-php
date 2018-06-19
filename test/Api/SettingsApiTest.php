@@ -33,6 +33,7 @@ use Swagger\Client\Api\SettingsApi;
 use \Swagger\Client\Configuration;
 use \Swagger\Client\ApiException;
 use Swagger\Client\Model\InlineResponse20012;
+use Swagger\Client\Model\InlineResponse20016;
 use Swagger\Client\Model\InlineResponse2009;
 use \Swagger\Client\ObjectSerializer;
 
@@ -99,6 +100,6 @@ class SettingsApiTest extends \PHPUnit_Framework_TestCase
     {
         $currencies = self::$resourceAPI->getCurrencies();
 
-        $this->assertInstanceOf(InlineResponse20012::class, $currencies);
+        $this->assertInstanceOf(InlineResponse20016::class, $currencies);
     }
 }

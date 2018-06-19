@@ -71,7 +71,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('rqvb111gfwew23@gmail.com');
+        $customer->setEmail('rqv4qb11dwe1gfwew23@gmail.com');
         $customer->setFirstname('Manel');
         $customer->setLastname('Silva');
         $customer->setGender('Male');
@@ -133,7 +133,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
     {
         $customers = self::$resourceAPI->getCustomers();
 
-        $this->assertInstanceOf(InlineResponse2004::class, $customers);
+        $this->assertInstanceOf(InlineResponse2003::class, $customers);
     }
 
     /**
@@ -146,7 +146,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
     {
         $customer = self::$resourceAPI->getCustomerById(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse2004::class, $customer);
+        $this->assertInstanceOf(InlineResponse2003::class, $customer);
     }
 
     /**
@@ -166,7 +166,7 @@ class CustomersApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('124t3yhj5754hg@gmail.com');
+        $customer->setEmail('124td31yh1jq15754hg@gmail.com');
         $customer->setFirstname('Male');
         $customer->setLastname('Silva');
         $customer->setGender('M');

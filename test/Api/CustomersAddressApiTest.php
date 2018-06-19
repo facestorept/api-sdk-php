@@ -73,7 +73,7 @@ class CustomersAddressApiTest extends \PHPUnit_Framework_TestCase
         $customer->setBirthday($birthday);
 
         $customer->setCompany('Facestore');
-        $customer->setEmail('rqvb1111gw23@gmail.com');
+        $customer->setEmail('rqvb111dd1gww23@gmail.com');
         $customer->setFirstname('Manel');
         $customer->setLastname('Silva');
         $customer->setGender('Male');
@@ -153,7 +153,7 @@ class CustomersAddressApiTest extends \PHPUnit_Framework_TestCase
     {
         $customerAddresses = self::$customerAddress->getCustomerAddresses(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse2006::class, $customerAddresses);
+        $this->assertInstanceOf(InlineResponse2005::class, $customerAddresses);
     }
 
     /**
@@ -166,7 +166,7 @@ class CustomersAddressApiTest extends \PHPUnit_Framework_TestCase
     {
         $customerAddress = self::$customerAddress->getCustomersAddressByID(self::$resourceId, self::$customerAddressId);
 
-        $this->assertInstanceOf(InlineResponse2006::class, $customerAddress);
+        $this->assertInstanceOf(InlineResponse2005::class, $customerAddress);
     }
 
     /**

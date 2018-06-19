@@ -91,7 +91,7 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2017
+     * @return \Swagger\Client\Model\InlineResponse2018
      */
     public function addProductVariantDiscount($id, $id_variant, $discount)
     {
@@ -108,11 +108,11 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2017, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2018, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProductVariantDiscountWithHttpInfo($id, $id_variant, $discount)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2017';
+        $returnType = '\Swagger\Client\Model\InlineResponse2018';
         $request = $this->addProductVariantDiscountRequest($id, $id_variant, $discount);
 
         try {
@@ -164,7 +164,7 @@ class ProductsVariantsDiscountsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2017',
+                        '\Swagger\Client\Model\InlineResponse2018',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -210,7 +210,7 @@ class ProductsVariantsDiscountsApi
      */
     public function addProductVariantDiscountAsyncWithHttpInfo($id, $id_variant, $discount)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2017';
+        $returnType = '\Swagger\Client\Model\InlineResponse2018';
         $request = $this->addProductVariantDiscountRequest($id, $id_variant, $discount);
 
         return $this->client
@@ -658,7 +658,7 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20016
+     * @return \Swagger\Client\Model\InlineResponse20015
      */
     public function getProductVariantsDiscounts($id, $id_variant)
     {
@@ -674,11 +674,11 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20016, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductVariantsDiscountsWithHttpInfo($id, $id_variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20016';
+        $returnType = '\Swagger\Client\Model\InlineResponse20015';
         $request = $this->getProductVariantsDiscountsRequest($id, $id_variant);
 
         try {
@@ -730,7 +730,7 @@ class ProductsVariantsDiscountsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20016',
+                        '\Swagger\Client\Model\InlineResponse20015',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -790,7 +790,7 @@ class ProductsVariantsDiscountsApi
      */
     public function getProductVariantsDiscountsAsyncWithHttpInfo($id, $id_variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20016';
+        $returnType = '\Swagger\Client\Model\InlineResponse20015';
         $request = $this->getProductVariantsDiscountsRequest($id, $id_variant);
 
         return $this->client
@@ -957,7 +957,7 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20014
+     * @return \Swagger\Client\Model\InlineResponse20013
      */
     public function getProductVariantsDiscountsByID($id, $id_variant, $id_discount)
     {
@@ -974,11 +974,11 @@ class ProductsVariantsDiscountsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductVariantsDiscountsByIDWithHttpInfo($id, $id_variant, $id_discount)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20014';
+        $returnType = '\Swagger\Client\Model\InlineResponse20013';
         $request = $this->getProductVariantsDiscountsByIDRequest($id, $id_variant, $id_discount);
 
         try {
@@ -1030,7 +1030,7 @@ class ProductsVariantsDiscountsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20014',
+                        '\Swagger\Client\Model\InlineResponse20013',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1092,7 +1092,7 @@ class ProductsVariantsDiscountsApi
      */
     public function getProductVariantsDiscountsByIDAsyncWithHttpInfo($id, $id_variant, $id_discount)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20014';
+        $returnType = '\Swagger\Client\Model\InlineResponse20013';
         $request = $this->getProductVariantsDiscountsByIDRequest($id, $id_variant, $id_discount);
 
         return $this->client
@@ -1270,7 +1270,7 @@ class ProductsVariantsDiscountsApi
      *
      * @param  int $id ID of product (required)
      * @param  int $id_variant ID of variant (required)
-     * @param  string $id_discount ID of discount (required)
+     * @param  int $id_discount ID of discount (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1286,7 +1286,7 @@ class ProductsVariantsDiscountsApi
      *
      * @param  int $id ID of product (required)
      * @param  int $id_variant ID of variant (required)
-     * @param  string $id_discount ID of discount (required)
+     * @param  int $id_discount ID of discount (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1349,7 +1349,7 @@ class ProductsVariantsDiscountsApi
      *
      * @param  int $id ID of product (required)
      * @param  int $id_variant ID of variant (required)
-     * @param  string $id_discount ID of discount (required)
+     * @param  int $id_discount ID of discount (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1371,7 +1371,7 @@ class ProductsVariantsDiscountsApi
      *
      * @param  int $id ID of product (required)
      * @param  int $id_variant ID of variant (required)
-     * @param  string $id_discount ID of discount (required)
+     * @param  int $id_discount ID of discount (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1409,7 +1409,7 @@ class ProductsVariantsDiscountsApi
      *
      * @param  int $id ID of product (required)
      * @param  int $id_variant ID of variant (required)
-     * @param  string $id_discount ID of discount (required)
+     * @param  int $id_discount ID of discount (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

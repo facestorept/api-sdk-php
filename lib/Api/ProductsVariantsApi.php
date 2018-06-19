@@ -90,7 +90,7 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse2016
+     * @return \Swagger\Client\Model\InlineResponse2017
      */
     public function addProductVariant($id, $variant)
     {
@@ -106,11 +106,11 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse2016, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse2017, HTTP status code, HTTP response headers (array of strings)
      */
     public function addProductVariantWithHttpInfo($id, $variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2016';
+        $returnType = '\Swagger\Client\Model\InlineResponse2017';
         $request = $this->addProductVariantRequest($id, $variant);
 
         try {
@@ -162,7 +162,7 @@ class ProductsVariantsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse2016',
+                        '\Swagger\Client\Model\InlineResponse2017',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -206,7 +206,7 @@ class ProductsVariantsApi
      */
     public function addProductVariantAsyncWithHttpInfo($id, $variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse2016';
+        $returnType = '\Swagger\Client\Model\InlineResponse2017';
         $request = $this->addProductVariantRequest($id, $variant);
 
         return $this->client
@@ -619,7 +619,7 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20012
+     * @return \Swagger\Client\Model\InlineResponse20011
      */
     public function getProductVariants($id)
     {
@@ -634,11 +634,11 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20011, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductVariantsWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20012';
+        $returnType = '\Swagger\Client\Model\InlineResponse20011';
         $request = $this->getProductVariantsRequest($id);
 
         try {
@@ -690,7 +690,7 @@ class ProductsVariantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20012',
+                        '\Swagger\Client\Model\InlineResponse20011',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -748,7 +748,7 @@ class ProductsVariantsApi
      */
     public function getProductVariantsAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20012';
+        $returnType = '\Swagger\Client\Model\InlineResponse20011';
         $request = $this->getProductVariantsRequest($id);
 
         return $this->client
@@ -899,7 +899,7 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20015
+     * @return \Swagger\Client\Model\InlineResponse20014
      */
     public function getProductVariantsByID($id, $id_variant)
     {
@@ -915,11 +915,11 @@ class ProductsVariantsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20015, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20014, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductVariantsByIDWithHttpInfo($id, $id_variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20015';
+        $returnType = '\Swagger\Client\Model\InlineResponse20014';
         $request = $this->getProductVariantsByIDRequest($id, $id_variant);
 
         try {
@@ -971,7 +971,7 @@ class ProductsVariantsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20015',
+                        '\Swagger\Client\Model\InlineResponse20014',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1031,7 +1031,7 @@ class ProductsVariantsApi
      */
     public function getProductVariantsByIDAsyncWithHttpInfo($id, $id_variant)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20015';
+        $returnType = '\Swagger\Client\Model\InlineResponse20014';
         $request = $this->getProductVariantsByIDRequest($id, $id_variant);
 
         return $this->client

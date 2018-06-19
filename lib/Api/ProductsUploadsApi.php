@@ -348,7 +348,7 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20013
+     * @return \Swagger\Client\Model\InlineResponse20012
      */
     public function getProductImages($id)
     {
@@ -365,11 +365,11 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductImagesWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductImagesRequest($id);
 
         try {
@@ -421,7 +421,7 @@ class ProductsUploadsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20013',
+                        '\Swagger\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -471,7 +471,7 @@ class ProductsUploadsApi
      */
     public function getProductImagesAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductImagesRequest($id);
 
         return $this->client
@@ -624,7 +624,7 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20013
+     * @return \Swagger\Client\Model\InlineResponse20012
      */
     public function getProductImagesById($id, $id_image)
     {
@@ -642,11 +642,11 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
     public function getProductImagesByIdWithHttpInfo($id, $id_image)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductImagesByIdRequest($id, $id_image);
 
         try {
@@ -698,7 +698,7 @@ class ProductsUploadsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20013',
+                        '\Swagger\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -750,7 +750,7 @@ class ProductsUploadsApi
      */
     public function getProductImagesByIdAsyncWithHttpInfo($id, $id_image)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->getProductImagesByIdRequest($id, $id_image);
 
         return $this->client
@@ -918,7 +918,7 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\InlineResponse20013
+     * @return \Swagger\Client\Model\InlineResponse20012
      */
     public function uploadProductsImages($id, $image = null)
     {
@@ -936,11 +936,11 @@ class ProductsUploadsApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\InlineResponse20013, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\InlineResponse20012, HTTP status code, HTTP response headers (array of strings)
      */
     public function uploadProductsImagesWithHttpInfo($id, $image = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->uploadProductsImagesRequest($id, $image);
 
         try {
@@ -992,7 +992,7 @@ class ProductsUploadsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\InlineResponse20013',
+                        '\Swagger\Client\Model\InlineResponse20012',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1052,7 +1052,7 @@ class ProductsUploadsApi
      */
     public function uploadProductsImagesAsyncWithHttpInfo($id, $image = null)
     {
-        $returnType = '\Swagger\Client\Model\InlineResponse20013';
+        $returnType = '\Swagger\Client\Model\InlineResponse20012';
         $request = $this->uploadProductsImagesRequest($id, $image);
 
         return $this->client

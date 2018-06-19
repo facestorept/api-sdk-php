@@ -51,7 +51,7 @@ class OrdersApiTest extends \PHPUnit_Framework_TestCase
      */
     private static $order;
 
-    private static $resourceId = 138;
+    private static $resourceId = '01e08255-f4f0-4fe4-9b69-b4d11651d7be';
 
     /**
      * Setup before running any test cases
@@ -94,11 +94,11 @@ class OrdersApiTest extends \PHPUnit_Framework_TestCase
      * .
      *
      */
-    public function testGetOrderById()
+    public function testGetOrderByUid()
     {
-        $orders = self::$order->getOrderById(self::$resourceId);
+        $orders = self::$order->getOrderByUid(self::$resourceId);
 
-        $this->assertInstanceOf(InlineResponse2007::class, $orders);
+        $this->assertInstanceOf(InlineResponse2006::class, $orders);
     }
 
     /**
@@ -111,6 +111,6 @@ class OrdersApiTest extends \PHPUnit_Framework_TestCase
     {
         $orders = self::$order->getOrders();
 
-        $this->assertInstanceOf(InlineResponse2007::class, $orders);
+        $this->assertInstanceOf(InlineResponse2006::class, $orders);
     }
 }

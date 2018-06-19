@@ -1,6 +1,6 @@
 <?php
 /**
- * OrderPayment
+ * InlineResponse2018
  *
  * PHP version 5
  *
@@ -33,14 +33,14 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * OrderPayment Class Doc Comment
+ * InlineResponse2018 Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class OrderPayment implements ModelInterface, ArrayAccess
+class InlineResponse2018 implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Order_payment';
+    protected static $swaggerModelName = 'inline_response_201_8';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'type' => 'string',
-        'tax' => 'float',
-        'status' => 'string',
-        'status_observation' => 'string'
+        'data' => '\Swagger\Client\Model\VariantDiscount[]'
     ];
 
     /**
@@ -69,10 +66,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'type' => null,
-        'tax' => 'float',
-        'status' => null,
-        'status_observation' => null
+        'data' => null
     ];
 
     /**
@@ -102,10 +96,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'tax' => 'tax',
-        'status' => 'status',
-        'status_observation' => 'status_observation'
+        'data' => 'data'
     ];
 
     /**
@@ -114,10 +105,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'tax' => 'setTax',
-        'status' => 'setStatus',
-        'status_observation' => 'setStatusObservation'
+        'data' => 'setData'
     ];
 
     /**
@@ -126,10 +114,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'tax' => 'getTax',
-        'status' => 'getStatus',
-        'status_observation' => 'getStatusObservation'
+        'data' => 'getData'
     ];
 
     /**
@@ -192,10 +177,7 @@ class OrderPayment implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['type'] = isset($data['type']) ? $data['type'] : null;
-        $this->container['tax'] = isset($data['tax']) ? $data['tax'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['status_observation'] = isset($data['status_observation']) ? $data['status_observation'] : null;
+        $this->container['data'] = isset($data['data']) ? $data['data'] : null;
     }
 
     /**
@@ -224,97 +206,25 @@ class OrderPayment implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets type
+     * Gets data
      *
-     * @return string
+     * @return \Swagger\Client\Model\VariantDiscount[]
      */
-    public function getType()
+    public function getData()
     {
-        return $this->container['type'];
+        return $this->container['data'];
     }
 
     /**
-     * Sets type
+     * Sets data
      *
-     * @param string $type type
+     * @param \Swagger\Client\Model\VariantDiscount[] $data data
      *
      * @return $this
      */
-    public function setType($type)
+    public function setData($data)
     {
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets tax
-     *
-     * @return float
-     */
-    public function getTax()
-    {
-        return $this->container['tax'];
-    }
-
-    /**
-     * Sets tax
-     *
-     * @param float $tax tax
-     *
-     * @return $this
-     */
-    public function setTax($tax)
-    {
-        $this->container['tax'] = $tax;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param string $status status
-     *
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets status_observation
-     *
-     * @return string
-     */
-    public function getStatusObservation()
-    {
-        return $this->container['status_observation'];
-    }
-
-    /**
-     * Sets status_observation
-     *
-     * @param string $status_observation status_observation
-     *
-     * @return $this
-     */
-    public function setStatusObservation($status_observation)
-    {
-        $this->container['status_observation'] = $status_observation;
+        $this->container['data'] = $data;
 
         return $this;
     }
